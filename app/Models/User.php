@@ -33,6 +33,14 @@ class User extends Authenticatable implements TableInterface
         'password', 'remember_token',
     ];
 
+    /**
+     * @return mixed
+     */
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class)->withDefault();
+
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
