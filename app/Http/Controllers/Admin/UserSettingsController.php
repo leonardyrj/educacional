@@ -22,10 +22,10 @@ class UserSettingsController
     {
         /** @var Form $form */
         $form = $this->form(UserSettingsForm::class,[
-            'url'   => route('admin.users.store'),
+            'url'   => route('admin.users.settings.update'),
             'method'=> 'PUT'
         ]);
-        
+
 
         return view('admin.users.settings', compact('form'));
     }
@@ -40,7 +40,7 @@ class UserSettingsController
     public function update(Request $request)
     {
         /** @var Form $form */
-        $form = \FormBuilder::create(UserSettingsForm::class);
+        $form = $this->form(UserSettingsForm::class);
 
         if (!$form->isValid()) {
             return redirect()->back()->withErrors($form->getErrors())->withInput();

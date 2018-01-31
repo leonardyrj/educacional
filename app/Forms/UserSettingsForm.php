@@ -12,6 +12,6 @@ class UserSettingsForm extends Form
             ->add('password', 'password', [
                 'rules' =>'required|min:6|max:16|confirmed'
             ])
-            ->add('password_confirmation', 'text');
+            ->add('password_confirmation', 'password');
     }
 }
