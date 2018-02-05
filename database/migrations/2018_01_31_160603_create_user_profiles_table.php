@@ -22,8 +22,8 @@ class CreateUserProfilesTable extends Migration
             $table->string('city');
             $table->string('neighborhood');
             $table->string('state',2);
-            $table->string('user_id')->unsegned();
-            $table->string('user_id')->references('id')->on('users');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

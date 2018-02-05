@@ -1,7 +1,16 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: leonardy
- * Date: 04/02/2018
- * Time: 23:54
- */
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <h3>Editar perfil</h3>
+            <?php $icon = Icon::create('pencil');?>
+            {!!
+                form($form->add('salve', 'submit', [
+                    'attr' => ['class' => 'btn btn-primary btn-block'],
+                    'label' => $icon
+                ]))
+            !!}
+        </div>
+    </div>
+@endsection
