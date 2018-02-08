@@ -3,19 +3,28 @@
 namespace SON\Forms;
 
 use Kris\LaravelFormBuilder\Form;
+use Carbon\Carbon;
 
 class ClassInformationForm extends Form
 {
     public function buildForm()
     {
+
+        $date_format = function($value){
+            return ($value && $value instanceof Carbon) ? $value->format('Y-m-d') : $value ;
+        };
+
+
         $this
-            ->add('date_start', 'date', [
+            ->add('date_start', 'date', array(
                 'label' => 'Data Início',
                 'rules' => 'required|date',
-            ])
+                'value' => $date_format
+            ))
             ->add('date_end', 'date', [
                 'label' => 'Data Final',
                 'rules' => 'required|date',
+                'value' => $date_format
             ])
             ->add('cycle', 'number', [
                 'label' => 'Ciclo',

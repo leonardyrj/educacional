@@ -5,6 +5,7 @@ namespace SON\Models;
 use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\Model;
 
+
 class ClassInformation extends Model implements TableInterface
 {
     protected $fillable = [
@@ -16,10 +17,18 @@ class ClassInformation extends Model implements TableInterface
         'year'
     ];
 
-    protected $date = [
+    protected $dates = [
         'date_start',
         'date_end'
     ];
+
+
+
+
+    public function students()
+    {
+        return $this->belongsToMany(Student::class);
+    }
 
     /**
      * A list of headers to be used when a table is displayed
@@ -52,9 +61,9 @@ class ClassInformation extends Model implements TableInterface
             case 'ID':
                 return $this->id;
             case 'Data Início':
-                return $this->date_start; //Carbon
+                return $this->date_start->format('d/m/Y');
             case 'Data Fim':
-                return $this->date_end;
+                return $this->date_end->format('d/m/Y');
             case 'Ciclo':
                 return $this->cycle;
             case 'Subdivisão':

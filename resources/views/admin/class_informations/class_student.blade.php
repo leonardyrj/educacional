@@ -7,3 +7,4 @@
             <class-student class-information="{{$class_information->id}}"></class-student>
         </div>
     </div>
+@endsection
