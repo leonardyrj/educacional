@@ -7,6 +7,8 @@
  */
 namespace SON\Traits;
 
+use SON\Models\User;
+
 trait MorphUserTrait
 {
     /**

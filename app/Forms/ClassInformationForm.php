@@ -42,5 +42,6 @@ class ClassInformationForm extends Form
                 'label' => 'Ano',
                 'rules' => 'required|integer'
             ]);
+
     }
 }

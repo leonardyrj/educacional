@@ -15,6 +15,7 @@ class ClassInformation extends Model implements TableInterface
         'subdivision',
         'semester',
         'year'
+
     ];
 
     protected $dates = [
