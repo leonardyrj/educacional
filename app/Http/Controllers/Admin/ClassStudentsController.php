@@ -37,6 +37,7 @@ class ClassStudentsController extends Controller
     {
         $student = Student::find($request->get('student_id'));
         $classInformation->students()->save($student);
+        return $student;
     }
 
 

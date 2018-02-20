@@ -7,7 +7,7 @@ use Kris\LaravelFormBuilder\FormBuilderTrait;
 use SON\Forms\ClassInformationForm;
 use SON\Http\Controllers\Controller;
 use SON\Models\ClassInformation;
-
+use SON\Models\Subject;
 
 
 class ClassInformationsController extends Controller
@@ -43,7 +43,7 @@ class ClassInformationsController extends Controller
     public function store(Request $request)
     {
         /** @var Form $form */
-        $form = $this->form(ClassInformation::class);
+        $form = $this->form(ClassInformationForm::class);
 
         if (!$form->isValid()) {
             return redirect()

@@ -2,7 +2,7 @@
     <div>
         <div class="form-group">
             <label class="control-label">Selecionar estudante</label>
-            <select name="students" id="" class="form-control"></select>
+            <select class="form-control" name="students"></select>
         </div>
 
         <table class="table table-bordered">
@@ -13,11 +13,14 @@
             </tr>
             </thead>
             <tbody>
-                <tr v-for="student in students">
-                    <td>Excluir</td>
-                    <td>{{student.user.name}}</td>
-                </tr>
-
+            <tr v-for="student in students">
+                <td>
+                    <button type="button" class="btn btn-default" @click="destroy(student)">
+                        <span class="glyphicon glyphicon-trash"></span> Excluir
+                    </button>
+                </td>
+                <td>{{student.user.name}}</td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -27,7 +30,7 @@
     import ADMIN_CONFIG from '../services/adminConfig';
     import store from '../store/store';
     import 'select2';
-
+    import Pnotify from 'pnotify';
     export default {
         props: ['classInformation'],
         computed: {
@@ -36,16 +39,16 @@
             }
         },
         mounted(){
-            store.dispatch('classStudent/query',this.classInformation);
+            store.dispatch('classStudent/query', this.classInformation);
             $("select[name=students]").select2({
-                ajax:{
+                ajax: {
                     url: `${ADMIN_CONFIG.API_URL}/students`,
                     dataType: 'json',
                     delay: 250,
                     data(params){
-                      return {
-                          q: params.term
-                      }
+                        return {
+                            q: params.term
+                        }
                     },
                     processResults(data){
                         return {
@@ -55,8 +58,30 @@
                         }
                     }
                 },
-                minimumInputLength: 1
+                minimumInputLength: 1,
             });
+            let self = this;
+            $("select[name=students]").on('select2:select', event => {
+                store.dispatch('classStudent/store', {
+                    studentId: event.params.data.id,
+                    classInformationId: self.classInformation
+                }).then(() => {new PNotify({
+                    title: 'Success!',
+                    text: 'Usuário Incluído com sucesso!',
+                    styling: 'brighttheme',
+                    type: 'success'
+                })});
+            })
+        },
+        methods: {
+            destroy(student){
+                if(confirm('Deseja remover este aluno')){
+                    store.dispatch('classStudent/destroy', {
+                        studentId: student.id,
+                        classInformationId: this.classInformation
+                    })
+                }
+            }
         }
     }
 </script>

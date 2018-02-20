@@ -13,13 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
-    <style type="text/css">
-        @media print{
-            .hidden-print {
-                display: none;
-            }
-        }
-    </style>
+
 </head>
 <body>
     <div id="app">

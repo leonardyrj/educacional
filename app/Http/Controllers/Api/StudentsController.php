@@ -18,6 +18,5 @@ class StudentsController extends Controller
             Student::whereHas('user',function($query) use ($search){
                 $query->where('users.name','LIKE',"%{$search}%");
             })->take(10)->get();
-
     }
 }
