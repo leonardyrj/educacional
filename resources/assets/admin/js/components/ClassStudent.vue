@@ -79,7 +79,7 @@
                     store.dispatch('classStudent/destroy', {
                         studentId: student.id,
                         classInformationId: this.classInformation
-                    })
+                    }).then(() => {alert('Excluido')})
                 }
             }
         }
