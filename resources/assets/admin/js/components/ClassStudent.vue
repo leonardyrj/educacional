@@ -75,11 +75,16 @@
         },
         methods: {
             destroy(student){
-                if(confirm('Deseja remover este aluno')){
+             if(confirm('Deseja remover este aluno')){
                     store.dispatch('classStudent/destroy', {
                         studentId: student.id,
                         classInformationId: this.classInformation
-                    }).then(() => {alert('Excluido')})
+                    }).then(() => {new PNotify({
+                        title: 'Success!',
+                        text: 'Usuário excluído com sucesso!',
+                        styling: 'brighttheme',
+                        type: 'success'
+                    })})
                 }
             }
         }

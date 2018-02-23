@@ -43,7 +43,7 @@ Route::prefix('admin')->group(function () {
         Route::group(['prefix' => 'class_informations/{class_information}', 'as' => 'class_informations.'],
             function () {
                 Route::resource('students', 'ClassStudentsController', ['only' => ['index', 'store', 'destroy']]);
-               // Route::resource('teachings', 'ClassTeachingsController',['only' => ['index','store','destroy']]);
+                Route::resource('teachings', 'ClassTeachingsController',['only' => ['index','store','destroy']]);
             });
         Route::resource('class_informations', 'ClassInformationsController');
     });
@@ -54,8 +54,8 @@ Route::prefix('admin')->group(function () {
         'prefix' => 'api'
     ], function () {
         Route::name('students.index')->get('students','StudentsController@index');
-       // Route::name('subjects.index')->get('subjects', 'SubjectsController@index');
-        //Route::name('teachers.index')->get('teachers', 'TeachersController@index');
+        Route::name('subjects.index')->get('subjects', 'SubjectsController@index');
+        Route::name('teachers.index')->get('teachers', 'TeachersController@index');
     });
 });
 Route::get('/home', 'HomeController@index')->name('home');
