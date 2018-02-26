@@ -74,18 +74,38 @@
             })
         },
         methods: {
+
             destroy(student){
-             if(confirm('Deseja remover este aluno')){
+                let self = this;
+                new PNotify({
+                    title: 'Confirmar Exclusão',
+                    text: 'Deseja realmente excluir?',
+                    icon: 'glyphicon glyphicon-question-sign',
+                    hide: false,
+
+                    confirm: {
+                        confirm: true
+                    },
+                    buttons: {
+                        closer: true,
+                        sticker: true
+                    },
+                    history: {
+                        history: false
+                    }
+                }).get().on('pnotify.confirm', function() {
                     store.dispatch('classStudent/destroy', {
                         studentId: student.id,
-                        classInformationId: this.classInformation
+                        classInformationId: self.classInformation
                     }).then(() => {new PNotify({
                         title: 'Success!',
                         text: 'Usuário excluído com sucesso!',
                         styling: 'brighttheme',
                         type: 'success'
-                    })})
-                }
+                    })});
+                }).on('pnotify.cancel', function() {
+                    alert('Oh ok. Chicken, I see.');
+                });
             }
         }
     }

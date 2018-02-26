@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10325,6 +10325,23 @@ return jQuery;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var location = window.location;
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    HOST: location.protocol + "//" + location.hostname + ":" + location.port,
+    get API_URL() {
+        return this.HOST + "/admin/api";
+    },
+    get ADMIN_URL() {
+        return this.HOST + "/admin";
+    }
+});
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -10337,7 +10354,7 @@ license Apache-2.0
 //# sourceMappingURL=pnotify.js.map
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21151,10 +21168,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(12).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(13).setImmediate))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -21263,23 +21280,6 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var location = window.location;
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-    HOST: location.protocol + "//" + location.hostname + ":" + location.port,
-    get API_URL() {
-        return this.HOST + "/admin/api";
-    },
-    get ADMIN_URL() {
-        return this.HOST + "/admin";
-    }
-});
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
@@ -21308,6 +21308,22 @@ module.exports = g;
 
 /***/ }),
 /* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__class_student__ = __webpack_require__(22);
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
+    modules: {
+        classStudent: __WEBPACK_IMPORTED_MODULE_1__class_student__["a" /* default */]
+    }
+}));
+
+/***/ }),
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var require;var require;/*!
@@ -27163,15 +27179,15 @@ S2.define('jquery.select2',[
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(8);
+__webpack_require__(9);
 module.exports = __webpack_require__(30);
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -27181,9 +27197,9 @@ module.exports = __webpack_require__(30);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(9);
+__webpack_require__(10);
 
-window.Vue = __webpack_require__(2);
+window.Vue = __webpack_require__(3);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27191,8 +27207,8 @@ window.Vue = __webpack_require__(2);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(15));
-Vue.component('class-student', __webpack_require__(18));
+Vue.component('example-component', __webpack_require__(16));
+Vue.component('class-student', __webpack_require__(19));
 Vue.component('class-teaching', __webpack_require__(27));
 
 var app = new Vue({
@@ -27200,7 +27216,7 @@ var app = new Vue({
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -27210,15 +27226,16 @@ var app = new Vue({
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(0);
+    window.$ = window.jQuery = __webpack_require__(0);
 
-  __webpack_require__(10);
-  window.PNotify = __webpack_require__(1);
-  __webpack_require__(11);
+    __webpack_require__(11);
+    window.PNotify = __webpack_require__(2);
+    __webpack_require__(12);
+    __webpack_require__(41);
 } catch (e) {}
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /*!
@@ -29601,14 +29618,14 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Buttons
 (function (root, factory) {
   if (true) {
     // AMD. Register as a module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -29774,7 +29791,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -29827,13 +29844,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(13);
+__webpack_require__(14);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -30023,10 +30040,10 @@ exports.clearImmediate = clearImmediate;
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(15)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -30216,15 +30233,15 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(16)
+var __vue_script__ = __webpack_require__(17)
 /* template */
-var __vue_template__ = __webpack_require__(17)
+var __vue_template__ = __webpack_require__(18)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -30263,7 +30280,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -30292,7 +30309,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -30335,13 +30352,13 @@ if (false) {
 }
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(4)
 /* script */
-var __vue_script__ = __webpack_require__(19)
+var __vue_script__ = __webpack_require__(20)
 /* template */
 var __vue_template__ = __webpack_require__(26)
 /* template functional */
@@ -30382,16 +30399,16 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_store__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_store__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_select2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pnotify__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pnotify__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pnotify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_pnotify__);
 //
 //
@@ -30473,10 +30490,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         destroy: function destroy(student) {
-            if (confirm('Deseja remover este aluno')) {
+            var self = this;
+            new PNotify({
+                title: 'Confirmar Exclusão',
+                text: 'Deseja realmente excluir?',
+                icon: 'glyphicon glyphicon-question-sign',
+                hide: false,
+
+                confirm: {
+                    confirm: true
+                },
+                buttons: {
+                    closer: true,
+                    sticker: true
+                },
+                history: {
+                    history: false
+                }
+            }).get().on('pnotify.confirm', function () {
                 __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classStudent/destroy', {
                     studentId: student.id,
-                    classInformationId: this.classInformation
+                    classInformationId: self.classInformation
                 }).then(function () {
                     new PNotify({
                         title: 'Success!',
@@ -30485,26 +30519,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         type: 'success'
                     });
                 });
-            }
+            }).on('pnotify.cancel', function () {
+                alert('Oh ok. Chicken, I see.');
+            });
         }
     }
 });
-
-/***/ }),
-/* 20 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__class_student__ = __webpack_require__(22);
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
-    modules: {
-        classStudent: __WEBPACK_IMPORTED_MODULE_1__class_student__["a" /* default */]
-    }
-}));
 
 /***/ }),
 /* 21 */
@@ -31457,9 +31477,9 @@ var index_esm = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resources__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_adminConfig__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_adminConfig__ = __webpack_require__(1);
 
 
 
@@ -31523,9 +31543,9 @@ var module = {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClassStudent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_resource__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adminConfig__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adminConfig__ = __webpack_require__(1);
 
 
 
@@ -33198,7 +33218,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(4)
 /* script */
 var __vue_script__ = __webpack_require__(28)
 /* template */
@@ -33246,9 +33266,9 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_store__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_store__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_select2__);
 //
 //
@@ -33493,6 +33513,171 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Confirm
+(function (root, factory) {
+  if (true) {
+    // AMD. Register as a module.
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if (typeof exports === 'object' && typeof module !== 'undefined') {
+    // CommonJS
+    module.exports = factory(require('jquery'), require('./pnotify'));
+  } else {
+    // Browser globals
+    factory(root.jQuery, root.PNotify);
+  }
+}(typeof window !== "undefined" ? window : this, function($, PNotify){
+  PNotify.prototype.options.confirm = {
+    // Make a confirmation box.
+    confirm: false,
+    // Make a prompt.
+    prompt: false,
+    // Classes to add to the input element of the prompt.
+    prompt_class: "",
+    // The default value of the prompt.
+    prompt_default: "",
+    // Whether the prompt should accept multiple lines of text.
+    prompt_multi_line: false,
+    // Where to align the buttons. (right, center, left, justify)
+    align: "right",
+    // The buttons to display, and their callbacks.
+    buttons: [
+      {
+        text: "Ok",
+        addClass: "",
+        // Whether to trigger this button when the user hits enter in a single line prompt.
+        promptTrigger: true,
+        click: function(notice, value){
+          notice.remove();
+          notice.get().trigger("pnotify.confirm", [notice, value]);
+        }
+      },
+      {
+        text: "Cancel",
+        addClass: "",
+        click: function(notice){
+          notice.remove();
+          notice.get().trigger("pnotify.cancel", notice);
+        }
+      }
+    ]
+  };
+  PNotify.prototype.modules.confirm = {
+    init: function(notice, options){
+      // The div that contains the buttons.
+      this.container = $('<div class="ui-pnotify-action-bar" style="margin-top:5px;clear:both;" />').css('text-align', options.align).appendTo(notice.container);
+
+      if (options.confirm || options.prompt)
+        this.makeDialog(notice, options);
+      else
+        this.container.hide();
+    },
+
+    update: function(notice, options){
+      if (options.confirm) {
+        this.makeDialog(notice, options);
+        this.container.show();
+      } else {
+        this.container.hide().empty();
+      }
+    },
+
+    afterOpen: function(notice, options){
+      if (options.prompt) {
+        this.prompt.focus();
+      }
+    },
+
+    makeDialog: function(notice, options) {
+      var already = false, that = this, btn, elem;
+      this.container.empty();
+      if (options.prompt) {
+        // The input element of a prompt.
+        this.prompt = $('<'+(options.prompt_multi_line ? 'textarea rows="5"' : 'input type="text"')+' style="margin-bottom:5px;clear:both;" />')
+        .addClass((typeof notice.styles.input === "undefined" ? "" : notice.styles.input)+" "+(typeof options.prompt_class === "undefined" ? "" : options.prompt_class))
+        .val(options.prompt_default)
+        .appendTo(this.container);
+      }
+      var customButtons = (options.buttons[0] && options.buttons[0] !== PNotify.prototype.options.confirm.buttons[0]);
+      for (var i = 0; i < options.buttons.length; i++) {
+        if (options.buttons[i] === null || (customButtons && PNotify.prototype.options.confirm.buttons[i] && PNotify.prototype.options.confirm.buttons[i] === options.buttons[i])) {
+          continue;
+        }
+        btn = options.buttons[i];
+        if (already) {
+          this.container.append(' ');
+        } else {
+          already = true;
+        }
+        elem = $('<button type="button" class="ui-pnotify-action-button" />')
+        .addClass((typeof notice.styles.btn === "undefined" ? "" : notice.styles.btn)+" "+(typeof btn.addClass === "undefined" ? "" : btn.addClass))
+        .text(btn.text)
+        .appendTo(this.container)
+        .on("click", (function(btn){ return function(){
+          if (typeof btn.click == "function") {
+            btn.click(notice, options.prompt ? that.prompt.val() : null);
+          }
+        }})(btn));
+        if (options.prompt && !options.prompt_multi_line && btn.promptTrigger)
+          this.prompt.keypress((function(elem){ return function(e){
+            if (e.keyCode == 13)
+              elem.click();
+          }})(elem));
+        if (notice.styles.text) {
+          elem.wrapInner('<span class="'+notice.styles.text+'"></span>');
+        }
+        if (notice.styles.btnhover) {
+          elem.hover((function(elem){ return function(){
+            elem.addClass(notice.styles.btnhover);
+          }})(elem), (function(elem){ return function(){
+            elem.removeClass(notice.styles.btnhover);
+          }})(elem));
+        }
+        if (notice.styles.btnactive) {
+          elem.on("mousedown", (function(elem){ return function(){
+            elem.addClass(notice.styles.btnactive);
+          }})(elem)).on("mouseup", (function(elem){ return function(){
+            elem.removeClass(notice.styles.btnactive);
+          }})(elem));
+        }
+        if (notice.styles.btnfocus) {
+          elem.on("focus", (function(elem){ return function(){
+            elem.addClass(notice.styles.btnfocus);
+          }})(elem)).on("blur", (function(elem){ return function(){
+            elem.removeClass(notice.styles.btnfocus);
+          }})(elem));
+        }
+      }
+    }
+  };
+  $.extend(PNotify.styling.bootstrap3, {
+    btn: "btn btn-default",
+    input: "form-control"
+  });
+  $.extend(PNotify.styling.fontawesome, {
+    btn: "btn btn-default",
+    input: "form-control"
+  });
+  return PNotify;
+}));
+
 
 /***/ })
 /******/ ]);

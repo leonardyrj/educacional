@@ -10,5 +10,5 @@ try {
     require('bootstrap-sass');
     window.PNotify = require('pnotify');
     require('pnotify/src/pnotify.buttons');
-
+    require('pnotify/src/pnotify.confirm');
 } catch (e) {}
