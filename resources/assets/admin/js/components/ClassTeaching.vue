@@ -14,7 +14,7 @@
                     <select class="form-control" name="subjects"></select>
                 </div>
             </div>
-            
+
         </div>
         <button class="btn btn-primary" @click="store()">Adicionar</button>
         <br/><br/>
@@ -55,7 +55,7 @@
             }
         },
         mounted(){
-            //store.dispatch('classTeaching/query', this.classInformation);
+            store.dispatch('classTeaching/query', this.classInformation);
             let selects = [
                 {
                     url: `${ADMIN_CONFIG.API_URL}/teachers`,
@@ -97,6 +97,30 @@
                     minimumInputLength: 1,
                 });
             }
-        }
-    }
-</script>
+        },
+        methods: {
+             destroy(teaching){
+                 if(confirm('Deseja remover este ensino')){
+                     store.dispatch('classTeaching/destroy', {
+                         teachingId: teaching.id,
+                         classInformationId: this.classInformation
+                     })
+                 }
+             },
+             store(){
+                 store.dispatch('classTeaching/store',{
+                     teacherId: $("select[name=teachers]").val(),
+                     subjectId: $("select[name=subjects]").val(),
+                     classInformationId: this.classInformation
+                 }).then(response => {
+                     new PNotify({
+                         title: 'Aviso',
+                         text: 'Ensino adicionado com sucesso',
+                         styling: 'brighttheme',
+                         type: 'success'
+                     });
+                 })
+             }
+         }
+     }
+ </script>

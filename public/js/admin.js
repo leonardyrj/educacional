@@ -31699,7 +31699,7 @@ var module = {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClassStudent; });
-/* unused harmony export ClassTeaching */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ClassTeaching; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_resource__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
@@ -33486,7 +33486,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
-        //store.dispatch('classTeaching/query', this.classInformation);
+        __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classTeaching/query', this.classInformation);
         var selects = [{
             url: __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__["a" /* default */].API_URL + '/teachers',
             selector: "select[name=teachers]",
@@ -33546,6 +33546,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     throw _iteratorError;
                 }
             }
+        }
+    },
+
+    methods: {
+        destroy: function destroy(teaching) {
+            if (confirm('Deseja remover este ensino')) {
+                __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classTeaching/destroy', {
+                    teachingId: teaching.id,
+                    classInformationId: this.classInformation
+                });
+            }
+        },
+        store: function store() {
+            __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classTeaching/store', {
+                teacherId: $("select[name=teachers]").val(),
+                subjectId: $("select[name=subjects]").val(),
+                classInformationId: this.classInformation
+            }).then(function (response) {
+                new PNotify({
+                    title: 'Aviso',
+                    text: 'Ensino adicionado com sucesso',
+                    styling: 'brighttheme',
+                    type: 'success'
+                });
+            });
         }
     }
 });
@@ -33703,8 +33728,8 @@ var state = {
 };
 
 var mutations = {
-    add: function add(state, student) {
-        state.teachings.push(student);
+    add: function add(state, teaching) {
+        state.teachings.push(teaching);
     },
     set: function set(state, teachings) {
         state.teachings = teachings;
@@ -33730,7 +33755,7 @@ var actions = {
             subjectId = _ref.subjectId,
             classInformationId = _ref.classInformationId;
 
-        return ClassTeaching.save({ class_information: classInformationId }, { teacher_id: teacherId, subject_id: subjectId }).then(function (response) {
+        return __WEBPACK_IMPORTED_MODULE_0__services_resources__["b" /* ClassTeaching */].save({ class_information: classInformationId }, { teacher_id: teacherId, subject_id: subjectId }).then(function (response) {
             context.commit('add', response.data);
         });
     },
@@ -33738,7 +33763,7 @@ var actions = {
         var teachingId = _ref2.teachingId,
             classInformationId = _ref2.classInformationId;
 
-        return ClassTeaching.delete({ class_information: classInformationId, teaching: teachingId }).then(function (response) {
+        return __WEBPACK_IMPORTED_MODULE_0__services_resources__["b" /* ClassTeaching */].delete({ class_information: classInformationId, teaching: teachingId }).then(function (response) {
             context.commit('destroy', teachingId);
         });
     }

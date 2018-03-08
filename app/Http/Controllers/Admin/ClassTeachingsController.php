@@ -5,8 +5,9 @@ namespace SON\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use SON\Http\Controllers\Controller;
 use SON\Http\Requests\ClassStudentRequest;
+use SON\Http\Requests\ClassTeachingRequest;
 use SON\Models\ClassInformation;
-use SON\Models\Student;
+use SON\Models\ClassTeaching;
 
 class ClassTeachingsController extends Controller
 {

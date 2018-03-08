@@ -1,4 +1,4 @@
-import {ClassStudent} from '../services/resources';
+import {ClassTeaching} from '../services/resources';
 import Vue from 'vue';
 import ADMIN_CONFIG from '../services/adminConfig';
 
@@ -7,8 +7,8 @@ const state = {
 };
 
 const mutations = {
-    add(state, student){
-        state.teachings.push(student);
+    add(state, teaching){
+        state.teachings.push(teaching);
     },
     set(state,teachings){
         state.teachings = teachings;

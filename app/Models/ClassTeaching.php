@@ -25,10 +25,18 @@ class ClassTeaching extends Model
     public function teacher(){
         return $this->belongsTo(Teacher::class);
     }
-
+    /*
+    *
+    *  SERIALIZANDO OS DADOS EM JSON.
+    */
     public function toArray()
     {
-        $data = parent::toArray;
+        $data = parent::toArray();
+        $data['teacher'] = $this->teacher;
+        $data['subject'] = $this->subject;
+        $data['class_information'] = $this->classInformation;
+        return $data;
+
 
     }
 }
