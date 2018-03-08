@@ -170,6 +170,8 @@ return [
 
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Bootstrapper\BootstrapperL5ServiceProvider::class,
+        \Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+
 
 
         /*

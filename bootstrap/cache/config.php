@@ -38,10 +38,11 @@
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Kris\\LaravelFormBuilder\\FormBuilderServiceProvider',
       23 => 'Bootstrapper\\BootstrapperL5ServiceProvider',
-      24 => 'SON\\Providers\\AppServiceProvider',
-      25 => 'SON\\Providers\\AuthServiceProvider',
-      26 => 'SON\\Providers\\EventServiceProvider',
-      27 => 'SON\\Providers\\RouteServiceProvider',
+      24 => 'Tymon\\JWTAuth\\Providers\\LaravelServiceProvider',
+      25 => 'SON\\Providers\\AppServiceProvider',
+      26 => 'SON\\Providers\\AuthServiceProvider',
+      27 => 'SON\\Providers\\EventServiceProvider',
+      28 => 'SON\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -104,7 +105,7 @@
       ),
       'api' => 
       array (
-        'driver' => 'token',
+        'driver' => 'jwt',
         'provider' => 'users',
       ),
     ),
@@ -302,6 +303,39 @@
         'region' => NULL,
         'bucket' => NULL,
       ),
+    ),
+  ),
+  'jwt' => 
+  array (
+    'secret' => 'sJtsNQeZvZvoqOOsyV5M2YgQEAR1hTwr',
+    'keys' => 
+    array (
+      'public' => NULL,
+      'private' => NULL,
+      'passphrase' => NULL,
+    ),
+    'ttl' => 60,
+    'refresh_ttl' => 20160,
+    'algo' => 'HS256',
+    'required_claims' => 
+    array (
+      0 => 'iss',
+      1 => 'iat',
+      2 => 'exp',
+      3 => 'nbf',
+      4 => 'sub',
+      5 => 'jti',
+    ),
+    'persistent_claims' => 
+    array (
+    ),
+    'blacklist_enabled' => true,
+    'blacklist_grace_period' => 0,
+    'providers' => 
+    array (
+      'jwt' => 'Tymon\\JWTAuth\\Providers\\JWT\\Namshi',
+      'auth' => 'Tymon\\JWTAuth\\Providers\\Auth\\Illuminate',
+      'storage' => 'Tymon\\JWTAuth\\Providers\\Storage\\Illuminate',
     ),
   ),
   'mail' => 

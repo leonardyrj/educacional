@@ -6,8 +6,9 @@ use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use SON\Notifications\UserCreated;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements TableInterface
+class User extends Authenticatable implements TableInterface,JWTSubject
 {
     use Notifiable;
     // Criando constantes referentes aos tipos de usuários - adicionar abaixo da trait Notifiable
@@ -128,5 +129,22 @@ class User extends Authenticatable implements TableInterface
         $model = $types[$type];
         $model = $model::create([]);
         $user->userable()->associate($model);
+    }
+
+    public function getJWTIdentifier()
+    {
+      return $this->id;
+    }
+
+
+    public function getJWTCustomClaims()
+    {
+      return [
+        'user' => [
+          'id' => $this->id,
+          'name' => $this->name,
+          'email' => $this->email
+        ]
+      ];
     }
 }
