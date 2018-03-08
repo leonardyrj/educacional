@@ -48,8 +48,8 @@
         props: ['classInformation'],
         computed: {
             teachings(){
-               // return store.state.classTeaching.teachings;
-                return [];
+               return store.state.classTeaching.teachings;
+              //  return [];
             }
         },
         mounted(){

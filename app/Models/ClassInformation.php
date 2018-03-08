@@ -24,11 +24,15 @@ class ClassInformation extends Model implements TableInterface
     ];
 
 
-
-
     public function students()
     {
         return $this->belongsToMany(Student::class);
+    }
+
+
+    public function teachings()
+    {
+        return $this->hasMany(ClassTeaching::class);
     }
 
     /**
