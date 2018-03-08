@@ -7,12 +7,14 @@
                     <select class="form-control" name="teachers"></select>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label">Selecionar disciplina</label>
                     <select class="form-control" name="subjects"></select>
                 </div>
             </div>
+            
         </div>
         <button class="btn btn-primary" @click="store()">Adicionar</button>
         <br/><br/>

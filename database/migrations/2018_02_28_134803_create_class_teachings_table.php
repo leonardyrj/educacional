@@ -22,7 +22,7 @@ class CreateClassTeachingsTable extends Migration
             $table->integer('teacher_id')->unsigned();
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->unique(['subject_id','class_information_id','teacher_id'],'class_teaching_unique');
-            $table->timestamps();
+            
         });
     }
 

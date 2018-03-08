@@ -21313,12 +21313,14 @@ module.exports = g;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__class_student__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_teaching__ = __webpack_require__(42);
+
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
     modules: {
-        classStudent: __WEBPACK_IMPORTED_MODULE_1__class_student__["a" /* default */]
+        classStudent: __WEBPACK_IMPORTED_MODULE_1__class_student__["a" /* default */], classTeaching: __WEBPACK_IMPORTED_MODULE_2__class_teaching__["a" /* default */]
     }
 }));
 
@@ -33468,6 +33470,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -33670,6 +33674,82 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resources__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_adminConfig__ = __webpack_require__(2);
+
+
+
+
+var state = {
+    teachings: []
+};
+
+var mutations = {
+    add: function add(state, student) {
+        state.teachings.push(student);
+    },
+    set: function set(state, teachings) {
+        state.teachings = teachings;
+    },
+    destroy: function destroy(state, teachingId) {
+        var index = state.teachings.findIndex(function (item) {
+            return item.id == teachingId;
+        });
+        if (index != -1) {
+            state.teachings.splice(index, 1);
+        }
+    }
+};
+
+var actions = {
+    query: function query(context, classInformationId) {
+        return __WEBPACK_IMPORTED_MODULE_1_vue___default.a.http.get(__WEBPACK_IMPORTED_MODULE_2__services_adminConfig__["a" /* default */].ADMIN_URL + '/class_informations/' + classInformationId + '/teachings').then(function (response) {
+            context.commit('set', response.data);
+        });
+    },
+    store: function store(context, _ref) {
+        var teacherId = _ref.teacherId,
+            subjectId = _ref.subjectId,
+            classInformationId = _ref.classInformationId;
+
+        return ClassTeaching.save({ class_information: classInformationId }, { teacher_id: teacherId, subject_id: subjectId }).then(function (response) {
+            context.commit('add', response.data);
+        });
+    },
+    destroy: function destroy(context, _ref2) {
+        var teachingId = _ref2.teachingId,
+            classInformationId = _ref2.classInformationId;
+
+        return ClassTeaching.delete({ class_information: classInformationId, teaching: teachingId }).then(function (response) {
+            context.commit('destroy', teachingId);
+        });
+    }
+};
+
+var module = {
+    namespaced: true,
+    state: state, mutations: mutations, actions: actions
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (module);
 
 /***/ })
 /******/ ]);
