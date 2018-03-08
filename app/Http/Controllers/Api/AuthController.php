@@ -57,7 +57,7 @@ class AuthController extends Controller
         $credentials = $this->credentials($request);
         if ($token = \Auth::guard('api')->attempt($credentials)) {
             return ['token' => $token];
-        }
+        }
 
         return response()->json([
           'error' => \Lang::get('auth.failed')
