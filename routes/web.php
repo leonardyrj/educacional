@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/app', function () {
     return view('layouts.spa');
 });
+
 Route::prefix('admin')->group(function () {
     Auth::routes();
     Route::group(['prefix' => 'users', 'as' => 'admin.users.'], function () {

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21277,36 +21277,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var location = window.location;
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-    HOST: location.protocol + "//" + location.hostname + ":" + location.port,
-    get API_URL() {
-        return this.HOST + "/admin/api";
-    },
-    get ADMIN_URL() {
-        return this.HOST + "/admin";
-    }
-});
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
-PNotify 3.2.0 sciactive.com/pnotify/
-(C) 2015 Hunter Perrin; Google, Inc.
-license Apache-2.0
-*/
-!function(t,i){ true?!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(s){return i(s,t)}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)):"object"==typeof exports&&"undefined"!=typeof module?module.exports=i(require("jquery"),global||t):t.PNotify=i(t.jQuery,t)}("undefined"!=typeof window?window:this,function(t,i){var s=function(i){var e,o,n={dir1:"down",dir2:"left",push:"bottom",spacing1:36,spacing2:36,context:t("body"),modal:!1},a=t(i),r=function(){o=t("body"),c.prototype.options.stack.context=o,a=t(i),a.bind("resize",function(){e&&clearTimeout(e),e=setTimeout(function(){c.positionAll(!0)},10)})},h=function(i){var s=t("<div />",{class:"ui-pnotify-modal-overlay"});return s.prependTo(i.context),i.overlay_close&&s.click(function(){c.removeStack(i)}),s},c=function(t){this.state="initializing",this.timer=null,this.animTimer=null,this.styles=null,this.elem=null,this.container=null,this.title_container=null,this.text_container=null,this.animating=!1,this.timerHide=!1,this.parseOptions(t),this.init()};return t.extend(c.prototype,{version:"3.2.0",options:{title:!1,title_escape:!1,text:!1,text_escape:!1,styling:"brighttheme",addclass:"",cornerclass:"",auto_display:!0,width:"300px",min_height:"16px",type:"notice",icon:!0,animation:"fade",animate_speed:"normal",shadow:!0,hide:!0,delay:8e3,mouse_reset:!0,remove:!0,insert_brs:!0,destroy:!0,stack:n},modules:{},runModules:function(t,i){var s;for(var e in this.modules)s="object"==typeof i&&e in i?i[e]:i,"function"==typeof this.modules[e][t]&&(this.modules[e].notice=this,this.modules[e].options="object"==typeof this.options[e]?this.options[e]:{},this.modules[e][t](this,"object"==typeof this.options[e]?this.options[e]:{},s))},init:function(){var i=this;return this.modules={},t.extend(!0,this.modules,c.prototype.modules),"object"==typeof this.options.styling?this.styles=this.options.styling:this.styles=c.styling[this.options.styling],this.elem=t("<div />",{class:"ui-pnotify "+this.options.addclass,css:{display:"none"},"aria-live":"assertive","aria-role":"alertdialog",mouseenter:function(t){if(i.options.mouse_reset&&"out"===i.animating){if(!i.timerHide)return;i.cancelRemove()}i.options.hide&&i.options.mouse_reset&&i.cancelRemove()},mouseleave:function(t){i.options.hide&&i.options.mouse_reset&&"out"!==i.animating&&i.queueRemove(),c.positionAll()}}),"fade"===this.options.animation&&this.elem.addClass("ui-pnotify-fade-"+this.options.animate_speed),this.container=t("<div />",{class:this.styles.container+" ui-pnotify-container "+("error"===this.options.type?this.styles.error:"info"===this.options.type?this.styles.info:"success"===this.options.type?this.styles.success:this.styles.notice),role:"alert"}).appendTo(this.elem),""!==this.options.cornerclass&&this.container.removeClass("ui-corner-all").addClass(this.options.cornerclass),this.options.shadow&&this.container.addClass("ui-pnotify-shadow"),!1!==this.options.icon&&t("<div />",{class:"ui-pnotify-icon"}).append(t("<span />",{class:!0===this.options.icon?"error"===this.options.type?this.styles.error_icon:"info"===this.options.type?this.styles.info_icon:"success"===this.options.type?this.styles.success_icon:this.styles.notice_icon:this.options.icon})).prependTo(this.container),this.title_container=t("<h4 />",{class:"ui-pnotify-title"}).appendTo(this.container),!1===this.options.title?this.title_container.hide():this.options.title_escape?this.title_container.text(this.options.title):this.title_container.html(this.options.title),this.text_container=t("<div />",{class:"ui-pnotify-text","aria-role":"alert"}).appendTo(this.container),!1===this.options.text?this.text_container.hide():this.options.text_escape?this.text_container.text(this.options.text):this.text_container.html(this.options.insert_brs?String(this.options.text).replace(/\n/g,"<br />"):this.options.text),"string"==typeof this.options.width&&this.elem.css("width",this.options.width),"string"==typeof this.options.min_height&&this.container.css("min-height",this.options.min_height),"top"===this.options.stack.push?c.notices=t.merge([this],c.notices):c.notices=t.merge(c.notices,[this]),"top"===this.options.stack.push&&this.queuePosition(!1,1),this.options.stack.animation=!1,this.runModules("init"),this.state="closed",this.options.auto_display&&this.open(),this},update:function(i){var s=this.options;return this.parseOptions(s,i),this.elem.removeClass("ui-pnotify-fade-slow ui-pnotify-fade-normal ui-pnotify-fade-fast"),"fade"===this.options.animation&&this.elem.addClass("ui-pnotify-fade-"+this.options.animate_speed),this.options.cornerclass!==s.cornerclass&&this.container.removeClass("ui-corner-all "+s.cornerclass).addClass(this.options.cornerclass),this.options.shadow!==s.shadow&&(this.options.shadow?this.container.addClass("ui-pnotify-shadow"):this.container.removeClass("ui-pnotify-shadow")),!1===this.options.addclass?this.elem.removeClass(s.addclass):this.options.addclass!==s.addclass&&this.elem.removeClass(s.addclass).addClass(this.options.addclass),!1===this.options.title?this.title_container.slideUp("fast"):this.options.title!==s.title&&(this.options.title_escape?this.title_container.text(this.options.title):this.title_container.html(this.options.title),!1===s.title&&this.title_container.slideDown(200)),!1===this.options.text?this.text_container.slideUp("fast"):this.options.text!==s.text&&(this.options.text_escape?this.text_container.text(this.options.text):this.text_container.html(this.options.insert_brs?String(this.options.text).replace(/\n/g,"<br />"):this.options.text),!1===s.text&&this.text_container.slideDown(200)),this.options.type!==s.type&&this.container.removeClass(this.styles.error+" "+this.styles.notice+" "+this.styles.success+" "+this.styles.info).addClass("error"===this.options.type?this.styles.error:"info"===this.options.type?this.styles.info:"success"===this.options.type?this.styles.success:this.styles.notice),(this.options.icon!==s.icon||!0===this.options.icon&&this.options.type!==s.type)&&(this.container.find("div.ui-pnotify-icon").remove(),!1!==this.options.icon&&t("<div />",{class:"ui-pnotify-icon"}).append(t("<span />",{class:!0===this.options.icon?"error"===this.options.type?this.styles.error_icon:"info"===this.options.type?this.styles.info_icon:"success"===this.options.type?this.styles.success_icon:this.styles.notice_icon:this.options.icon})).prependTo(this.container)),this.options.width!==s.width&&this.elem.animate({width:this.options.width}),this.options.min_height!==s.min_height&&this.container.animate({minHeight:this.options.min_height}),this.options.hide?s.hide||this.queueRemove():this.cancelRemove(),this.queuePosition(!0),this.runModules("update",s),this},open:function(){this.state="opening",this.runModules("beforeOpen");var t=this;return this.elem.parent().length||this.elem.appendTo(this.options.stack.context?this.options.stack.context:o),"top"!==this.options.stack.push&&this.position(!0),this.animateIn(function(){t.queuePosition(!0),t.options.hide&&t.queueRemove(),t.state="open",t.runModules("afterOpen")}),this},remove:function(s){this.state="closing",this.timerHide=!!s,this.runModules("beforeClose");var e=this;return this.timer&&(i.clearTimeout(this.timer),this.timer=null),this.animateOut(function(){if(e.state="closed",e.runModules("afterClose"),e.queuePosition(!0),e.options.remove&&e.elem.detach(),e.runModules("beforeDestroy"),e.options.destroy&&null!==c.notices){var i=t.inArray(e,c.notices);-1!==i&&c.notices.splice(i,1)}e.runModules("afterDestroy")}),this},get:function(){return this.elem},parseOptions:function(i,s){this.options=t.extend(!0,{},c.prototype.options),this.options.stack=c.prototype.options.stack;for(var e,o=[i,s],n=0;n<o.length&&void 0!==(e=o[n]);n++)if("object"!=typeof e)this.options.text=e;else for(var a in e)this.modules[a]?t.extend(!0,this.options[a],e[a]):this.options[a]=e[a]},animateIn:function(t){this.animating="in";var i=this,s=function(){i.animTimer&&clearTimeout(i.animTimer),"in"===i.animating&&(i.elem.is(":visible")?(t&&t.call(),i.animating=!1):i.animTimer=setTimeout(s,40))};"fade"===this.options.animation?(this.elem.one("webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionEnd transitionend",s).addClass("ui-pnotify-in"),this.elem.css("opacity"),this.elem.addClass("ui-pnotify-fade-in"),this.animTimer=setTimeout(s,650)):(this.elem.addClass("ui-pnotify-in"),s())},animateOut:function(i){this.animating="out";var s=this,e=function(){if(s.animTimer&&clearTimeout(s.animTimer),"out"===s.animating)if("0"!=s.elem.css("opacity")&&s.elem.is(":visible"))s.animTimer=setTimeout(e,40);else{if(s.elem.removeClass("ui-pnotify-in"),s.options.stack.overlay){var o=!1;t.each(c.notices,function(t,i){i!=s&&i.options.stack===s.options.stack&&"closed"!=i.state&&(o=!0)}),o||s.options.stack.overlay.hide()}i&&i.call(),s.animating=!1}};"fade"===this.options.animation?(this.elem.one("webkitTransitionEnd mozTransitionEnd MSTransitionEnd oTransitionEnd transitionend",e).removeClass("ui-pnotify-fade-in"),this.animTimer=setTimeout(e,650)):(this.elem.removeClass("ui-pnotify-in"),e())},position:function(t){var i=this.options.stack,s=this.elem;if(void 0===i.context&&(i.context=o),i){"number"!=typeof i.nextpos1&&(i.nextpos1=i.firstpos1),"number"!=typeof i.nextpos2&&(i.nextpos2=i.firstpos2),"number"!=typeof i.addpos2&&(i.addpos2=0);var e=!s.hasClass("ui-pnotify-in");if(!e||t){i.modal&&(i.overlay?i.overlay.show():i.overlay=h(i)),s.addClass("ui-pnotify-move");var n,r,c;switch(i.dir1){case"down":c="top";break;case"up":c="bottom";break;case"left":c="right";break;case"right":c="left"}n=parseInt(s.css(c).replace(/(?:\..*|[^0-9.])/g,"")),isNaN(n)&&(n=0),void 0!==i.firstpos1||e||(i.firstpos1=n,i.nextpos1=i.firstpos1);var p;switch(i.dir2){case"down":p="top";break;case"up":p="bottom";break;case"left":p="right";break;case"right":p="left"}switch(r=parseInt(s.css(p).replace(/(?:\..*|[^0-9.])/g,"")),isNaN(r)&&(r=0),void 0!==i.firstpos2||e||(i.firstpos2=r,i.nextpos2=i.firstpos2),("down"===i.dir1&&i.nextpos1+s.height()>(i.context.is(o)?a.height():i.context.prop("scrollHeight"))||"up"===i.dir1&&i.nextpos1+s.height()>(i.context.is(o)?a.height():i.context.prop("scrollHeight"))||"left"===i.dir1&&i.nextpos1+s.width()>(i.context.is(o)?a.width():i.context.prop("scrollWidth"))||"right"===i.dir1&&i.nextpos1+s.width()>(i.context.is(o)?a.width():i.context.prop("scrollWidth")))&&(i.nextpos1=i.firstpos1,i.nextpos2+=i.addpos2+(void 0===i.spacing2?25:i.spacing2),i.addpos2=0),"number"==typeof i.nextpos2&&(i.animation?s.css(p,i.nextpos2+"px"):(s.removeClass("ui-pnotify-move"),s.css(p,i.nextpos2+"px"),s.css(p),s.addClass("ui-pnotify-move"))),i.dir2){case"down":case"up":s.outerHeight(!0)>i.addpos2&&(i.addpos2=s.height());break;case"left":case"right":s.outerWidth(!0)>i.addpos2&&(i.addpos2=s.width())}switch("number"==typeof i.nextpos1&&(i.animation?s.css(c,i.nextpos1+"px"):(s.removeClass("ui-pnotify-move"),s.css(c,i.nextpos1+"px"),s.css(c),s.addClass("ui-pnotify-move"))),i.dir1){case"down":case"up":i.nextpos1+=s.height()+(void 0===i.spacing1?25:i.spacing1);break;case"left":case"right":i.nextpos1+=s.width()+(void 0===i.spacing1?25:i.spacing1)}}return this}},queuePosition:function(t,i){return e&&clearTimeout(e),i||(i=10),e=setTimeout(function(){c.positionAll(t)},i),this},cancelRemove:function(){return this.timer&&i.clearTimeout(this.timer),this.animTimer&&i.clearTimeout(this.animTimer),"closing"===this.state&&(this.state="open",this.animating=!1,this.elem.addClass("ui-pnotify-in"),"fade"===this.options.animation&&this.elem.addClass("ui-pnotify-fade-in")),this},queueRemove:function(){var t=this;return this.cancelRemove(),this.timer=i.setTimeout(function(){t.remove(!0)},isNaN(this.options.delay)?0:this.options.delay),this}}),t.extend(c,{notices:[],reload:s,removeAll:function(){t.each(c.notices,function(t,i){i.remove&&i.remove(!1)})},removeStack:function(i){t.each(c.notices,function(t,s){s.remove&&s.options.stack===i&&s.remove(!1)})},positionAll:function(i){if(e&&clearTimeout(e),e=null,c.notices&&c.notices.length)t.each(c.notices,function(t,s){var e=s.options.stack;e&&(e.overlay&&e.overlay.hide(),e.nextpos1=e.firstpos1,e.nextpos2=e.firstpos2,e.addpos2=0,e.animation=i)}),t.each(c.notices,function(t,i){i.position()});else{var s=c.prototype.options.stack;s&&(delete s.nextpos1,delete s.nextpos2)}},styling:{brighttheme:{container:"brighttheme",notice:"brighttheme-notice",notice_icon:"brighttheme-icon-notice",info:"brighttheme-info",info_icon:"brighttheme-icon-info",success:"brighttheme-success",success_icon:"brighttheme-icon-success",error:"brighttheme-error",error_icon:"brighttheme-icon-error"},bootstrap3:{container:"alert",notice:"alert-warning",notice_icon:"glyphicon glyphicon-exclamation-sign",info:"alert-info",info_icon:"glyphicon glyphicon-info-sign",success:"alert-success",success_icon:"glyphicon glyphicon-ok-sign",error:"alert-danger",error_icon:"glyphicon glyphicon-warning-sign"}}}),c.styling.fontawesome=t.extend({},c.styling.bootstrap3),t.extend(c.styling.fontawesome,{notice_icon:"fa fa-exclamation-circle",info_icon:"fa fa-info",success_icon:"fa fa-check",error_icon:"fa fa-warning"}),i.document.body?r():t(r),c};return s(i)});
-//# sourceMappingURL=pnotify.js.map
-
-/***/ }),
+/* 4 */,
+/* 5 */,
 /* 6 */
 /***/ (function(module, exports) {
 
@@ -24132,5912 +24104,38 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__class_student__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_teaching__ = __webpack_require__(27);
-
-
-
-
-/* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
-    modules: {
-        classStudent: __WEBPACK_IMPORTED_MODULE_1__class_student__["a" /* default */], classTeaching: __WEBPACK_IMPORTED_MODULE_2__class_teaching__["a" /* default */]
-    }
-}));
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClassStudent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return ClassTeaching; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_resource__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adminConfig__ = __webpack_require__(4);
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.http.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-
-var ClassStudent = __WEBPACK_IMPORTED_MODULE_1_vue___default.a.resource(__WEBPACK_IMPORTED_MODULE_2__adminConfig__["a" /* default */].ADMIN_URL + '/class_informations/{class_information}/students/{student}');
-var ClassTeaching = __WEBPACK_IMPORTED_MODULE_1_vue___default.a.resource(__WEBPACK_IMPORTED_MODULE_2__adminConfig__["a" /* default */].ADMIN_URL + '/class_informations/{class_information}/teachings/{teaching}');
-
-
-
-/***/ }),
-/* 12 */
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var require;var require;/*!
- * Select2 4.0.6-rc.1
- * https://select2.github.io
- *
- * Released under the MIT license
- * https://github.com/select2/select2/blob/master/LICENSE.md
- */
-;(function (factory) {
-  if (true) {
-    // AMD. Register as an anonymous module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof module === 'object' && module.exports) {
-    // Node/CommonJS
-    module.exports = function (root, jQuery) {
-      if (jQuery === undefined) {
-        // require('jQuery') returns a factory that requires window to
-        // build a jQuery instance, we normalize how we use modules
-        // that require this pattern but the window provided is a noop
-        // if it's defined (how jquery works)
-        if (typeof window !== 'undefined') {
-          jQuery = require('jquery');
-        }
-        else {
-          jQuery = require('jquery')(root);
-        }
-      }
-      factory(jQuery);
-      return jQuery;
-    };
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-} (function (jQuery) {
-  // This is needed so we can catch the AMD loader configuration and use it
-  // The inner file should be wrapped (by `banner.start.js`) in a function that
-  // returns the AMD loader references.
-  var S2 =(function () {
-  // Restore the Select2 AMD loader so it can be used
-  // Needed mostly in the language files, where the loader is not inserted
-  if (jQuery && jQuery.fn && jQuery.fn.select2 && jQuery.fn.select2.amd) {
-    var S2 = jQuery.fn.select2.amd;
-  }
-var S2;(function () { if (!S2 || !S2.requirejs) {
-if (!S2) { S2 = {}; } else { require = S2; }
-/**
- * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
- * Released under MIT license, http://github.com/requirejs/almond/LICENSE
- */
-//Going sloppy to avoid 'use strict' string cost, but strict practices should
-//be followed.
-/*global setTimeout: false */
-
-var requirejs, require, define;
-(function (undef) {
-    var main, req, makeMap, handlers,
-        defined = {},
-        waiting = {},
-        config = {},
-        defining = {},
-        hasOwn = Object.prototype.hasOwnProperty,
-        aps = [].slice,
-        jsSuffixRegExp = /\.js$/;
-
-    function hasProp(obj, prop) {
-        return hasOwn.call(obj, prop);
-    }
-
-    /**
-     * Given a relative module name, like ./something, normalize it to
-     * a real name that can be mapped to a path.
-     * @param {String} name the relative name
-     * @param {String} baseName a real name that the name arg is relative
-     * to.
-     * @returns {String} normalized name
-     */
-    function normalize(name, baseName) {
-        var nameParts, nameSegment, mapValue, foundMap, lastIndex,
-            foundI, foundStarMap, starI, i, j, part, normalizedBaseParts,
-            baseParts = baseName && baseName.split("/"),
-            map = config.map,
-            starMap = (map && map['*']) || {};
-
-        //Adjust any relative paths.
-        if (name) {
-            name = name.split('/');
-            lastIndex = name.length - 1;
-
-            // If wanting node ID compatibility, strip .js from end
-            // of IDs. Have to do this here, and not in nameToUrl
-            // because node allows either .js or non .js to map
-            // to same file.
-            if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
-                name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
-            }
-
-            // Starts with a '.' so need the baseName
-            if (name[0].charAt(0) === '.' && baseParts) {
-                //Convert baseName to array, and lop off the last part,
-                //so that . matches that 'directory' and not name of the baseName's
-                //module. For instance, baseName of 'one/two/three', maps to
-                //'one/two/three.js', but we want the directory, 'one/two' for
-                //this normalization.
-                normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
-                name = normalizedBaseParts.concat(name);
-            }
-
-            //start trimDots
-            for (i = 0; i < name.length; i++) {
-                part = name[i];
-                if (part === '.') {
-                    name.splice(i, 1);
-                    i -= 1;
-                } else if (part === '..') {
-                    // If at the start, or previous value is still ..,
-                    // keep them so that when converted to a path it may
-                    // still work when converted to a path, even though
-                    // as an ID it is less than ideal. In larger point
-                    // releases, may be better to just kick out an error.
-                    if (i === 0 || (i === 1 && name[2] === '..') || name[i - 1] === '..') {
-                        continue;
-                    } else if (i > 0) {
-                        name.splice(i - 1, 2);
-                        i -= 2;
-                    }
-                }
-            }
-            //end trimDots
-
-            name = name.join('/');
-        }
-
-        //Apply map config if available.
-        if ((baseParts || starMap) && map) {
-            nameParts = name.split('/');
-
-            for (i = nameParts.length; i > 0; i -= 1) {
-                nameSegment = nameParts.slice(0, i).join("/");
-
-                if (baseParts) {
-                    //Find the longest baseName segment match in the config.
-                    //So, do joins on the biggest to smallest lengths of baseParts.
-                    for (j = baseParts.length; j > 0; j -= 1) {
-                        mapValue = map[baseParts.slice(0, j).join('/')];
-
-                        //baseName segment has  config, find if it has one for
-                        //this name.
-                        if (mapValue) {
-                            mapValue = mapValue[nameSegment];
-                            if (mapValue) {
-                                //Match, update name to the new value.
-                                foundMap = mapValue;
-                                foundI = i;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                if (foundMap) {
-                    break;
-                }
-
-                //Check for a star map match, but just hold on to it,
-                //if there is a shorter segment match later in a matching
-                //config, then favor over this star map.
-                if (!foundStarMap && starMap && starMap[nameSegment]) {
-                    foundStarMap = starMap[nameSegment];
-                    starI = i;
-                }
-            }
-
-            if (!foundMap && foundStarMap) {
-                foundMap = foundStarMap;
-                foundI = starI;
-            }
-
-            if (foundMap) {
-                nameParts.splice(0, foundI, foundMap);
-                name = nameParts.join('/');
-            }
-        }
-
-        return name;
-    }
-
-    function makeRequire(relName, forceSync) {
-        return function () {
-            //A version of a require function that passes a moduleName
-            //value for items that may need to
-            //look up paths relative to the moduleName
-            var args = aps.call(arguments, 0);
-
-            //If first arg is not require('string'), and there is only
-            //one arg, it is the array form without a callback. Insert
-            //a null so that the following concat is correct.
-            if (typeof args[0] !== 'string' && args.length === 1) {
-                args.push(null);
-            }
-            return req.apply(undef, args.concat([relName, forceSync]));
-        };
-    }
-
-    function makeNormalize(relName) {
-        return function (name) {
-            return normalize(name, relName);
-        };
-    }
-
-    function makeLoad(depName) {
-        return function (value) {
-            defined[depName] = value;
-        };
-    }
-
-    function callDep(name) {
-        if (hasProp(waiting, name)) {
-            var args = waiting[name];
-            delete waiting[name];
-            defining[name] = true;
-            main.apply(undef, args);
-        }
-
-        if (!hasProp(defined, name) && !hasProp(defining, name)) {
-            throw new Error('No ' + name);
-        }
-        return defined[name];
-    }
-
-    //Turns a plugin!resource to [plugin, resource]
-    //with the plugin being undefined if the name
-    //did not have a plugin prefix.
-    function splitPrefix(name) {
-        var prefix,
-            index = name ? name.indexOf('!') : -1;
-        if (index > -1) {
-            prefix = name.substring(0, index);
-            name = name.substring(index + 1, name.length);
-        }
-        return [prefix, name];
-    }
-
-    //Creates a parts array for a relName where first part is plugin ID,
-    //second part is resource ID. Assumes relName has already been normalized.
-    function makeRelParts(relName) {
-        return relName ? splitPrefix(relName) : [];
-    }
-
-    /**
-     * Makes a name map, normalizing the name, and using a plugin
-     * for normalization if necessary. Grabs a ref to plugin
-     * too, as an optimization.
-     */
-    makeMap = function (name, relParts) {
-        var plugin,
-            parts = splitPrefix(name),
-            prefix = parts[0],
-            relResourceName = relParts[1];
-
-        name = parts[1];
-
-        if (prefix) {
-            prefix = normalize(prefix, relResourceName);
-            plugin = callDep(prefix);
-        }
-
-        //Normalize according
-        if (prefix) {
-            if (plugin && plugin.normalize) {
-                name = plugin.normalize(name, makeNormalize(relResourceName));
-            } else {
-                name = normalize(name, relResourceName);
-            }
-        } else {
-            name = normalize(name, relResourceName);
-            parts = splitPrefix(name);
-            prefix = parts[0];
-            name = parts[1];
-            if (prefix) {
-                plugin = callDep(prefix);
-            }
-        }
-
-        //Using ridiculous property names for space reasons
-        return {
-            f: prefix ? prefix + '!' + name : name, //fullName
-            n: name,
-            pr: prefix,
-            p: plugin
-        };
-    };
-
-    function makeConfig(name) {
-        return function () {
-            return (config && config.config && config.config[name]) || {};
-        };
-    }
-
-    handlers = {
-        require: function (name) {
-            return makeRequire(name);
-        },
-        exports: function (name) {
-            var e = defined[name];
-            if (typeof e !== 'undefined') {
-                return e;
-            } else {
-                return (defined[name] = {});
-            }
-        },
-        module: function (name) {
-            return {
-                id: name,
-                uri: '',
-                exports: defined[name],
-                config: makeConfig(name)
-            };
-        }
-    };
-
-    main = function (name, deps, callback, relName) {
-        var cjsModule, depName, ret, map, i, relParts,
-            args = [],
-            callbackType = typeof callback,
-            usingExports;
-
-        //Use name if no relName
-        relName = relName || name;
-        relParts = makeRelParts(relName);
-
-        //Call the callback to define the module, if necessary.
-        if (callbackType === 'undefined' || callbackType === 'function') {
-            //Pull out the defined dependencies and pass the ordered
-            //values to the callback.
-            //Default to [require, exports, module] if no deps
-            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
-            for (i = 0; i < deps.length; i += 1) {
-                map = makeMap(deps[i], relParts);
-                depName = map.f;
-
-                //Fast path CommonJS standard dependencies.
-                if (depName === "require") {
-                    args[i] = handlers.require(name);
-                } else if (depName === "exports") {
-                    //CommonJS module spec 1.1
-                    args[i] = handlers.exports(name);
-                    usingExports = true;
-                } else if (depName === "module") {
-                    //CommonJS module spec 1.1
-                    cjsModule = args[i] = handlers.module(name);
-                } else if (hasProp(defined, depName) ||
-                           hasProp(waiting, depName) ||
-                           hasProp(defining, depName)) {
-                    args[i] = callDep(depName);
-                } else if (map.p) {
-                    map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
-                    args[i] = defined[depName];
-                } else {
-                    throw new Error(name + ' missing ' + depName);
-                }
-            }
-
-            ret = callback ? callback.apply(defined[name], args) : undefined;
-
-            if (name) {
-                //If setting exports via "module" is in play,
-                //favor that over return value and exports. After that,
-                //favor a non-undefined return value over exports use.
-                if (cjsModule && cjsModule.exports !== undef &&
-                        cjsModule.exports !== defined[name]) {
-                    defined[name] = cjsModule.exports;
-                } else if (ret !== undef || !usingExports) {
-                    //Use the return value from the function.
-                    defined[name] = ret;
-                }
-            }
-        } else if (name) {
-            //May just be an object definition for the module. Only
-            //worry about defining if have a module name.
-            defined[name] = callback;
-        }
-    };
-
-    requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
-        if (typeof deps === "string") {
-            if (handlers[deps]) {
-                //callback in this case is really relName
-                return handlers[deps](callback);
-            }
-            //Just return the module wanted. In this scenario, the
-            //deps arg is the module name, and second arg (if passed)
-            //is just the relName.
-            //Normalize module name, if it contains . or ..
-            return callDep(makeMap(deps, makeRelParts(callback)).f);
-        } else if (!deps.splice) {
-            //deps is a config object, not an array.
-            config = deps;
-            if (config.deps) {
-                req(config.deps, config.callback);
-            }
-            if (!callback) {
-                return;
-            }
-
-            if (callback.splice) {
-                //callback is an array, which means it is a dependency list.
-                //Adjust args if there are dependencies
-                deps = callback;
-                callback = relName;
-                relName = null;
-            } else {
-                deps = undef;
-            }
-        }
-
-        //Support require(['a'])
-        callback = callback || function () {};
-
-        //If relName is a function, it is an errback handler,
-        //so remove it.
-        if (typeof relName === 'function') {
-            relName = forceSync;
-            forceSync = alt;
-        }
-
-        //Simulate async callback;
-        if (forceSync) {
-            main(undef, deps, callback, relName);
-        } else {
-            //Using a non-zero value because of concern for what old browsers
-            //do, and latest browsers "upgrade" to 4 if lower value is used:
-            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
-            //If want a value immediately, use require('id') instead -- something
-            //that works in almond on the global level, but not guaranteed and
-            //unlikely to work in other AMD implementations.
-            setTimeout(function () {
-                main(undef, deps, callback, relName);
-            }, 4);
-        }
-
-        return req;
-    };
-
-    /**
-     * Just drops the config on the floor, but returns req in case
-     * the config return value is used.
-     */
-    req.config = function (cfg) {
-        return req(cfg);
-    };
-
-    /**
-     * Expose module registry for debugging and tooling
-     */
-    requirejs._defined = defined;
-
-    define = function (name, deps, callback) {
-        if (typeof name !== 'string') {
-            throw new Error('See almond README: incorrect module build, no module name');
-        }
-
-        //This module may not have dependencies
-        if (!deps.splice) {
-            //deps is not an array, so probably means
-            //an object literal or factory function for
-            //the value. Adjust args.
-            callback = deps;
-            deps = [];
-        }
-
-        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
-            waiting[name] = [name, deps, callback];
-        }
-    };
-
-    define.amd = {
-        jQuery: true
-    };
-}());
-
-S2.requirejs = requirejs;S2.require = require;S2.define = define;
-}
-}());
-S2.define("almond", function(){});
-
-/* global jQuery:false, $:false */
-S2.define('jquery',[],function () {
-  var _$ = jQuery || $;
-
-  if (_$ == null && console && console.error) {
-    console.error(
-      'Select2: An instance of jQuery or a jQuery-compatible library was not ' +
-      'found. Make sure that you are including jQuery before Select2 on your ' +
-      'web page.'
-    );
-  }
-
-  return _$;
-});
-
-S2.define('select2/utils',[
-  'jquery'
-], function ($) {
-  var Utils = {};
-
-  Utils.Extend = function (ChildClass, SuperClass) {
-    var __hasProp = {}.hasOwnProperty;
-
-    function BaseConstructor () {
-      this.constructor = ChildClass;
-    }
-
-    for (var key in SuperClass) {
-      if (__hasProp.call(SuperClass, key)) {
-        ChildClass[key] = SuperClass[key];
-      }
-    }
-
-    BaseConstructor.prototype = SuperClass.prototype;
-    ChildClass.prototype = new BaseConstructor();
-    ChildClass.__super__ = SuperClass.prototype;
-
-    return ChildClass;
-  };
-
-  function getMethods (theClass) {
-    var proto = theClass.prototype;
-
-    var methods = [];
-
-    for (var methodName in proto) {
-      var m = proto[methodName];
-
-      if (typeof m !== 'function') {
-        continue;
-      }
-
-      if (methodName === 'constructor') {
-        continue;
-      }
-
-      methods.push(methodName);
-    }
-
-    return methods;
-  }
-
-  Utils.Decorate = function (SuperClass, DecoratorClass) {
-    var decoratedMethods = getMethods(DecoratorClass);
-    var superMethods = getMethods(SuperClass);
-
-    function DecoratedClass () {
-      var unshift = Array.prototype.unshift;
-
-      var argCount = DecoratorClass.prototype.constructor.length;
-
-      var calledConstructor = SuperClass.prototype.constructor;
-
-      if (argCount > 0) {
-        unshift.call(arguments, SuperClass.prototype.constructor);
-
-        calledConstructor = DecoratorClass.prototype.constructor;
-      }
-
-      calledConstructor.apply(this, arguments);
-    }
-
-    DecoratorClass.displayName = SuperClass.displayName;
-
-    function ctr () {
-      this.constructor = DecoratedClass;
-    }
-
-    DecoratedClass.prototype = new ctr();
-
-    for (var m = 0; m < superMethods.length; m++) {
-      var superMethod = superMethods[m];
-
-      DecoratedClass.prototype[superMethod] =
-        SuperClass.prototype[superMethod];
-    }
-
-    var calledMethod = function (methodName) {
-      // Stub out the original method if it's not decorating an actual method
-      var originalMethod = function () {};
-
-      if (methodName in DecoratedClass.prototype) {
-        originalMethod = DecoratedClass.prototype[methodName];
-      }
-
-      var decoratedMethod = DecoratorClass.prototype[methodName];
-
-      return function () {
-        var unshift = Array.prototype.unshift;
-
-        unshift.call(arguments, originalMethod);
-
-        return decoratedMethod.apply(this, arguments);
-      };
-    };
-
-    for (var d = 0; d < decoratedMethods.length; d++) {
-      var decoratedMethod = decoratedMethods[d];
-
-      DecoratedClass.prototype[decoratedMethod] = calledMethod(decoratedMethod);
-    }
-
-    return DecoratedClass;
-  };
-
-  var Observable = function () {
-    this.listeners = {};
-  };
-
-  Observable.prototype.on = function (event, callback) {
-    this.listeners = this.listeners || {};
-
-    if (event in this.listeners) {
-      this.listeners[event].push(callback);
-    } else {
-      this.listeners[event] = [callback];
-    }
-  };
-
-  Observable.prototype.trigger = function (event) {
-    var slice = Array.prototype.slice;
-    var params = slice.call(arguments, 1);
-
-    this.listeners = this.listeners || {};
-
-    // Params should always come in as an array
-    if (params == null) {
-      params = [];
-    }
-
-    // If there are no arguments to the event, use a temporary object
-    if (params.length === 0) {
-      params.push({});
-    }
-
-    // Set the `_type` of the first object to the event
-    params[0]._type = event;
-
-    if (event in this.listeners) {
-      this.invoke(this.listeners[event], slice.call(arguments, 1));
-    }
-
-    if ('*' in this.listeners) {
-      this.invoke(this.listeners['*'], arguments);
-    }
-  };
-
-  Observable.prototype.invoke = function (listeners, params) {
-    for (var i = 0, len = listeners.length; i < len; i++) {
-      listeners[i].apply(this, params);
-    }
-  };
-
-  Utils.Observable = Observable;
-
-  Utils.generateChars = function (length) {
-    var chars = '';
-
-    for (var i = 0; i < length; i++) {
-      var randomChar = Math.floor(Math.random() * 36);
-      chars += randomChar.toString(36);
-    }
-
-    return chars;
-  };
-
-  Utils.bind = function (func, context) {
-    return function () {
-      func.apply(context, arguments);
-    };
-  };
-
-  Utils._convertData = function (data) {
-    for (var originalKey in data) {
-      var keys = originalKey.split('-');
-
-      var dataLevel = data;
-
-      if (keys.length === 1) {
-        continue;
-      }
-
-      for (var k = 0; k < keys.length; k++) {
-        var key = keys[k];
-
-        // Lowercase the first letter
-        // By default, dash-separated becomes camelCase
-        key = key.substring(0, 1).toLowerCase() + key.substring(1);
-
-        if (!(key in dataLevel)) {
-          dataLevel[key] = {};
-        }
-
-        if (k == keys.length - 1) {
-          dataLevel[key] = data[originalKey];
-        }
-
-        dataLevel = dataLevel[key];
-      }
-
-      delete data[originalKey];
-    }
-
-    return data;
-  };
-
-  Utils.hasScroll = function (index, el) {
-    // Adapted from the function created by @ShadowScripter
-    // and adapted by @BillBarry on the Stack Exchange Code Review website.
-    // The original code can be found at
-    // http://codereview.stackexchange.com/q/13338
-    // and was designed to be used with the Sizzle selector engine.
-
-    var $el = $(el);
-    var overflowX = el.style.overflowX;
-    var overflowY = el.style.overflowY;
-
-    //Check both x and y declarations
-    if (overflowX === overflowY &&
-        (overflowY === 'hidden' || overflowY === 'visible')) {
-      return false;
-    }
-
-    if (overflowX === 'scroll' || overflowY === 'scroll') {
-      return true;
-    }
-
-    return ($el.innerHeight() < el.scrollHeight ||
-      $el.innerWidth() < el.scrollWidth);
-  };
-
-  Utils.escapeMarkup = function (markup) {
-    var replaceMap = {
-      '\\': '&#92;',
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      '\'': '&#39;',
-      '/': '&#47;'
-    };
-
-    // Do not try to escape the markup if it's not a string
-    if (typeof markup !== 'string') {
-      return markup;
-    }
-
-    return String(markup).replace(/[&<>"'\/\\]/g, function (match) {
-      return replaceMap[match];
-    });
-  };
-
-  // Append an array of jQuery nodes to a given element.
-  Utils.appendMany = function ($element, $nodes) {
-    // jQuery 1.7.x does not support $.fn.append() with an array
-    // Fall back to a jQuery object collection using $.fn.add()
-    if ($.fn.jquery.substr(0, 3) === '1.7') {
-      var $jqNodes = $();
-
-      $.map($nodes, function (node) {
-        $jqNodes = $jqNodes.add(node);
-      });
-
-      $nodes = $jqNodes;
-    }
-
-    $element.append($nodes);
-  };
-
-  // Cache objects in Utils.__cache instead of $.data (see #4346)
-  Utils.__cache = {};
-
-  var id = 0;
-  Utils.GetUniqueElementId = function (element) {
-    // Get a unique element Id. If element has no id, 
-    // creates a new unique number, stores it in the id 
-    // attribute and returns the new id. 
-    // If an id already exists, it simply returns it.
-
-    var select2Id = element.getAttribute('data-select2-id');
-    if (select2Id == null) {
-      // If element has id, use it.
-      if (element.id) {
-        select2Id = element.id;
-        element.setAttribute('data-select2-id', select2Id);
-      } else {
-        element.setAttribute('data-select2-id', ++id);
-        select2Id = id.toString();
-      }
-    }
-    return select2Id;
-  };
-
-  Utils.StoreData = function (element, name, value) {
-    // Stores an item in the cache for a specified element.
-    // name is the cache key.    
-    var id = Utils.GetUniqueElementId(element);
-    if (!Utils.__cache[id]) {
-      Utils.__cache[id] = {};
-    }
-
-    Utils.__cache[id][name] = value;
-  };
-
-  Utils.GetData = function (element, name) {
-    // Retrieves a value from the cache by its key (name)
-    // name is optional. If no name specified, return 
-    // all cache items for the specified element.
-    // and for a specified element.
-    var id = Utils.GetUniqueElementId(element);
-    if (name) {
-      if (Utils.__cache[id]) {
-        return Utils.__cache[id][name] != null ? 
-	      Utils.__cache[id][name]:
-	      $(element).data(name); // Fallback to HTML5 data attribs.
-      }
-      return $(element).data(name); // Fallback to HTML5 data attribs.
-    } else {
-      return Utils.__cache[id];			   
-    }
-  };
-
-  Utils.RemoveData = function (element) {
-    // Removes all cached items for a specified element.
-    var id = Utils.GetUniqueElementId(element);
-    if (Utils.__cache[id] != null) {
-      delete Utils.__cache[id];
-    }
-  };
-
-  return Utils;
-});
-
-S2.define('select2/results',[
-  'jquery',
-  './utils'
-], function ($, Utils) {
-  function Results ($element, options, dataAdapter) {
-    this.$element = $element;
-    this.data = dataAdapter;
-    this.options = options;
-
-    Results.__super__.constructor.call(this);
-  }
-
-  Utils.Extend(Results, Utils.Observable);
-
-  Results.prototype.render = function () {
-    var $results = $(
-      '<ul class="select2-results__options" role="tree"></ul>'
-    );
-
-    if (this.options.get('multiple')) {
-      $results.attr('aria-multiselectable', 'true');
-    }
-
-    this.$results = $results;
-
-    return $results;
-  };
-
-  Results.prototype.clear = function () {
-    this.$results.empty();
-  };
-
-  Results.prototype.displayMessage = function (params) {
-    var escapeMarkup = this.options.get('escapeMarkup');
-
-    this.clear();
-    this.hideLoading();
-
-    var $message = $(
-      '<li role="treeitem" aria-live="assertive"' +
-      ' class="select2-results__option"></li>'
-    );
-
-    var message = this.options.get('translations').get(params.message);
-
-    $message.append(
-      escapeMarkup(
-        message(params.args)
-      )
-    );
-
-    $message[0].className += ' select2-results__message';
-
-    this.$results.append($message);
-  };
-
-  Results.prototype.hideMessages = function () {
-    this.$results.find('.select2-results__message').remove();
-  };
-
-  Results.prototype.append = function (data) {
-    this.hideLoading();
-
-    var $options = [];
-
-    if (data.results == null || data.results.length === 0) {
-      if (this.$results.children().length === 0) {
-        this.trigger('results:message', {
-          message: 'noResults'
-        });
-      }
-
-      return;
-    }
-
-    data.results = this.sort(data.results);
-
-    for (var d = 0; d < data.results.length; d++) {
-      var item = data.results[d];
-
-      var $option = this.option(item);
-
-      $options.push($option);
-    }
-
-    this.$results.append($options);
-  };
-
-  Results.prototype.position = function ($results, $dropdown) {
-    var $resultsContainer = $dropdown.find('.select2-results');
-    $resultsContainer.append($results);
-  };
-
-  Results.prototype.sort = function (data) {
-    var sorter = this.options.get('sorter');
-
-    return sorter(data);
-  };
-
-  Results.prototype.highlightFirstItem = function () {
-    var $options = this.$results
-      .find('.select2-results__option[aria-selected]');
-
-    var $selected = $options.filter('[aria-selected=true]');
-
-    // Check if there are any selected options
-    if ($selected.length > 0) {
-      // If there are selected options, highlight the first
-      $selected.first().trigger('mouseenter');
-    } else {
-      // If there are no selected options, highlight the first option
-      // in the dropdown
-      $options.first().trigger('mouseenter');
-    }
-
-    this.ensureHighlightVisible();
-  };
-
-  Results.prototype.setClasses = function () {
-    var self = this;
-
-    this.data.current(function (selected) {
-      var selectedIds = $.map(selected, function (s) {
-        return s.id.toString();
-      });
-
-      var $options = self.$results
-        .find('.select2-results__option[aria-selected]');
-
-      $options.each(function () {
-        var $option = $(this);
-
-        var item = Utils.GetData(this, 'data');
-
-        // id needs to be converted to a string when comparing
-        var id = '' + item.id;
-
-        if ((item.element != null && item.element.selected) ||
-            (item.element == null && $.inArray(id, selectedIds) > -1)) {
-          $option.attr('aria-selected', 'true');
-        } else {
-          $option.attr('aria-selected', 'false');
-        }
-      });
-
-    });
-  };
-
-  Results.prototype.showLoading = function (params) {
-    this.hideLoading();
-
-    var loadingMore = this.options.get('translations').get('searching');
-
-    var loading = {
-      disabled: true,
-      loading: true,
-      text: loadingMore(params)
-    };
-    var $loading = this.option(loading);
-    $loading.className += ' loading-results';
-
-    this.$results.prepend($loading);
-  };
-
-  Results.prototype.hideLoading = function () {
-    this.$results.find('.loading-results').remove();
-  };
-
-  Results.prototype.option = function (data) {
-    var option = document.createElement('li');
-    option.className = 'select2-results__option';
-
-    var attrs = {
-      'role': 'treeitem',
-      'aria-selected': 'false'
-    };
-
-    if (data.disabled) {
-      delete attrs['aria-selected'];
-      attrs['aria-disabled'] = 'true';
-    }
-
-    if (data.id == null) {
-      delete attrs['aria-selected'];
-    }
-
-    if (data._resultId != null) {
-      option.id = data._resultId;
-    }
-
-    if (data.title) {
-      option.title = data.title;
-    }
-
-    if (data.children) {
-      attrs.role = 'group';
-      attrs['aria-label'] = data.text;
-      delete attrs['aria-selected'];
-    }
-
-    for (var attr in attrs) {
-      var val = attrs[attr];
-
-      option.setAttribute(attr, val);
-    }
-
-    if (data.children) {
-      var $option = $(option);
-
-      var label = document.createElement('strong');
-      label.className = 'select2-results__group';
-
-      var $label = $(label);
-      this.template(data, label);
-
-      var $children = [];
-
-      for (var c = 0; c < data.children.length; c++) {
-        var child = data.children[c];
-
-        var $child = this.option(child);
-
-        $children.push($child);
-      }
-
-      var $childrenContainer = $('<ul></ul>', {
-        'class': 'select2-results__options select2-results__options--nested'
-      });
-
-      $childrenContainer.append($children);
-
-      $option.append(label);
-      $option.append($childrenContainer);
-    } else {
-      this.template(data, option);
-    }
-
-    Utils.StoreData(option, 'data', data);
-
-    return option;
-  };
-
-  Results.prototype.bind = function (container, $container) {
-    var self = this;
-
-    var id = container.id + '-results';
-
-    this.$results.attr('id', id);
-
-    container.on('results:all', function (params) {
-      self.clear();
-      self.append(params.data);
-
-      if (container.isOpen()) {
-        self.setClasses();
-        self.highlightFirstItem();
-      }
-    });
-
-    container.on('results:append', function (params) {
-      self.append(params.data);
-
-      if (container.isOpen()) {
-        self.setClasses();
-      }
-    });
-
-    container.on('query', function (params) {
-      self.hideMessages();
-      self.showLoading(params);
-    });
-
-    container.on('select', function () {
-      if (!container.isOpen()) {
-        return;
-      }
-
-      self.setClasses();
-      self.highlightFirstItem();
-    });
-
-    container.on('unselect', function () {
-      if (!container.isOpen()) {
-        return;
-      }
-
-      self.setClasses();
-      self.highlightFirstItem();
-    });
-
-    container.on('open', function () {
-      // When the dropdown is open, aria-expended="true"
-      self.$results.attr('aria-expanded', 'true');
-      self.$results.attr('aria-hidden', 'false');
-
-      self.setClasses();
-      self.ensureHighlightVisible();
-    });
-
-    container.on('close', function () {
-      // When the dropdown is closed, aria-expended="false"
-      self.$results.attr('aria-expanded', 'false');
-      self.$results.attr('aria-hidden', 'true');
-      self.$results.removeAttr('aria-activedescendant');
-    });
-
-    container.on('results:toggle', function () {
-      var $highlighted = self.getHighlightedResults();
-
-      if ($highlighted.length === 0) {
-        return;
-      }
-
-      $highlighted.trigger('mouseup');
-    });
-
-    container.on('results:select', function () {
-      var $highlighted = self.getHighlightedResults();
-
-      if ($highlighted.length === 0) {
-        return;
-      }
-
-      var data = Utils.GetData($highlighted[0], 'data');
-
-      if ($highlighted.attr('aria-selected') == 'true') {
-        self.trigger('close', {});
-      } else {
-        self.trigger('select', {
-          data: data
-        });
-      }
-    });
-
-    container.on('results:previous', function () {
-      var $highlighted = self.getHighlightedResults();
-
-      var $options = self.$results.find('[aria-selected]');
-
-      var currentIndex = $options.index($highlighted);
-
-      // If we are already at te top, don't move further
-      // If no options, currentIndex will be -1
-      if (currentIndex <= 0) {
-        return;
-      }
-
-      var nextIndex = currentIndex - 1;
-
-      // If none are highlighted, highlight the first
-      if ($highlighted.length === 0) {
-        nextIndex = 0;
-      }
-
-      var $next = $options.eq(nextIndex);
-
-      $next.trigger('mouseenter');
-
-      var currentOffset = self.$results.offset().top;
-      var nextTop = $next.offset().top;
-      var nextOffset = self.$results.scrollTop() + (nextTop - currentOffset);
-
-      if (nextIndex === 0) {
-        self.$results.scrollTop(0);
-      } else if (nextTop - currentOffset < 0) {
-        self.$results.scrollTop(nextOffset);
-      }
-    });
-
-    container.on('results:next', function () {
-      var $highlighted = self.getHighlightedResults();
-
-      var $options = self.$results.find('[aria-selected]');
-
-      var currentIndex = $options.index($highlighted);
-
-      var nextIndex = currentIndex + 1;
-
-      // If we are at the last option, stay there
-      if (nextIndex >= $options.length) {
-        return;
-      }
-
-      var $next = $options.eq(nextIndex);
-
-      $next.trigger('mouseenter');
-
-      var currentOffset = self.$results.offset().top +
-        self.$results.outerHeight(false);
-      var nextBottom = $next.offset().top + $next.outerHeight(false);
-      var nextOffset = self.$results.scrollTop() + nextBottom - currentOffset;
-
-      if (nextIndex === 0) {
-        self.$results.scrollTop(0);
-      } else if (nextBottom > currentOffset) {
-        self.$results.scrollTop(nextOffset);
-      }
-    });
-
-    container.on('results:focus', function (params) {
-      params.element.addClass('select2-results__option--highlighted');
-    });
-
-    container.on('results:message', function (params) {
-      self.displayMessage(params);
-    });
-
-    if ($.fn.mousewheel) {
-      this.$results.on('mousewheel', function (e) {
-        var top = self.$results.scrollTop();
-
-        var bottom = self.$results.get(0).scrollHeight - top + e.deltaY;
-
-        var isAtTop = e.deltaY > 0 && top - e.deltaY <= 0;
-        var isAtBottom = e.deltaY < 0 && bottom <= self.$results.height();
-
-        if (isAtTop) {
-          self.$results.scrollTop(0);
-
-          e.preventDefault();
-          e.stopPropagation();
-        } else if (isAtBottom) {
-          self.$results.scrollTop(
-            self.$results.get(0).scrollHeight - self.$results.height()
-          );
-
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      });
-    }
-
-    this.$results.on('mouseup', '.select2-results__option[aria-selected]',
-      function (evt) {
-      var $this = $(this);
-
-      var data = Utils.GetData(this, 'data');
-
-      if ($this.attr('aria-selected') === 'true') {
-        if (self.options.get('multiple')) {
-          self.trigger('unselect', {
-            originalEvent: evt,
-            data: data
-          });
-        } else {
-          self.trigger('close', {});
-        }
-
-        return;
-      }
-
-      self.trigger('select', {
-        originalEvent: evt,
-        data: data
-      });
-    });
-
-    this.$results.on('mouseenter', '.select2-results__option[aria-selected]',
-      function (evt) {
-      var data = Utils.GetData(this, 'data');
-
-      self.getHighlightedResults()
-          .removeClass('select2-results__option--highlighted');
-
-      self.trigger('results:focus', {
-        data: data,
-        element: $(this)
-      });
-    });
-  };
-
-  Results.prototype.getHighlightedResults = function () {
-    var $highlighted = this.$results
-    .find('.select2-results__option--highlighted');
-
-    return $highlighted;
-  };
-
-  Results.prototype.destroy = function () {
-    this.$results.remove();
-  };
-
-  Results.prototype.ensureHighlightVisible = function () {
-    var $highlighted = this.getHighlightedResults();
-
-    if ($highlighted.length === 0) {
-      return;
-    }
-
-    var $options = this.$results.find('[aria-selected]');
-
-    var currentIndex = $options.index($highlighted);
-
-    var currentOffset = this.$results.offset().top;
-    var nextTop = $highlighted.offset().top;
-    var nextOffset = this.$results.scrollTop() + (nextTop - currentOffset);
-
-    var offsetDelta = nextTop - currentOffset;
-    nextOffset -= $highlighted.outerHeight(false) * 2;
-
-    if (currentIndex <= 2) {
-      this.$results.scrollTop(0);
-    } else if (offsetDelta > this.$results.outerHeight() || offsetDelta < 0) {
-      this.$results.scrollTop(nextOffset);
-    }
-  };
-
-  Results.prototype.template = function (result, container) {
-    var template = this.options.get('templateResult');
-    var escapeMarkup = this.options.get('escapeMarkup');
-
-    var content = template(result, container);
-
-    if (content == null) {
-      container.style.display = 'none';
-    } else if (typeof content === 'string') {
-      container.innerHTML = escapeMarkup(content);
-    } else {
-      $(container).append(content);
-    }
-  };
-
-  return Results;
-});
-
-S2.define('select2/keys',[
-
-], function () {
-  var KEYS = {
-    BACKSPACE: 8,
-    TAB: 9,
-    ENTER: 13,
-    SHIFT: 16,
-    CTRL: 17,
-    ALT: 18,
-    ESC: 27,
-    SPACE: 32,
-    PAGE_UP: 33,
-    PAGE_DOWN: 34,
-    END: 35,
-    HOME: 36,
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    DELETE: 46
-  };
-
-  return KEYS;
-});
-
-S2.define('select2/selection/base',[
-  'jquery',
-  '../utils',
-  '../keys'
-], function ($, Utils, KEYS) {
-  function BaseSelection ($element, options) {
-    this.$element = $element;
-    this.options = options;
-
-    BaseSelection.__super__.constructor.call(this);
-  }
-
-  Utils.Extend(BaseSelection, Utils.Observable);
-
-  BaseSelection.prototype.render = function () {
-    var $selection = $(
-      '<span class="select2-selection" role="combobox" ' +
-      ' aria-haspopup="true" aria-expanded="false">' +
-      '</span>'
-    );
-
-    this._tabindex = 0;
-
-    if (Utils.GetData(this.$element[0], 'old-tabindex') != null) {
-      this._tabindex = Utils.GetData(this.$element[0], 'old-tabindex');
-    } else if (this.$element.attr('tabindex') != null) {
-      this._tabindex = this.$element.attr('tabindex');
-    }
-
-    $selection.attr('title', this.$element.attr('title'));
-    $selection.attr('tabindex', this._tabindex);
-
-    this.$selection = $selection;
-
-    return $selection;
-  };
-
-  BaseSelection.prototype.bind = function (container, $container) {
-    var self = this;
-
-    var id = container.id + '-container';
-    var resultsId = container.id + '-results';
-
-    this.container = container;
-
-    this.$selection.on('focus', function (evt) {
-      self.trigger('focus', evt);
-    });
-
-    this.$selection.on('blur', function (evt) {
-      self._handleBlur(evt);
-    });
-
-    this.$selection.on('keydown', function (evt) {
-      self.trigger('keypress', evt);
-
-      if (evt.which === KEYS.SPACE) {
-        evt.preventDefault();
-      }
-    });
-
-    container.on('results:focus', function (params) {
-      self.$selection.attr('aria-activedescendant', params.data._resultId);
-    });
-
-    container.on('selection:update', function (params) {
-      self.update(params.data);
-    });
-
-    container.on('open', function () {
-      // When the dropdown is open, aria-expanded="true"
-      self.$selection.attr('aria-expanded', 'true');
-      self.$selection.attr('aria-owns', resultsId);
-
-      self._attachCloseHandler(container);
-    });
-
-    container.on('close', function () {
-      // When the dropdown is closed, aria-expanded="false"
-      self.$selection.attr('aria-expanded', 'false');
-      self.$selection.removeAttr('aria-activedescendant');
-      self.$selection.removeAttr('aria-owns');
-
-      self.$selection.focus();
-      window.setTimeout(function () {
-        self.$selection.focus();
-      }, 0);
-
-      self._detachCloseHandler(container);
-    });
-
-    container.on('enable', function () {
-      self.$selection.attr('tabindex', self._tabindex);
-    });
-
-    container.on('disable', function () {
-      self.$selection.attr('tabindex', '-1');
-    });
-  };
-
-  BaseSelection.prototype._handleBlur = function (evt) {
-    var self = this;
-
-    // This needs to be delayed as the active element is the body when the tab
-    // key is pressed, possibly along with others.
-    window.setTimeout(function () {
-      // Don't trigger `blur` if the focus is still in the selection
-      if (
-        (document.activeElement == self.$selection[0]) ||
-        ($.contains(self.$selection[0], document.activeElement))
-      ) {
-        return;
-      }
-
-      self.trigger('blur', evt);
-    }, 1);
-  };
-
-  BaseSelection.prototype._attachCloseHandler = function (container) {
-    var self = this;
-
-    $(document.body).on('mousedown.select2.' + container.id, function (e) {
-      var $target = $(e.target);
-
-      var $select = $target.closest('.select2');
-
-      var $all = $('.select2.select2-container--open');
-
-      $all.each(function () {
-        var $this = $(this);
-
-        if (this == $select[0]) {
-          return;
-        }
-
-        var $element = Utils.GetData(this, 'element');
-
-        $element.select2('close');
-      });
-    });
-  };
-
-  BaseSelection.prototype._detachCloseHandler = function (container) {
-    $(document.body).off('mousedown.select2.' + container.id);
-  };
-
-  BaseSelection.prototype.position = function ($selection, $container) {
-    var $selectionContainer = $container.find('.selection');
-    $selectionContainer.append($selection);
-  };
-
-  BaseSelection.prototype.destroy = function () {
-    this._detachCloseHandler(this.container);
-  };
-
-  BaseSelection.prototype.update = function (data) {
-    throw new Error('The `update` method must be defined in child classes.');
-  };
-
-  return BaseSelection;
-});
-
-S2.define('select2/selection/single',[
-  'jquery',
-  './base',
-  '../utils',
-  '../keys'
-], function ($, BaseSelection, Utils, KEYS) {
-  function SingleSelection () {
-    SingleSelection.__super__.constructor.apply(this, arguments);
-  }
-
-  Utils.Extend(SingleSelection, BaseSelection);
-
-  SingleSelection.prototype.render = function () {
-    var $selection = SingleSelection.__super__.render.call(this);
-
-    $selection.addClass('select2-selection--single');
-
-    $selection.html(
-      '<span class="select2-selection__rendered"></span>' +
-      '<span class="select2-selection__arrow" role="presentation">' +
-        '<b role="presentation"></b>' +
-      '</span>'
-    );
-
-    return $selection;
-  };
-
-  SingleSelection.prototype.bind = function (container, $container) {
-    var self = this;
-
-    SingleSelection.__super__.bind.apply(this, arguments);
-
-    var id = container.id + '-container';
-
-    this.$selection.find('.select2-selection__rendered')
-      .attr('id', id)
-      .attr('role', 'textbox')
-      .attr('aria-readonly', 'true');
-    this.$selection.attr('aria-labelledby', id);
-
-    this.$selection.on('mousedown', function (evt) {
-      // Only respond to left clicks
-      if (evt.which !== 1) {
-        return;
-      }
-
-      self.trigger('toggle', {
-        originalEvent: evt
-      });
-    });
-
-    this.$selection.on('focus', function (evt) {
-      // User focuses on the container
-    });
-
-    this.$selection.on('blur', function (evt) {
-      // User exits the container
-    });
-
-    container.on('focus', function (evt) {
-      if (!container.isOpen()) {
-        self.$selection.focus();
-      }
-    });
-  };
-
-  SingleSelection.prototype.clear = function () {
-    var $rendered = this.$selection.find('.select2-selection__rendered');
-    $rendered.empty();
-    $rendered.removeAttr('title'); // clear tooltip on empty
-  };
-
-  SingleSelection.prototype.display = function (data, container) {
-    var template = this.options.get('templateSelection');
-    var escapeMarkup = this.options.get('escapeMarkup');
-
-    return escapeMarkup(template(data, container));
-  };
-
-  SingleSelection.prototype.selectionContainer = function () {
-    return $('<span></span>');
-  };
-
-  SingleSelection.prototype.update = function (data) {
-    if (data.length === 0) {
-      this.clear();
-      return;
-    }
-
-    var selection = data[0];
-
-    var $rendered = this.$selection.find('.select2-selection__rendered');
-    var formatted = this.display(selection, $rendered);
-
-    $rendered.empty().append(formatted);
-    $rendered.attr('title', selection.title || selection.text);
-  };
-
-  return SingleSelection;
-});
-
-S2.define('select2/selection/multiple',[
-  'jquery',
-  './base',
-  '../utils'
-], function ($, BaseSelection, Utils) {
-  function MultipleSelection ($element, options) {
-    MultipleSelection.__super__.constructor.apply(this, arguments);
-  }
-
-  Utils.Extend(MultipleSelection, BaseSelection);
-
-  MultipleSelection.prototype.render = function () {
-    var $selection = MultipleSelection.__super__.render.call(this);
-
-    $selection.addClass('select2-selection--multiple');
-
-    $selection.html(
-      '<ul class="select2-selection__rendered"></ul>'
-    );
-
-    return $selection;
-  };
-
-  MultipleSelection.prototype.bind = function (container, $container) {
-    var self = this;
-
-    MultipleSelection.__super__.bind.apply(this, arguments);
-
-    this.$selection.on('click', function (evt) {
-      self.trigger('toggle', {
-        originalEvent: evt
-      });
-    });
-
-    this.$selection.on(
-      'click',
-      '.select2-selection__choice__remove',
-      function (evt) {
-        // Ignore the event if it is disabled
-        if (self.options.get('disabled')) {
-          return;
-        }
-
-        var $remove = $(this);
-        var $selection = $remove.parent();
-
-        var data = Utils.GetData($selection[0], 'data');
-
-        self.trigger('unselect', {
-          originalEvent: evt,
-          data: data
-        });
-      }
-    );
-  };
-
-  MultipleSelection.prototype.clear = function () {
-    var $rendered = this.$selection.find('.select2-selection__rendered');
-    $rendered.empty();
-    $rendered.removeAttr('title');
-  };
-
-  MultipleSelection.prototype.display = function (data, container) {
-    var template = this.options.get('templateSelection');
-    var escapeMarkup = this.options.get('escapeMarkup');
-
-    return escapeMarkup(template(data, container));
-  };
-
-  MultipleSelection.prototype.selectionContainer = function () {
-    var $container = $(
-      '<li class="select2-selection__choice">' +
-        '<span class="select2-selection__choice__remove" role="presentation">' +
-          '&times;' +
-        '</span>' +
-      '</li>'
-    );
-
-    return $container;
-  };
-
-  MultipleSelection.prototype.update = function (data) {
-    this.clear();
-
-    if (data.length === 0) {
-      return;
-    }
-
-    var $selections = [];
-
-    for (var d = 0; d < data.length; d++) {
-      var selection = data[d];
-
-      var $selection = this.selectionContainer();
-      var formatted = this.display(selection, $selection);
-
-      $selection.append(formatted);
-      $selection.attr('title', selection.title || selection.text);
-
-      Utils.StoreData($selection[0], 'data', selection);
-
-      $selections.push($selection);
-    }
-
-    var $rendered = this.$selection.find('.select2-selection__rendered');
-
-    Utils.appendMany($rendered, $selections);
-  };
-
-  return MultipleSelection;
-});
-
-S2.define('select2/selection/placeholder',[
-  '../utils'
-], function (Utils) {
-  function Placeholder (decorated, $element, options) {
-    this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
-
-    decorated.call(this, $element, options);
-  }
-
-  Placeholder.prototype.normalizePlaceholder = function (_, placeholder) {
-    if (typeof placeholder === 'string') {
-      placeholder = {
-        id: '',
-        text: placeholder
-      };
-    }
-
-    return placeholder;
-  };
-
-  Placeholder.prototype.createPlaceholder = function (decorated, placeholder) {
-    var $placeholder = this.selectionContainer();
-
-    $placeholder.html(this.display(placeholder));
-    $placeholder.addClass('select2-selection__placeholder')
-                .removeClass('select2-selection__choice');
-
-    return $placeholder;
-  };
-
-  Placeholder.prototype.update = function (decorated, data) {
-    var singlePlaceholder = (
-      data.length == 1 && data[0].id != this.placeholder.id
-    );
-    var multipleSelections = data.length > 1;
-
-    if (multipleSelections || singlePlaceholder) {
-      return decorated.call(this, data);
-    }
-
-    this.clear();
-
-    var $placeholder = this.createPlaceholder(this.placeholder);
-
-    this.$selection.find('.select2-selection__rendered').append($placeholder);
-  };
-
-  return Placeholder;
-});
-
-S2.define('select2/selection/allowClear',[
-  'jquery',
-  '../keys',
-  '../utils'
-], function ($, KEYS, Utils) {
-  function AllowClear () { }
-
-  AllowClear.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    decorated.call(this, container, $container);
-
-    if (this.placeholder == null) {
-      if (this.options.get('debug') && window.console && console.error) {
-        console.error(
-          'Select2: The `allowClear` option should be used in combination ' +
-          'with the `placeholder` option.'
-        );
-      }
-    }
-
-    this.$selection.on('mousedown', '.select2-selection__clear',
-      function (evt) {
-        self._handleClear(evt);
-    });
-
-    container.on('keypress', function (evt) {
-      self._handleKeyboardClear(evt, container);
-    });
-  };
-
-  AllowClear.prototype._handleClear = function (_, evt) {
-    // Ignore the event if it is disabled
-    if (this.options.get('disabled')) {
-      return;
-    }
-
-    var $clear = this.$selection.find('.select2-selection__clear');
-
-    // Ignore the event if nothing has been selected
-    if ($clear.length === 0) {
-      return;
-    }
-
-    evt.stopPropagation();
-
-    var data = Utils.GetData($clear[0], 'data');
-
-    var previousVal = this.$element.val();
-    this.$element.val(this.placeholder.id);
-
-    var unselectData = {
-      data: data
-    };
-    this.trigger('clear', unselectData);
-    if (unselectData.prevented) {
-      this.$element.val(previousVal);
-      return;
-    }
-
-    for (var d = 0; d < data.length; d++) {
-      unselectData = {
-        data: data[d]
-      };
-
-      // Trigger the `unselect` event, so people can prevent it from being
-      // cleared.
-      this.trigger('unselect', unselectData);
-
-      // If the event was prevented, don't clear it out.
-      if (unselectData.prevented) {
-        this.$element.val(previousVal);
-        return;
-      }
-    }
-
-    this.$element.trigger('change');
-
-    this.trigger('toggle', {});
-  };
-
-  AllowClear.prototype._handleKeyboardClear = function (_, evt, container) {
-    if (container.isOpen()) {
-      return;
-    }
-
-    if (evt.which == KEYS.DELETE || evt.which == KEYS.BACKSPACE) {
-      this._handleClear(evt);
-    }
-  };
-
-  AllowClear.prototype.update = function (decorated, data) {
-    decorated.call(this, data);
-
-    if (this.$selection.find('.select2-selection__placeholder').length > 0 ||
-        data.length === 0) {
-      return;
-    }
-
-    var $remove = $(
-      '<span class="select2-selection__clear">' +
-        '&times;' +
-      '</span>'
-    );
-    Utils.StoreData($remove[0], 'data', data);
-
-    this.$selection.find('.select2-selection__rendered').prepend($remove);
-  };
-
-  return AllowClear;
-});
-
-S2.define('select2/selection/search',[
-  'jquery',
-  '../utils',
-  '../keys'
-], function ($, Utils, KEYS) {
-  function Search (decorated, $element, options) {
-    decorated.call(this, $element, options);
-  }
-
-  Search.prototype.render = function (decorated) {
-    var $search = $(
-      '<li class="select2-search select2-search--inline">' +
-        '<input class="select2-search__field" type="search" tabindex="-1"' +
-        ' autocomplete="off" autocorrect="off" autocapitalize="none"' +
-        ' spellcheck="false" role="textbox" aria-autocomplete="list" />' +
-      '</li>'
-    );
-
-    this.$searchContainer = $search;
-    this.$search = $search.find('input');
-
-    var $rendered = decorated.call(this);
-
-    this._transferTabIndex();
-
-    return $rendered;
-  };
-
-  Search.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    decorated.call(this, container, $container);
-
-    container.on('open', function () {
-      self.$search.trigger('focus');
-    });
-
-    container.on('close', function () {
-      self.$search.val('');
-      self.$search.removeAttr('aria-activedescendant');
-      self.$search.trigger('focus');
-    });
-
-    container.on('enable', function () {
-      self.$search.prop('disabled', false);
-
-      self._transferTabIndex();
-    });
-
-    container.on('disable', function () {
-      self.$search.prop('disabled', true);
-    });
-
-    container.on('focus', function (evt) {
-      self.$search.trigger('focus');
-    });
-
-    container.on('results:focus', function (params) {
-      self.$search.attr('aria-activedescendant', params.id);
-    });
-
-    this.$selection.on('focusin', '.select2-search--inline', function (evt) {
-      self.trigger('focus', evt);
-    });
-
-    this.$selection.on('focusout', '.select2-search--inline', function (evt) {
-      self._handleBlur(evt);
-    });
-
-    this.$selection.on('keydown', '.select2-search--inline', function (evt) {
-      evt.stopPropagation();
-
-      self.trigger('keypress', evt);
-
-      self._keyUpPrevented = evt.isDefaultPrevented();
-
-      var key = evt.which;
-
-      if (key === KEYS.BACKSPACE && self.$search.val() === '') {
-        var $previousChoice = self.$searchContainer
-          .prev('.select2-selection__choice');
-
-        if ($previousChoice.length > 0) {
-          var item = Utils.GetData($previousChoice[0], 'data');
-
-          self.searchRemoveChoice(item);
-
-          evt.preventDefault();
-        }
-      }
-    });
-
-    // Try to detect the IE version should the `documentMode` property that
-    // is stored on the document. This is only implemented in IE and is
-    // slightly cleaner than doing a user agent check.
-    // This property is not available in Edge, but Edge also doesn't have
-    // this bug.
-    var msie = document.documentMode;
-    var disableInputEvents = msie && msie <= 11;
-
-    // Workaround for browsers which do not support the `input` event
-    // This will prevent double-triggering of events for browsers which support
-    // both the `keyup` and `input` events.
-    this.$selection.on(
-      'input.searchcheck',
-      '.select2-search--inline',
-      function (evt) {
-        // IE will trigger the `input` event when a placeholder is used on a
-        // search box. To get around this issue, we are forced to ignore all
-        // `input` events in IE and keep using `keyup`.
-        if (disableInputEvents) {
-          self.$selection.off('input.search input.searchcheck');
-          return;
-        }
-
-        // Unbind the duplicated `keyup` event
-        self.$selection.off('keyup.search');
-      }
-    );
-
-    this.$selection.on(
-      'keyup.search input.search',
-      '.select2-search--inline',
-      function (evt) {
-        // IE will trigger the `input` event when a placeholder is used on a
-        // search box. To get around this issue, we are forced to ignore all
-        // `input` events in IE and keep using `keyup`.
-        if (disableInputEvents && evt.type === 'input') {
-          self.$selection.off('input.search input.searchcheck');
-          return;
-        }
-
-        var key = evt.which;
-
-        // We can freely ignore events from modifier keys
-        if (key == KEYS.SHIFT || key == KEYS.CTRL || key == KEYS.ALT) {
-          return;
-        }
-
-        // Tabbing will be handled during the `keydown` phase
-        if (key == KEYS.TAB) {
-          return;
-        }
-
-        self.handleSearch(evt);
-      }
-    );
-  };
-
-  /**
-   * This method will transfer the tabindex attribute from the rendered
-   * selection to the search box. This allows for the search box to be used as
-   * the primary focus instead of the selection container.
-   *
-   * @private
-   */
-  Search.prototype._transferTabIndex = function (decorated) {
-    this.$search.attr('tabindex', this.$selection.attr('tabindex'));
-    this.$selection.attr('tabindex', '-1');
-  };
-
-  Search.prototype.createPlaceholder = function (decorated, placeholder) {
-    this.$search.attr('placeholder', placeholder.text);
-  };
-
-  Search.prototype.update = function (decorated, data) {
-    var searchHadFocus = this.$search[0] == document.activeElement;
-
-    this.$search.attr('placeholder', '');
-
-    decorated.call(this, data);
-
-    this.$selection.find('.select2-selection__rendered')
-                   .append(this.$searchContainer);
-
-    this.resizeSearch();
-    if (searchHadFocus) {
-      var isTagInput = this.$element.find('[data-select2-tag]').length;
-      if (isTagInput) {
-        // fix IE11 bug where tag input lost focus
-        this.$element.focus();
-      } else {
-        this.$search.focus();
-      }
-    }
-  };
-
-  Search.prototype.handleSearch = function () {
-    this.resizeSearch();
-
-    if (!this._keyUpPrevented) {
-      var input = this.$search.val();
-
-      this.trigger('query', {
-        term: input
-      });
-    }
-
-    this._keyUpPrevented = false;
-  };
-
-  Search.prototype.searchRemoveChoice = function (decorated, item) {
-    this.trigger('unselect', {
-      data: item
-    });
-
-    this.$search.val(item.text);
-    this.handleSearch();
-  };
-
-  Search.prototype.resizeSearch = function () {
-    this.$search.css('width', '25px');
-
-    var width = '';
-
-    if (this.$search.attr('placeholder') !== '') {
-      width = this.$selection.find('.select2-selection__rendered').innerWidth();
-    } else {
-      var minimumWidth = this.$search.val().length + 1;
-
-      width = (minimumWidth * 0.75) + 'em';
-    }
-
-    this.$search.css('width', width);
-  };
-
-  return Search;
-});
-
-S2.define('select2/selection/eventRelay',[
-  'jquery'
-], function ($) {
-  function EventRelay () { }
-
-  EventRelay.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-    var relayEvents = [
-      'open', 'opening',
-      'close', 'closing',
-      'select', 'selecting',
-      'unselect', 'unselecting',
-      'clear', 'clearing'
-    ];
-
-    var preventableEvents = [
-      'opening', 'closing', 'selecting', 'unselecting', 'clearing'
-    ];
-
-    decorated.call(this, container, $container);
-
-    container.on('*', function (name, params) {
-      // Ignore events that should not be relayed
-      if ($.inArray(name, relayEvents) === -1) {
-        return;
-      }
-
-      // The parameters should always be an object
-      params = params || {};
-
-      // Generate the jQuery event for the Select2 event
-      var evt = $.Event('select2:' + name, {
-        params: params
-      });
-
-      self.$element.trigger(evt);
-
-      // Only handle preventable events if it was one
-      if ($.inArray(name, preventableEvents) === -1) {
-        return;
-      }
-
-      params.prevented = evt.isDefaultPrevented();
-    });
-  };
-
-  return EventRelay;
-});
-
-S2.define('select2/translation',[
-  'jquery',
-  'require'
-], function ($, require) {
-  function Translation (dict) {
-    this.dict = dict || {};
-  }
-
-  Translation.prototype.all = function () {
-    return this.dict;
-  };
-
-  Translation.prototype.get = function (key) {
-    return this.dict[key];
-  };
-
-  Translation.prototype.extend = function (translation) {
-    this.dict = $.extend({}, translation.all(), this.dict);
-  };
-
-  // Static functions
-
-  Translation._cache = {};
-
-  Translation.loadPath = function (path) {
-    if (!(path in Translation._cache)) {
-      var translations = require(path);
-
-      Translation._cache[path] = translations;
-    }
-
-    return new Translation(Translation._cache[path]);
-  };
-
-  return Translation;
-});
-
-S2.define('select2/diacritics',[
-
-], function () {
-  var diacritics = {
-    '\u24B6': 'A',
-    '\uFF21': 'A',
-    '\u00C0': 'A',
-    '\u00C1': 'A',
-    '\u00C2': 'A',
-    '\u1EA6': 'A',
-    '\u1EA4': 'A',
-    '\u1EAA': 'A',
-    '\u1EA8': 'A',
-    '\u00C3': 'A',
-    '\u0100': 'A',
-    '\u0102': 'A',
-    '\u1EB0': 'A',
-    '\u1EAE': 'A',
-    '\u1EB4': 'A',
-    '\u1EB2': 'A',
-    '\u0226': 'A',
-    '\u01E0': 'A',
-    '\u00C4': 'A',
-    '\u01DE': 'A',
-    '\u1EA2': 'A',
-    '\u00C5': 'A',
-    '\u01FA': 'A',
-    '\u01CD': 'A',
-    '\u0200': 'A',
-    '\u0202': 'A',
-    '\u1EA0': 'A',
-    '\u1EAC': 'A',
-    '\u1EB6': 'A',
-    '\u1E00': 'A',
-    '\u0104': 'A',
-    '\u023A': 'A',
-    '\u2C6F': 'A',
-    '\uA732': 'AA',
-    '\u00C6': 'AE',
-    '\u01FC': 'AE',
-    '\u01E2': 'AE',
-    '\uA734': 'AO',
-    '\uA736': 'AU',
-    '\uA738': 'AV',
-    '\uA73A': 'AV',
-    '\uA73C': 'AY',
-    '\u24B7': 'B',
-    '\uFF22': 'B',
-    '\u1E02': 'B',
-    '\u1E04': 'B',
-    '\u1E06': 'B',
-    '\u0243': 'B',
-    '\u0182': 'B',
-    '\u0181': 'B',
-    '\u24B8': 'C',
-    '\uFF23': 'C',
-    '\u0106': 'C',
-    '\u0108': 'C',
-    '\u010A': 'C',
-    '\u010C': 'C',
-    '\u00C7': 'C',
-    '\u1E08': 'C',
-    '\u0187': 'C',
-    '\u023B': 'C',
-    '\uA73E': 'C',
-    '\u24B9': 'D',
-    '\uFF24': 'D',
-    '\u1E0A': 'D',
-    '\u010E': 'D',
-    '\u1E0C': 'D',
-    '\u1E10': 'D',
-    '\u1E12': 'D',
-    '\u1E0E': 'D',
-    '\u0110': 'D',
-    '\u018B': 'D',
-    '\u018A': 'D',
-    '\u0189': 'D',
-    '\uA779': 'D',
-    '\u01F1': 'DZ',
-    '\u01C4': 'DZ',
-    '\u01F2': 'Dz',
-    '\u01C5': 'Dz',
-    '\u24BA': 'E',
-    '\uFF25': 'E',
-    '\u00C8': 'E',
-    '\u00C9': 'E',
-    '\u00CA': 'E',
-    '\u1EC0': 'E',
-    '\u1EBE': 'E',
-    '\u1EC4': 'E',
-    '\u1EC2': 'E',
-    '\u1EBC': 'E',
-    '\u0112': 'E',
-    '\u1E14': 'E',
-    '\u1E16': 'E',
-    '\u0114': 'E',
-    '\u0116': 'E',
-    '\u00CB': 'E',
-    '\u1EBA': 'E',
-    '\u011A': 'E',
-    '\u0204': 'E',
-    '\u0206': 'E',
-    '\u1EB8': 'E',
-    '\u1EC6': 'E',
-    '\u0228': 'E',
-    '\u1E1C': 'E',
-    '\u0118': 'E',
-    '\u1E18': 'E',
-    '\u1E1A': 'E',
-    '\u0190': 'E',
-    '\u018E': 'E',
-    '\u24BB': 'F',
-    '\uFF26': 'F',
-    '\u1E1E': 'F',
-    '\u0191': 'F',
-    '\uA77B': 'F',
-    '\u24BC': 'G',
-    '\uFF27': 'G',
-    '\u01F4': 'G',
-    '\u011C': 'G',
-    '\u1E20': 'G',
-    '\u011E': 'G',
-    '\u0120': 'G',
-    '\u01E6': 'G',
-    '\u0122': 'G',
-    '\u01E4': 'G',
-    '\u0193': 'G',
-    '\uA7A0': 'G',
-    '\uA77D': 'G',
-    '\uA77E': 'G',
-    '\u24BD': 'H',
-    '\uFF28': 'H',
-    '\u0124': 'H',
-    '\u1E22': 'H',
-    '\u1E26': 'H',
-    '\u021E': 'H',
-    '\u1E24': 'H',
-    '\u1E28': 'H',
-    '\u1E2A': 'H',
-    '\u0126': 'H',
-    '\u2C67': 'H',
-    '\u2C75': 'H',
-    '\uA78D': 'H',
-    '\u24BE': 'I',
-    '\uFF29': 'I',
-    '\u00CC': 'I',
-    '\u00CD': 'I',
-    '\u00CE': 'I',
-    '\u0128': 'I',
-    '\u012A': 'I',
-    '\u012C': 'I',
-    '\u0130': 'I',
-    '\u00CF': 'I',
-    '\u1E2E': 'I',
-    '\u1EC8': 'I',
-    '\u01CF': 'I',
-    '\u0208': 'I',
-    '\u020A': 'I',
-    '\u1ECA': 'I',
-    '\u012E': 'I',
-    '\u1E2C': 'I',
-    '\u0197': 'I',
-    '\u24BF': 'J',
-    '\uFF2A': 'J',
-    '\u0134': 'J',
-    '\u0248': 'J',
-    '\u24C0': 'K',
-    '\uFF2B': 'K',
-    '\u1E30': 'K',
-    '\u01E8': 'K',
-    '\u1E32': 'K',
-    '\u0136': 'K',
-    '\u1E34': 'K',
-    '\u0198': 'K',
-    '\u2C69': 'K',
-    '\uA740': 'K',
-    '\uA742': 'K',
-    '\uA744': 'K',
-    '\uA7A2': 'K',
-    '\u24C1': 'L',
-    '\uFF2C': 'L',
-    '\u013F': 'L',
-    '\u0139': 'L',
-    '\u013D': 'L',
-    '\u1E36': 'L',
-    '\u1E38': 'L',
-    '\u013B': 'L',
-    '\u1E3C': 'L',
-    '\u1E3A': 'L',
-    '\u0141': 'L',
-    '\u023D': 'L',
-    '\u2C62': 'L',
-    '\u2C60': 'L',
-    '\uA748': 'L',
-    '\uA746': 'L',
-    '\uA780': 'L',
-    '\u01C7': 'LJ',
-    '\u01C8': 'Lj',
-    '\u24C2': 'M',
-    '\uFF2D': 'M',
-    '\u1E3E': 'M',
-    '\u1E40': 'M',
-    '\u1E42': 'M',
-    '\u2C6E': 'M',
-    '\u019C': 'M',
-    '\u24C3': 'N',
-    '\uFF2E': 'N',
-    '\u01F8': 'N',
-    '\u0143': 'N',
-    '\u00D1': 'N',
-    '\u1E44': 'N',
-    '\u0147': 'N',
-    '\u1E46': 'N',
-    '\u0145': 'N',
-    '\u1E4A': 'N',
-    '\u1E48': 'N',
-    '\u0220': 'N',
-    '\u019D': 'N',
-    '\uA790': 'N',
-    '\uA7A4': 'N',
-    '\u01CA': 'NJ',
-    '\u01CB': 'Nj',
-    '\u24C4': 'O',
-    '\uFF2F': 'O',
-    '\u00D2': 'O',
-    '\u00D3': 'O',
-    '\u00D4': 'O',
-    '\u1ED2': 'O',
-    '\u1ED0': 'O',
-    '\u1ED6': 'O',
-    '\u1ED4': 'O',
-    '\u00D5': 'O',
-    '\u1E4C': 'O',
-    '\u022C': 'O',
-    '\u1E4E': 'O',
-    '\u014C': 'O',
-    '\u1E50': 'O',
-    '\u1E52': 'O',
-    '\u014E': 'O',
-    '\u022E': 'O',
-    '\u0230': 'O',
-    '\u00D6': 'O',
-    '\u022A': 'O',
-    '\u1ECE': 'O',
-    '\u0150': 'O',
-    '\u01D1': 'O',
-    '\u020C': 'O',
-    '\u020E': 'O',
-    '\u01A0': 'O',
-    '\u1EDC': 'O',
-    '\u1EDA': 'O',
-    '\u1EE0': 'O',
-    '\u1EDE': 'O',
-    '\u1EE2': 'O',
-    '\u1ECC': 'O',
-    '\u1ED8': 'O',
-    '\u01EA': 'O',
-    '\u01EC': 'O',
-    '\u00D8': 'O',
-    '\u01FE': 'O',
-    '\u0186': 'O',
-    '\u019F': 'O',
-    '\uA74A': 'O',
-    '\uA74C': 'O',
-    '\u01A2': 'OI',
-    '\uA74E': 'OO',
-    '\u0222': 'OU',
-    '\u24C5': 'P',
-    '\uFF30': 'P',
-    '\u1E54': 'P',
-    '\u1E56': 'P',
-    '\u01A4': 'P',
-    '\u2C63': 'P',
-    '\uA750': 'P',
-    '\uA752': 'P',
-    '\uA754': 'P',
-    '\u24C6': 'Q',
-    '\uFF31': 'Q',
-    '\uA756': 'Q',
-    '\uA758': 'Q',
-    '\u024A': 'Q',
-    '\u24C7': 'R',
-    '\uFF32': 'R',
-    '\u0154': 'R',
-    '\u1E58': 'R',
-    '\u0158': 'R',
-    '\u0210': 'R',
-    '\u0212': 'R',
-    '\u1E5A': 'R',
-    '\u1E5C': 'R',
-    '\u0156': 'R',
-    '\u1E5E': 'R',
-    '\u024C': 'R',
-    '\u2C64': 'R',
-    '\uA75A': 'R',
-    '\uA7A6': 'R',
-    '\uA782': 'R',
-    '\u24C8': 'S',
-    '\uFF33': 'S',
-    '\u1E9E': 'S',
-    '\u015A': 'S',
-    '\u1E64': 'S',
-    '\u015C': 'S',
-    '\u1E60': 'S',
-    '\u0160': 'S',
-    '\u1E66': 'S',
-    '\u1E62': 'S',
-    '\u1E68': 'S',
-    '\u0218': 'S',
-    '\u015E': 'S',
-    '\u2C7E': 'S',
-    '\uA7A8': 'S',
-    '\uA784': 'S',
-    '\u24C9': 'T',
-    '\uFF34': 'T',
-    '\u1E6A': 'T',
-    '\u0164': 'T',
-    '\u1E6C': 'T',
-    '\u021A': 'T',
-    '\u0162': 'T',
-    '\u1E70': 'T',
-    '\u1E6E': 'T',
-    '\u0166': 'T',
-    '\u01AC': 'T',
-    '\u01AE': 'T',
-    '\u023E': 'T',
-    '\uA786': 'T',
-    '\uA728': 'TZ',
-    '\u24CA': 'U',
-    '\uFF35': 'U',
-    '\u00D9': 'U',
-    '\u00DA': 'U',
-    '\u00DB': 'U',
-    '\u0168': 'U',
-    '\u1E78': 'U',
-    '\u016A': 'U',
-    '\u1E7A': 'U',
-    '\u016C': 'U',
-    '\u00DC': 'U',
-    '\u01DB': 'U',
-    '\u01D7': 'U',
-    '\u01D5': 'U',
-    '\u01D9': 'U',
-    '\u1EE6': 'U',
-    '\u016E': 'U',
-    '\u0170': 'U',
-    '\u01D3': 'U',
-    '\u0214': 'U',
-    '\u0216': 'U',
-    '\u01AF': 'U',
-    '\u1EEA': 'U',
-    '\u1EE8': 'U',
-    '\u1EEE': 'U',
-    '\u1EEC': 'U',
-    '\u1EF0': 'U',
-    '\u1EE4': 'U',
-    '\u1E72': 'U',
-    '\u0172': 'U',
-    '\u1E76': 'U',
-    '\u1E74': 'U',
-    '\u0244': 'U',
-    '\u24CB': 'V',
-    '\uFF36': 'V',
-    '\u1E7C': 'V',
-    '\u1E7E': 'V',
-    '\u01B2': 'V',
-    '\uA75E': 'V',
-    '\u0245': 'V',
-    '\uA760': 'VY',
-    '\u24CC': 'W',
-    '\uFF37': 'W',
-    '\u1E80': 'W',
-    '\u1E82': 'W',
-    '\u0174': 'W',
-    '\u1E86': 'W',
-    '\u1E84': 'W',
-    '\u1E88': 'W',
-    '\u2C72': 'W',
-    '\u24CD': 'X',
-    '\uFF38': 'X',
-    '\u1E8A': 'X',
-    '\u1E8C': 'X',
-    '\u24CE': 'Y',
-    '\uFF39': 'Y',
-    '\u1EF2': 'Y',
-    '\u00DD': 'Y',
-    '\u0176': 'Y',
-    '\u1EF8': 'Y',
-    '\u0232': 'Y',
-    '\u1E8E': 'Y',
-    '\u0178': 'Y',
-    '\u1EF6': 'Y',
-    '\u1EF4': 'Y',
-    '\u01B3': 'Y',
-    '\u024E': 'Y',
-    '\u1EFE': 'Y',
-    '\u24CF': 'Z',
-    '\uFF3A': 'Z',
-    '\u0179': 'Z',
-    '\u1E90': 'Z',
-    '\u017B': 'Z',
-    '\u017D': 'Z',
-    '\u1E92': 'Z',
-    '\u1E94': 'Z',
-    '\u01B5': 'Z',
-    '\u0224': 'Z',
-    '\u2C7F': 'Z',
-    '\u2C6B': 'Z',
-    '\uA762': 'Z',
-    '\u24D0': 'a',
-    '\uFF41': 'a',
-    '\u1E9A': 'a',
-    '\u00E0': 'a',
-    '\u00E1': 'a',
-    '\u00E2': 'a',
-    '\u1EA7': 'a',
-    '\u1EA5': 'a',
-    '\u1EAB': 'a',
-    '\u1EA9': 'a',
-    '\u00E3': 'a',
-    '\u0101': 'a',
-    '\u0103': 'a',
-    '\u1EB1': 'a',
-    '\u1EAF': 'a',
-    '\u1EB5': 'a',
-    '\u1EB3': 'a',
-    '\u0227': 'a',
-    '\u01E1': 'a',
-    '\u00E4': 'a',
-    '\u01DF': 'a',
-    '\u1EA3': 'a',
-    '\u00E5': 'a',
-    '\u01FB': 'a',
-    '\u01CE': 'a',
-    '\u0201': 'a',
-    '\u0203': 'a',
-    '\u1EA1': 'a',
-    '\u1EAD': 'a',
-    '\u1EB7': 'a',
-    '\u1E01': 'a',
-    '\u0105': 'a',
-    '\u2C65': 'a',
-    '\u0250': 'a',
-    '\uA733': 'aa',
-    '\u00E6': 'ae',
-    '\u01FD': 'ae',
-    '\u01E3': 'ae',
-    '\uA735': 'ao',
-    '\uA737': 'au',
-    '\uA739': 'av',
-    '\uA73B': 'av',
-    '\uA73D': 'ay',
-    '\u24D1': 'b',
-    '\uFF42': 'b',
-    '\u1E03': 'b',
-    '\u1E05': 'b',
-    '\u1E07': 'b',
-    '\u0180': 'b',
-    '\u0183': 'b',
-    '\u0253': 'b',
-    '\u24D2': 'c',
-    '\uFF43': 'c',
-    '\u0107': 'c',
-    '\u0109': 'c',
-    '\u010B': 'c',
-    '\u010D': 'c',
-    '\u00E7': 'c',
-    '\u1E09': 'c',
-    '\u0188': 'c',
-    '\u023C': 'c',
-    '\uA73F': 'c',
-    '\u2184': 'c',
-    '\u24D3': 'd',
-    '\uFF44': 'd',
-    '\u1E0B': 'd',
-    '\u010F': 'd',
-    '\u1E0D': 'd',
-    '\u1E11': 'd',
-    '\u1E13': 'd',
-    '\u1E0F': 'd',
-    '\u0111': 'd',
-    '\u018C': 'd',
-    '\u0256': 'd',
-    '\u0257': 'd',
-    '\uA77A': 'd',
-    '\u01F3': 'dz',
-    '\u01C6': 'dz',
-    '\u24D4': 'e',
-    '\uFF45': 'e',
-    '\u00E8': 'e',
-    '\u00E9': 'e',
-    '\u00EA': 'e',
-    '\u1EC1': 'e',
-    '\u1EBF': 'e',
-    '\u1EC5': 'e',
-    '\u1EC3': 'e',
-    '\u1EBD': 'e',
-    '\u0113': 'e',
-    '\u1E15': 'e',
-    '\u1E17': 'e',
-    '\u0115': 'e',
-    '\u0117': 'e',
-    '\u00EB': 'e',
-    '\u1EBB': 'e',
-    '\u011B': 'e',
-    '\u0205': 'e',
-    '\u0207': 'e',
-    '\u1EB9': 'e',
-    '\u1EC7': 'e',
-    '\u0229': 'e',
-    '\u1E1D': 'e',
-    '\u0119': 'e',
-    '\u1E19': 'e',
-    '\u1E1B': 'e',
-    '\u0247': 'e',
-    '\u025B': 'e',
-    '\u01DD': 'e',
-    '\u24D5': 'f',
-    '\uFF46': 'f',
-    '\u1E1F': 'f',
-    '\u0192': 'f',
-    '\uA77C': 'f',
-    '\u24D6': 'g',
-    '\uFF47': 'g',
-    '\u01F5': 'g',
-    '\u011D': 'g',
-    '\u1E21': 'g',
-    '\u011F': 'g',
-    '\u0121': 'g',
-    '\u01E7': 'g',
-    '\u0123': 'g',
-    '\u01E5': 'g',
-    '\u0260': 'g',
-    '\uA7A1': 'g',
-    '\u1D79': 'g',
-    '\uA77F': 'g',
-    '\u24D7': 'h',
-    '\uFF48': 'h',
-    '\u0125': 'h',
-    '\u1E23': 'h',
-    '\u1E27': 'h',
-    '\u021F': 'h',
-    '\u1E25': 'h',
-    '\u1E29': 'h',
-    '\u1E2B': 'h',
-    '\u1E96': 'h',
-    '\u0127': 'h',
-    '\u2C68': 'h',
-    '\u2C76': 'h',
-    '\u0265': 'h',
-    '\u0195': 'hv',
-    '\u24D8': 'i',
-    '\uFF49': 'i',
-    '\u00EC': 'i',
-    '\u00ED': 'i',
-    '\u00EE': 'i',
-    '\u0129': 'i',
-    '\u012B': 'i',
-    '\u012D': 'i',
-    '\u00EF': 'i',
-    '\u1E2F': 'i',
-    '\u1EC9': 'i',
-    '\u01D0': 'i',
-    '\u0209': 'i',
-    '\u020B': 'i',
-    '\u1ECB': 'i',
-    '\u012F': 'i',
-    '\u1E2D': 'i',
-    '\u0268': 'i',
-    '\u0131': 'i',
-    '\u24D9': 'j',
-    '\uFF4A': 'j',
-    '\u0135': 'j',
-    '\u01F0': 'j',
-    '\u0249': 'j',
-    '\u24DA': 'k',
-    '\uFF4B': 'k',
-    '\u1E31': 'k',
-    '\u01E9': 'k',
-    '\u1E33': 'k',
-    '\u0137': 'k',
-    '\u1E35': 'k',
-    '\u0199': 'k',
-    '\u2C6A': 'k',
-    '\uA741': 'k',
-    '\uA743': 'k',
-    '\uA745': 'k',
-    '\uA7A3': 'k',
-    '\u24DB': 'l',
-    '\uFF4C': 'l',
-    '\u0140': 'l',
-    '\u013A': 'l',
-    '\u013E': 'l',
-    '\u1E37': 'l',
-    '\u1E39': 'l',
-    '\u013C': 'l',
-    '\u1E3D': 'l',
-    '\u1E3B': 'l',
-    '\u017F': 'l',
-    '\u0142': 'l',
-    '\u019A': 'l',
-    '\u026B': 'l',
-    '\u2C61': 'l',
-    '\uA749': 'l',
-    '\uA781': 'l',
-    '\uA747': 'l',
-    '\u01C9': 'lj',
-    '\u24DC': 'm',
-    '\uFF4D': 'm',
-    '\u1E3F': 'm',
-    '\u1E41': 'm',
-    '\u1E43': 'm',
-    '\u0271': 'm',
-    '\u026F': 'm',
-    '\u24DD': 'n',
-    '\uFF4E': 'n',
-    '\u01F9': 'n',
-    '\u0144': 'n',
-    '\u00F1': 'n',
-    '\u1E45': 'n',
-    '\u0148': 'n',
-    '\u1E47': 'n',
-    '\u0146': 'n',
-    '\u1E4B': 'n',
-    '\u1E49': 'n',
-    '\u019E': 'n',
-    '\u0272': 'n',
-    '\u0149': 'n',
-    '\uA791': 'n',
-    '\uA7A5': 'n',
-    '\u01CC': 'nj',
-    '\u24DE': 'o',
-    '\uFF4F': 'o',
-    '\u00F2': 'o',
-    '\u00F3': 'o',
-    '\u00F4': 'o',
-    '\u1ED3': 'o',
-    '\u1ED1': 'o',
-    '\u1ED7': 'o',
-    '\u1ED5': 'o',
-    '\u00F5': 'o',
-    '\u1E4D': 'o',
-    '\u022D': 'o',
-    '\u1E4F': 'o',
-    '\u014D': 'o',
-    '\u1E51': 'o',
-    '\u1E53': 'o',
-    '\u014F': 'o',
-    '\u022F': 'o',
-    '\u0231': 'o',
-    '\u00F6': 'o',
-    '\u022B': 'o',
-    '\u1ECF': 'o',
-    '\u0151': 'o',
-    '\u01D2': 'o',
-    '\u020D': 'o',
-    '\u020F': 'o',
-    '\u01A1': 'o',
-    '\u1EDD': 'o',
-    '\u1EDB': 'o',
-    '\u1EE1': 'o',
-    '\u1EDF': 'o',
-    '\u1EE3': 'o',
-    '\u1ECD': 'o',
-    '\u1ED9': 'o',
-    '\u01EB': 'o',
-    '\u01ED': 'o',
-    '\u00F8': 'o',
-    '\u01FF': 'o',
-    '\u0254': 'o',
-    '\uA74B': 'o',
-    '\uA74D': 'o',
-    '\u0275': 'o',
-    '\u01A3': 'oi',
-    '\u0223': 'ou',
-    '\uA74F': 'oo',
-    '\u24DF': 'p',
-    '\uFF50': 'p',
-    '\u1E55': 'p',
-    '\u1E57': 'p',
-    '\u01A5': 'p',
-    '\u1D7D': 'p',
-    '\uA751': 'p',
-    '\uA753': 'p',
-    '\uA755': 'p',
-    '\u24E0': 'q',
-    '\uFF51': 'q',
-    '\u024B': 'q',
-    '\uA757': 'q',
-    '\uA759': 'q',
-    '\u24E1': 'r',
-    '\uFF52': 'r',
-    '\u0155': 'r',
-    '\u1E59': 'r',
-    '\u0159': 'r',
-    '\u0211': 'r',
-    '\u0213': 'r',
-    '\u1E5B': 'r',
-    '\u1E5D': 'r',
-    '\u0157': 'r',
-    '\u1E5F': 'r',
-    '\u024D': 'r',
-    '\u027D': 'r',
-    '\uA75B': 'r',
-    '\uA7A7': 'r',
-    '\uA783': 'r',
-    '\u24E2': 's',
-    '\uFF53': 's',
-    '\u00DF': 's',
-    '\u015B': 's',
-    '\u1E65': 's',
-    '\u015D': 's',
-    '\u1E61': 's',
-    '\u0161': 's',
-    '\u1E67': 's',
-    '\u1E63': 's',
-    '\u1E69': 's',
-    '\u0219': 's',
-    '\u015F': 's',
-    '\u023F': 's',
-    '\uA7A9': 's',
-    '\uA785': 's',
-    '\u1E9B': 's',
-    '\u24E3': 't',
-    '\uFF54': 't',
-    '\u1E6B': 't',
-    '\u1E97': 't',
-    '\u0165': 't',
-    '\u1E6D': 't',
-    '\u021B': 't',
-    '\u0163': 't',
-    '\u1E71': 't',
-    '\u1E6F': 't',
-    '\u0167': 't',
-    '\u01AD': 't',
-    '\u0288': 't',
-    '\u2C66': 't',
-    '\uA787': 't',
-    '\uA729': 'tz',
-    '\u24E4': 'u',
-    '\uFF55': 'u',
-    '\u00F9': 'u',
-    '\u00FA': 'u',
-    '\u00FB': 'u',
-    '\u0169': 'u',
-    '\u1E79': 'u',
-    '\u016B': 'u',
-    '\u1E7B': 'u',
-    '\u016D': 'u',
-    '\u00FC': 'u',
-    '\u01DC': 'u',
-    '\u01D8': 'u',
-    '\u01D6': 'u',
-    '\u01DA': 'u',
-    '\u1EE7': 'u',
-    '\u016F': 'u',
-    '\u0171': 'u',
-    '\u01D4': 'u',
-    '\u0215': 'u',
-    '\u0217': 'u',
-    '\u01B0': 'u',
-    '\u1EEB': 'u',
-    '\u1EE9': 'u',
-    '\u1EEF': 'u',
-    '\u1EED': 'u',
-    '\u1EF1': 'u',
-    '\u1EE5': 'u',
-    '\u1E73': 'u',
-    '\u0173': 'u',
-    '\u1E77': 'u',
-    '\u1E75': 'u',
-    '\u0289': 'u',
-    '\u24E5': 'v',
-    '\uFF56': 'v',
-    '\u1E7D': 'v',
-    '\u1E7F': 'v',
-    '\u028B': 'v',
-    '\uA75F': 'v',
-    '\u028C': 'v',
-    '\uA761': 'vy',
-    '\u24E6': 'w',
-    '\uFF57': 'w',
-    '\u1E81': 'w',
-    '\u1E83': 'w',
-    '\u0175': 'w',
-    '\u1E87': 'w',
-    '\u1E85': 'w',
-    '\u1E98': 'w',
-    '\u1E89': 'w',
-    '\u2C73': 'w',
-    '\u24E7': 'x',
-    '\uFF58': 'x',
-    '\u1E8B': 'x',
-    '\u1E8D': 'x',
-    '\u24E8': 'y',
-    '\uFF59': 'y',
-    '\u1EF3': 'y',
-    '\u00FD': 'y',
-    '\u0177': 'y',
-    '\u1EF9': 'y',
-    '\u0233': 'y',
-    '\u1E8F': 'y',
-    '\u00FF': 'y',
-    '\u1EF7': 'y',
-    '\u1E99': 'y',
-    '\u1EF5': 'y',
-    '\u01B4': 'y',
-    '\u024F': 'y',
-    '\u1EFF': 'y',
-    '\u24E9': 'z',
-    '\uFF5A': 'z',
-    '\u017A': 'z',
-    '\u1E91': 'z',
-    '\u017C': 'z',
-    '\u017E': 'z',
-    '\u1E93': 'z',
-    '\u1E95': 'z',
-    '\u01B6': 'z',
-    '\u0225': 'z',
-    '\u0240': 'z',
-    '\u2C6C': 'z',
-    '\uA763': 'z',
-    '\u0386': '\u0391',
-    '\u0388': '\u0395',
-    '\u0389': '\u0397',
-    '\u038A': '\u0399',
-    '\u03AA': '\u0399',
-    '\u038C': '\u039F',
-    '\u038E': '\u03A5',
-    '\u03AB': '\u03A5',
-    '\u038F': '\u03A9',
-    '\u03AC': '\u03B1',
-    '\u03AD': '\u03B5',
-    '\u03AE': '\u03B7',
-    '\u03AF': '\u03B9',
-    '\u03CA': '\u03B9',
-    '\u0390': '\u03B9',
-    '\u03CC': '\u03BF',
-    '\u03CD': '\u03C5',
-    '\u03CB': '\u03C5',
-    '\u03B0': '\u03C5',
-    '\u03C9': '\u03C9',
-    '\u03C2': '\u03C3'
-  };
-
-  return diacritics;
-});
-
-S2.define('select2/data/base',[
-  '../utils'
-], function (Utils) {
-  function BaseAdapter ($element, options) {
-    BaseAdapter.__super__.constructor.call(this);
-  }
-
-  Utils.Extend(BaseAdapter, Utils.Observable);
-
-  BaseAdapter.prototype.current = function (callback) {
-    throw new Error('The `current` method must be defined in child classes.');
-  };
-
-  BaseAdapter.prototype.query = function (params, callback) {
-    throw new Error('The `query` method must be defined in child classes.');
-  };
-
-  BaseAdapter.prototype.bind = function (container, $container) {
-    // Can be implemented in subclasses
-  };
-
-  BaseAdapter.prototype.destroy = function () {
-    // Can be implemented in subclasses
-  };
-
-  BaseAdapter.prototype.generateResultId = function (container, data) {
-    var id = container.id + '-result-';
-
-    id += Utils.generateChars(4);
-
-    if (data.id != null) {
-      id += '-' + data.id.toString();
-    } else {
-      id += '-' + Utils.generateChars(4);
-    }
-    return id;
-  };
-
-  return BaseAdapter;
-});
-
-S2.define('select2/data/select',[
-  './base',
-  '../utils',
-  'jquery'
-], function (BaseAdapter, Utils, $) {
-  function SelectAdapter ($element, options) {
-    this.$element = $element;
-    this.options = options;
-
-    SelectAdapter.__super__.constructor.call(this);
-  }
-
-  Utils.Extend(SelectAdapter, BaseAdapter);
-
-  SelectAdapter.prototype.current = function (callback) {
-    var data = [];
-    var self = this;
-
-    this.$element.find(':selected').each(function () {
-      var $option = $(this);
-
-      var option = self.item($option);
-
-      data.push(option);
-    });
-
-    callback(data);
-  };
-
-  SelectAdapter.prototype.select = function (data) {
-    var self = this;
-
-    data.selected = true;
-
-    // If data.element is a DOM node, use it instead
-    if ($(data.element).is('option')) {
-      data.element.selected = true;
-
-      this.$element.trigger('change');
-
-      return;
-    }
-
-    if (this.$element.prop('multiple')) {
-      this.current(function (currentData) {
-        var val = [];
-
-        data = [data];
-        data.push.apply(data, currentData);
-
-        for (var d = 0; d < data.length; d++) {
-          var id = data[d].id;
-
-          if ($.inArray(id, val) === -1) {
-            val.push(id);
-          }
-        }
-
-        self.$element.val(val);
-        self.$element.trigger('change');
-      });
-    } else {
-      var val = data.id;
-
-      this.$element.val(val);
-      this.$element.trigger('change');
-    }
-  };
-
-  SelectAdapter.prototype.unselect = function (data) {
-    var self = this;
-
-    if (!this.$element.prop('multiple')) {
-      return;
-    }
-
-    data.selected = false;
-
-    if ($(data.element).is('option')) {
-      data.element.selected = false;
-
-      this.$element.trigger('change');
-
-      return;
-    }
-
-    this.current(function (currentData) {
-      var val = [];
-
-      for (var d = 0; d < currentData.length; d++) {
-        var id = currentData[d].id;
-
-        if (id !== data.id && $.inArray(id, val) === -1) {
-          val.push(id);
-        }
-      }
-
-      self.$element.val(val);
-
-      self.$element.trigger('change');
-    });
-  };
-
-  SelectAdapter.prototype.bind = function (container, $container) {
-    var self = this;
-
-    this.container = container;
-
-    container.on('select', function (params) {
-      self.select(params.data);
-    });
-
-    container.on('unselect', function (params) {
-      self.unselect(params.data);
-    });
-  };
-
-  SelectAdapter.prototype.destroy = function () {
-    // Remove anything added to child elements
-    this.$element.find('*').each(function () {
-      // Remove any custom data set by Select2
-      Utils.RemoveData(this);
-    });
-  };
-
-  SelectAdapter.prototype.query = function (params, callback) {
-    var data = [];
-    var self = this;
-
-    var $options = this.$element.children();
-
-    $options.each(function () {
-      var $option = $(this);
-
-      if (!$option.is('option') && !$option.is('optgroup')) {
-        return;
-      }
-
-      var option = self.item($option);
-
-      var matches = self.matches(params, option);
-
-      if (matches !== null) {
-        data.push(matches);
-      }
-    });
-
-    callback({
-      results: data
-    });
-  };
-
-  SelectAdapter.prototype.addOptions = function ($options) {
-    Utils.appendMany(this.$element, $options);
-  };
-
-  SelectAdapter.prototype.option = function (data) {
-    var option;
-
-    if (data.children) {
-      option = document.createElement('optgroup');
-      option.label = data.text;
-    } else {
-      option = document.createElement('option');
-
-      if (option.textContent !== undefined) {
-        option.textContent = data.text;
-      } else {
-        option.innerText = data.text;
-      }
-    }
-
-    if (data.id !== undefined) {
-      option.value = data.id;
-    }
-
-    if (data.disabled) {
-      option.disabled = true;
-    }
-
-    if (data.selected) {
-      option.selected = true;
-    }
-
-    if (data.title) {
-      option.title = data.title;
-    }
-
-    var $option = $(option);
-
-    var normalizedData = this._normalizeItem(data);
-    normalizedData.element = option;
-
-    // Override the option's data with the combined data
-    Utils.StoreData(option, 'data', normalizedData);
-
-    return $option;
-  };
-
-  SelectAdapter.prototype.item = function ($option) {
-    var data = {};
-
-    data = Utils.GetData($option[0], 'data');
-
-    if (data != null) {
-      return data;
-    }
-
-    if ($option.is('option')) {
-      data = {
-        id: $option.val(),
-        text: $option.text(),
-        disabled: $option.prop('disabled'),
-        selected: $option.prop('selected'),
-        title: $option.prop('title')
-      };
-    } else if ($option.is('optgroup')) {
-      data = {
-        text: $option.prop('label'),
-        children: [],
-        title: $option.prop('title')
-      };
-
-      var $children = $option.children('option');
-      var children = [];
-
-      for (var c = 0; c < $children.length; c++) {
-        var $child = $($children[c]);
-
-        var child = this.item($child);
-
-        children.push(child);
-      }
-
-      data.children = children;
-    }
-
-    data = this._normalizeItem(data);
-    data.element = $option[0];
-
-    Utils.StoreData($option[0], 'data', data);
-
-    return data;
-  };
-
-  SelectAdapter.prototype._normalizeItem = function (item) {
-    if (item !== Object(item)) {
-      item = {
-        id: item,
-        text: item
-      };
-    }
-
-    item = $.extend({}, {
-      text: ''
-    }, item);
-
-    var defaults = {
-      selected: false,
-      disabled: false
-    };
-
-    if (item.id != null) {
-      item.id = item.id.toString();
-    }
-
-    if (item.text != null) {
-      item.text = item.text.toString();
-    }
-
-    if (item._resultId == null && item.id && this.container != null) {
-      item._resultId = this.generateResultId(this.container, item);
-    }
-
-    return $.extend({}, defaults, item);
-  };
-
-  SelectAdapter.prototype.matches = function (params, data) {
-    var matcher = this.options.get('matcher');
-
-    return matcher(params, data);
-  };
-
-  return SelectAdapter;
-});
-
-S2.define('select2/data/array',[
-  './select',
-  '../utils',
-  'jquery'
-], function (SelectAdapter, Utils, $) {
-  function ArrayAdapter ($element, options) {
-    var data = options.get('data') || [];
-
-    ArrayAdapter.__super__.constructor.call(this, $element, options);
-
-    this.addOptions(this.convertToOptions(data));
-  }
-
-  Utils.Extend(ArrayAdapter, SelectAdapter);
-
-  ArrayAdapter.prototype.select = function (data) {
-    var $option = this.$element.find('option').filter(function (i, elm) {
-      return elm.value == data.id.toString();
-    });
-
-    if ($option.length === 0) {
-      $option = this.option(data);
-
-      this.addOptions($option);
-    }
-
-    ArrayAdapter.__super__.select.call(this, data);
-  };
-
-  ArrayAdapter.prototype.convertToOptions = function (data) {
-    var self = this;
-
-    var $existing = this.$element.find('option');
-    var existingIds = $existing.map(function () {
-      return self.item($(this)).id;
-    }).get();
-
-    var $options = [];
-
-    // Filter out all items except for the one passed in the argument
-    function onlyItem (item) {
-      return function () {
-        return $(this).val() == item.id;
-      };
-    }
-
-    for (var d = 0; d < data.length; d++) {
-      var item = this._normalizeItem(data[d]);
-
-      // Skip items which were pre-loaded, only merge the data
-      if ($.inArray(item.id, existingIds) >= 0) {
-        var $existingOption = $existing.filter(onlyItem(item));
-
-        var existingData = this.item($existingOption);
-        var newData = $.extend(true, {}, item, existingData);
-
-        var $newOption = this.option(newData);
-
-        $existingOption.replaceWith($newOption);
-
-        continue;
-      }
-
-      var $option = this.option(item);
-
-      if (item.children) {
-        var $children = this.convertToOptions(item.children);
-
-        Utils.appendMany($option, $children);
-      }
-
-      $options.push($option);
-    }
-
-    return $options;
-  };
-
-  return ArrayAdapter;
-});
-
-S2.define('select2/data/ajax',[
-  './array',
-  '../utils',
-  'jquery'
-], function (ArrayAdapter, Utils, $) {
-  function AjaxAdapter ($element, options) {
-    this.ajaxOptions = this._applyDefaults(options.get('ajax'));
-
-    if (this.ajaxOptions.processResults != null) {
-      this.processResults = this.ajaxOptions.processResults;
-    }
-
-    AjaxAdapter.__super__.constructor.call(this, $element, options);
-  }
-
-  Utils.Extend(AjaxAdapter, ArrayAdapter);
-
-  AjaxAdapter.prototype._applyDefaults = function (options) {
-    var defaults = {
-      data: function (params) {
-        return $.extend({}, params, {
-          q: params.term
-        });
-      },
-      transport: function (params, success, failure) {
-        var $request = $.ajax(params);
-
-        $request.then(success);
-        $request.fail(failure);
-
-        return $request;
-      }
-    };
-
-    return $.extend({}, defaults, options, true);
-  };
-
-  AjaxAdapter.prototype.processResults = function (results) {
-    return results;
-  };
-
-  AjaxAdapter.prototype.query = function (params, callback) {
-    var matches = [];
-    var self = this;
-
-    if (this._request != null) {
-      // JSONP requests cannot always be aborted
-      if ($.isFunction(this._request.abort)) {
-        this._request.abort();
-      }
-
-      this._request = null;
-    }
-
-    var options = $.extend({
-      type: 'GET'
-    }, this.ajaxOptions);
-
-    if (typeof options.url === 'function') {
-      options.url = options.url.call(this.$element, params);
-    }
-
-    if (typeof options.data === 'function') {
-      options.data = options.data.call(this.$element, params);
-    }
-
-    function request () {
-      var $request = options.transport(options, function (data) {
-        var results = self.processResults(data, params);
-
-        if (self.options.get('debug') && window.console && console.error) {
-          // Check to make sure that the response included a `results` key.
-          if (!results || !results.results || !$.isArray(results.results)) {
-            console.error(
-              'Select2: The AJAX results did not return an array in the ' +
-              '`results` key of the response.'
-            );
-          }
-        }
-
-        callback(results);
-      }, function () {
-        // Attempt to detect if a request was aborted
-        // Only works if the transport exposes a status property
-        if ('status' in $request &&
-            ($request.status === 0 || $request.status === '0')) {
-          return;
-        }
-
-        self.trigger('results:message', {
-          message: 'errorLoading'
-        });
-      });
-
-      self._request = $request;
-    }
-
-    if (this.ajaxOptions.delay && params.term != null) {
-      if (this._queryTimeout) {
-        window.clearTimeout(this._queryTimeout);
-      }
-
-      this._queryTimeout = window.setTimeout(request, this.ajaxOptions.delay);
-    } else {
-      request();
-    }
-  };
-
-  return AjaxAdapter;
-});
-
-S2.define('select2/data/tags',[
-  'jquery'
-], function ($) {
-  function Tags (decorated, $element, options) {
-    var tags = options.get('tags');
-
-    var createTag = options.get('createTag');
-
-    if (createTag !== undefined) {
-      this.createTag = createTag;
-    }
-
-    var insertTag = options.get('insertTag');
-
-    if (insertTag !== undefined) {
-        this.insertTag = insertTag;
-    }
-
-    decorated.call(this, $element, options);
-
-    if ($.isArray(tags)) {
-      for (var t = 0; t < tags.length; t++) {
-        var tag = tags[t];
-        var item = this._normalizeItem(tag);
-
-        var $option = this.option(item);
-
-        this.$element.append($option);
-      }
-    }
-  }
-
-  Tags.prototype.query = function (decorated, params, callback) {
-    var self = this;
-
-    this._removeOldTags();
-
-    if (params.term == null || params.page != null) {
-      decorated.call(this, params, callback);
-      return;
-    }
-
-    function wrapper (obj, child) {
-      var data = obj.results;
-
-      for (var i = 0; i < data.length; i++) {
-        var option = data[i];
-
-        var checkChildren = (
-          option.children != null &&
-          !wrapper({
-            results: option.children
-          }, true)
-        );
-
-        var optionText = (option.text || '').toUpperCase();
-        var paramsTerm = (params.term || '').toUpperCase();
-
-        var checkText = optionText === paramsTerm;
-
-        if (checkText || checkChildren) {
-          if (child) {
-            return false;
-          }
-
-          obj.data = data;
-          callback(obj);
-
-          return;
-        }
-      }
-
-      if (child) {
-        return true;
-      }
-
-      var tag = self.createTag(params);
-
-      if (tag != null) {
-        var $option = self.option(tag);
-        $option.attr('data-select2-tag', true);
-
-        self.addOptions([$option]);
-
-        self.insertTag(data, tag);
-      }
-
-      obj.results = data;
-
-      callback(obj);
-    }
-
-    decorated.call(this, params, wrapper);
-  };
-
-  Tags.prototype.createTag = function (decorated, params) {
-    var term = $.trim(params.term);
-
-    if (term === '') {
-      return null;
-    }
-
-    return {
-      id: term,
-      text: term
-    };
-  };
-
-  Tags.prototype.insertTag = function (_, data, tag) {
-    data.unshift(tag);
-  };
-
-  Tags.prototype._removeOldTags = function (_) {
-    var tag = this._lastTag;
-
-    var $options = this.$element.find('option[data-select2-tag]');
-
-    $options.each(function () {
-      if (this.selected) {
-        return;
-      }
-
-      $(this).remove();
-    });
-  };
-
-  return Tags;
-});
-
-S2.define('select2/data/tokenizer',[
-  'jquery'
-], function ($) {
-  function Tokenizer (decorated, $element, options) {
-    var tokenizer = options.get('tokenizer');
-
-    if (tokenizer !== undefined) {
-      this.tokenizer = tokenizer;
-    }
-
-    decorated.call(this, $element, options);
-  }
-
-  Tokenizer.prototype.bind = function (decorated, container, $container) {
-    decorated.call(this, container, $container);
-
-    this.$search =  container.dropdown.$search || container.selection.$search ||
-      $container.find('.select2-search__field');
-  };
-
-  Tokenizer.prototype.query = function (decorated, params, callback) {
-    var self = this;
-
-    function createAndSelect (data) {
-      // Normalize the data object so we can use it for checks
-      var item = self._normalizeItem(data);
-
-      // Check if the data object already exists as a tag
-      // Select it if it doesn't
-      var $existingOptions = self.$element.find('option').filter(function () {
-        return $(this).val() === item.id;
-      });
-
-      // If an existing option wasn't found for it, create the option
-      if (!$existingOptions.length) {
-        var $option = self.option(item);
-        $option.attr('data-select2-tag', true);
-
-        self._removeOldTags();
-        self.addOptions([$option]);
-      }
-
-      // Select the item, now that we know there is an option for it
-      select(item);
-    }
-
-    function select (data) {
-      self.trigger('select', {
-        data: data
-      });
-    }
-
-    params.term = params.term || '';
-
-    var tokenData = this.tokenizer(params, this.options, createAndSelect);
-
-    if (tokenData.term !== params.term) {
-      // Replace the search term if we have the search box
-      if (this.$search.length) {
-        this.$search.val(tokenData.term);
-        this.$search.focus();
-      }
-
-      params.term = tokenData.term;
-    }
-
-    decorated.call(this, params, callback);
-  };
-
-  Tokenizer.prototype.tokenizer = function (_, params, options, callback) {
-    var separators = options.get('tokenSeparators') || [];
-    var term = params.term;
-    var i = 0;
-
-    var createTag = this.createTag || function (params) {
-      return {
-        id: params.term,
-        text: params.term
-      };
-    };
-
-    while (i < term.length) {
-      var termChar = term[i];
-
-      if ($.inArray(termChar, separators) === -1) {
-        i++;
-
-        continue;
-      }
-
-      var part = term.substr(0, i);
-      var partParams = $.extend({}, params, {
-        term: part
-      });
-
-      var data = createTag(partParams);
-
-      if (data == null) {
-        i++;
-        continue;
-      }
-
-      callback(data);
-
-      // Reset the term to not include the tokenized portion
-      term = term.substr(i + 1) || '';
-      i = 0;
-    }
-
-    return {
-      term: term
-    };
-  };
-
-  return Tokenizer;
-});
-
-S2.define('select2/data/minimumInputLength',[
-
-], function () {
-  function MinimumInputLength (decorated, $e, options) {
-    this.minimumInputLength = options.get('minimumInputLength');
-
-    decorated.call(this, $e, options);
-  }
-
-  MinimumInputLength.prototype.query = function (decorated, params, callback) {
-    params.term = params.term || '';
-
-    if (params.term.length < this.minimumInputLength) {
-      this.trigger('results:message', {
-        message: 'inputTooShort',
-        args: {
-          minimum: this.minimumInputLength,
-          input: params.term,
-          params: params
-        }
-      });
-
-      return;
-    }
-
-    decorated.call(this, params, callback);
-  };
-
-  return MinimumInputLength;
-});
-
-S2.define('select2/data/maximumInputLength',[
-
-], function () {
-  function MaximumInputLength (decorated, $e, options) {
-    this.maximumInputLength = options.get('maximumInputLength');
-
-    decorated.call(this, $e, options);
-  }
-
-  MaximumInputLength.prototype.query = function (decorated, params, callback) {
-    params.term = params.term || '';
-
-    if (this.maximumInputLength > 0 &&
-        params.term.length > this.maximumInputLength) {
-      this.trigger('results:message', {
-        message: 'inputTooLong',
-        args: {
-          maximum: this.maximumInputLength,
-          input: params.term,
-          params: params
-        }
-      });
-
-      return;
-    }
-
-    decorated.call(this, params, callback);
-  };
-
-  return MaximumInputLength;
-});
-
-S2.define('select2/data/maximumSelectionLength',[
-
-], function (){
-  function MaximumSelectionLength (decorated, $e, options) {
-    this.maximumSelectionLength = options.get('maximumSelectionLength');
-
-    decorated.call(this, $e, options);
-  }
-
-  MaximumSelectionLength.prototype.query =
-    function (decorated, params, callback) {
-      var self = this;
-
-      this.current(function (currentData) {
-        var count = currentData != null ? currentData.length : 0;
-        if (self.maximumSelectionLength > 0 &&
-          count >= self.maximumSelectionLength) {
-          self.trigger('results:message', {
-            message: 'maximumSelected',
-            args: {
-              maximum: self.maximumSelectionLength
-            }
-          });
-          return;
-        }
-        decorated.call(self, params, callback);
-      });
-  };
-
-  return MaximumSelectionLength;
-});
-
-S2.define('select2/dropdown',[
-  'jquery',
-  './utils'
-], function ($, Utils) {
-  function Dropdown ($element, options) {
-    this.$element = $element;
-    this.options = options;
-
-    Dropdown.__super__.constructor.call(this);
-  }
-
-  Utils.Extend(Dropdown, Utils.Observable);
-
-  Dropdown.prototype.render = function () {
-    var $dropdown = $(
-      '<span class="select2-dropdown">' +
-        '<span class="select2-results"></span>' +
-      '</span>'
-    );
-
-    $dropdown.attr('dir', this.options.get('dir'));
-
-    this.$dropdown = $dropdown;
-
-    return $dropdown;
-  };
-
-  Dropdown.prototype.bind = function () {
-    // Should be implemented in subclasses
-  };
-
-  Dropdown.prototype.position = function ($dropdown, $container) {
-    // Should be implmented in subclasses
-  };
-
-  Dropdown.prototype.destroy = function () {
-    // Remove the dropdown from the DOM
-    this.$dropdown.remove();
-  };
-
-  return Dropdown;
-});
-
-S2.define('select2/dropdown/search',[
-  'jquery',
-  '../utils'
-], function ($, Utils) {
-  function Search () { }
-
-  Search.prototype.render = function (decorated) {
-    var $rendered = decorated.call(this);
-
-    var $search = $(
-      '<span class="select2-search select2-search--dropdown">' +
-        '<input class="select2-search__field" type="search" tabindex="-1"' +
-        ' autocomplete="off" autocorrect="off" autocapitalize="none"' +
-        ' spellcheck="false" role="textbox" />' +
-      '</span>'
-    );
-
-    this.$searchContainer = $search;
-    this.$search = $search.find('input');
-
-    $rendered.prepend($search);
-
-    return $rendered;
-  };
-
-  Search.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    decorated.call(this, container, $container);
-
-    this.$search.on('keydown', function (evt) {
-      self.trigger('keypress', evt);
-
-      self._keyUpPrevented = evt.isDefaultPrevented();
-    });
-
-    // Workaround for browsers which do not support the `input` event
-    // This will prevent double-triggering of events for browsers which support
-    // both the `keyup` and `input` events.
-    this.$search.on('input', function (evt) {
-      // Unbind the duplicated `keyup` event
-      $(this).off('keyup');
-    });
-
-    this.$search.on('keyup input', function (evt) {
-      self.handleSearch(evt);
-    });
-
-    container.on('open', function () {
-      self.$search.attr('tabindex', 0);
-
-      self.$search.focus();
-
-      window.setTimeout(function () {
-        self.$search.focus();
-      }, 0);
-    });
-
-    container.on('close', function () {
-      self.$search.attr('tabindex', -1);
-
-      self.$search.val('');
-      self.$search.blur();
-    });
-
-    container.on('focus', function () {
-      if (!container.isOpen()) {
-        self.$search.focus();
-      }
-    });
-
-    container.on('results:all', function (params) {
-      if (params.query.term == null || params.query.term === '') {
-        var showSearch = self.showSearch(params);
-
-        if (showSearch) {
-          self.$searchContainer.removeClass('select2-search--hide');
-        } else {
-          self.$searchContainer.addClass('select2-search--hide');
-        }
-      }
-    });
-  };
-
-  Search.prototype.handleSearch = function (evt) {
-    if (!this._keyUpPrevented) {
-      var input = this.$search.val();
-
-      this.trigger('query', {
-        term: input
-      });
-    }
-
-    this._keyUpPrevented = false;
-  };
-
-  Search.prototype.showSearch = function (_, params) {
-    return true;
-  };
-
-  return Search;
-});
-
-S2.define('select2/dropdown/hidePlaceholder',[
-
-], function () {
-  function HidePlaceholder (decorated, $element, options, dataAdapter) {
-    this.placeholder = this.normalizePlaceholder(options.get('placeholder'));
-
-    decorated.call(this, $element, options, dataAdapter);
-  }
-
-  HidePlaceholder.prototype.append = function (decorated, data) {
-    data.results = this.removePlaceholder(data.results);
-
-    decorated.call(this, data);
-  };
-
-  HidePlaceholder.prototype.normalizePlaceholder = function (_, placeholder) {
-    if (typeof placeholder === 'string') {
-      placeholder = {
-        id: '',
-        text: placeholder
-      };
-    }
-
-    return placeholder;
-  };
-
-  HidePlaceholder.prototype.removePlaceholder = function (_, data) {
-    var modifiedData = data.slice(0);
-
-    for (var d = data.length - 1; d >= 0; d--) {
-      var item = data[d];
-
-      if (this.placeholder.id === item.id) {
-        modifiedData.splice(d, 1);
-      }
-    }
-
-    return modifiedData;
-  };
-
-  return HidePlaceholder;
-});
-
-S2.define('select2/dropdown/infiniteScroll',[
-  'jquery'
-], function ($) {
-  function InfiniteScroll (decorated, $element, options, dataAdapter) {
-    this.lastParams = {};
-
-    decorated.call(this, $element, options, dataAdapter);
-
-    this.$loadingMore = this.createLoadingMore();
-    this.loading = false;
-  }
-
-  InfiniteScroll.prototype.append = function (decorated, data) {
-    this.$loadingMore.remove();
-    this.loading = false;
-
-    decorated.call(this, data);
-
-    if (this.showLoadingMore(data)) {
-      this.$results.append(this.$loadingMore);
-    }
-  };
-
-  InfiniteScroll.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    decorated.call(this, container, $container);
-
-    container.on('query', function (params) {
-      self.lastParams = params;
-      self.loading = true;
-    });
-
-    container.on('query:append', function (params) {
-      self.lastParams = params;
-      self.loading = true;
-    });
-
-    this.$results.on('scroll', function () {
-      var isLoadMoreVisible = $.contains(
-        document.documentElement,
-        self.$loadingMore[0]
-      );
-
-      if (self.loading || !isLoadMoreVisible) {
-        return;
-      }
-
-      var currentOffset = self.$results.offset().top +
-        self.$results.outerHeight(false);
-      var loadingMoreOffset = self.$loadingMore.offset().top +
-        self.$loadingMore.outerHeight(false);
-
-      if (currentOffset + 50 >= loadingMoreOffset) {
-        self.loadMore();
-      }
-    });
-  };
-
-  InfiniteScroll.prototype.loadMore = function () {
-    this.loading = true;
-
-    var params = $.extend({}, {page: 1}, this.lastParams);
-
-    params.page++;
-
-    this.trigger('query:append', params);
-  };
-
-  InfiniteScroll.prototype.showLoadingMore = function (_, data) {
-    return data.pagination && data.pagination.more;
-  };
-
-  InfiniteScroll.prototype.createLoadingMore = function () {
-    var $option = $(
-      '<li ' +
-      'class="select2-results__option select2-results__option--load-more"' +
-      'role="treeitem" aria-disabled="true"></li>'
-    );
-
-    var message = this.options.get('translations').get('loadingMore');
-
-    $option.html(message(this.lastParams));
-
-    return $option;
-  };
-
-  return InfiniteScroll;
-});
-
-S2.define('select2/dropdown/attachBody',[
-  'jquery',
-  '../utils'
-], function ($, Utils) {
-  function AttachBody (decorated, $element, options) {
-    this.$dropdownParent = options.get('dropdownParent') || $(document.body);
-
-    decorated.call(this, $element, options);
-  }
-
-  AttachBody.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    var setupResultsEvents = false;
-
-    decorated.call(this, container, $container);
-
-    container.on('open', function () {
-      self._showDropdown();
-      self._attachPositioningHandler(container);
-
-      if (!setupResultsEvents) {
-        setupResultsEvents = true;
-
-        container.on('results:all', function () {
-          self._positionDropdown();
-          self._resizeDropdown();
-        });
-
-        container.on('results:append', function () {
-          self._positionDropdown();
-          self._resizeDropdown();
-        });
-      }
-    });
-
-    container.on('close', function () {
-      self._hideDropdown();
-      self._detachPositioningHandler(container);
-    });
-
-    this.$dropdownContainer.on('mousedown', function (evt) {
-      evt.stopPropagation();
-    });
-  };
-
-  AttachBody.prototype.destroy = function (decorated) {
-    decorated.call(this);
-
-    this.$dropdownContainer.remove();
-  };
-
-  AttachBody.prototype.position = function (decorated, $dropdown, $container) {
-    // Clone all of the container classes
-    $dropdown.attr('class', $container.attr('class'));
-
-    $dropdown.removeClass('select2');
-    $dropdown.addClass('select2-container--open');
-
-    $dropdown.css({
-      position: 'absolute',
-      top: -999999
-    });
-
-    this.$container = $container;
-  };
-
-  AttachBody.prototype.render = function (decorated) {
-    var $container = $('<span></span>');
-
-    var $dropdown = decorated.call(this);
-    $container.append($dropdown);
-
-    this.$dropdownContainer = $container;
-
-    return $container;
-  };
-
-  AttachBody.prototype._hideDropdown = function (decorated) {
-    this.$dropdownContainer.detach();
-  };
-
-  AttachBody.prototype._attachPositioningHandler =
-      function (decorated, container) {
-    var self = this;
-
-    var scrollEvent = 'scroll.select2.' + container.id;
-    var resizeEvent = 'resize.select2.' + container.id;
-    var orientationEvent = 'orientationchange.select2.' + container.id;
-
-    var $watchers = this.$container.parents().filter(Utils.hasScroll);
-    $watchers.each(function () {
-      Utils.StoreData(this, 'select2-scroll-position', {
-        x: $(this).scrollLeft(),
-        y: $(this).scrollTop()
-      });
-    });
-
-    $watchers.on(scrollEvent, function (ev) {
-      var position = Utils.GetData(this, 'select2-scroll-position');
-      $(this).scrollTop(position.y);
-    });
-
-    $(window).on(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent,
-      function (e) {
-      self._positionDropdown();
-      self._resizeDropdown();
-    });
-  };
-
-  AttachBody.prototype._detachPositioningHandler =
-      function (decorated, container) {
-    var scrollEvent = 'scroll.select2.' + container.id;
-    var resizeEvent = 'resize.select2.' + container.id;
-    var orientationEvent = 'orientationchange.select2.' + container.id;
-
-    var $watchers = this.$container.parents().filter(Utils.hasScroll);
-    $watchers.off(scrollEvent);
-
-    $(window).off(scrollEvent + ' ' + resizeEvent + ' ' + orientationEvent);
-  };
-
-  AttachBody.prototype._positionDropdown = function () {
-    var $window = $(window);
-
-    var isCurrentlyAbove = this.$dropdown.hasClass('select2-dropdown--above');
-    var isCurrentlyBelow = this.$dropdown.hasClass('select2-dropdown--below');
-
-    var newDirection = null;
-
-    var offset = this.$container.offset();
-
-    offset.bottom = offset.top + this.$container.outerHeight(false);
-
-    var container = {
-      height: this.$container.outerHeight(false)
-    };
-
-    container.top = offset.top;
-    container.bottom = offset.top + container.height;
-
-    var dropdown = {
-      height: this.$dropdown.outerHeight(false)
-    };
-
-    var viewport = {
-      top: $window.scrollTop(),
-      bottom: $window.scrollTop() + $window.height()
-    };
-
-    var enoughRoomAbove = viewport.top < (offset.top - dropdown.height);
-    var enoughRoomBelow = viewport.bottom > (offset.bottom + dropdown.height);
-
-    var css = {
-      left: offset.left,
-      top: container.bottom
-    };
-
-    // Determine what the parent element is to use for calciulating the offset
-    var $offsetParent = this.$dropdownParent;
-
-    // For statically positoned elements, we need to get the element
-    // that is determining the offset
-    if ($offsetParent.css('position') === 'static') {
-      $offsetParent = $offsetParent.offsetParent();
-    }
-
-    var parentOffset = $offsetParent.offset();
-
-    css.top -= parentOffset.top;
-    css.left -= parentOffset.left;
-
-    if (!isCurrentlyAbove && !isCurrentlyBelow) {
-      newDirection = 'below';
-    }
-
-    if (!enoughRoomBelow && enoughRoomAbove && !isCurrentlyAbove) {
-      newDirection = 'above';
-    } else if (!enoughRoomAbove && enoughRoomBelow && isCurrentlyAbove) {
-      newDirection = 'below';
-    }
-
-    if (newDirection == 'above' ||
-      (isCurrentlyAbove && newDirection !== 'below')) {
-      css.top = container.top - parentOffset.top - dropdown.height;
-    }
-
-    if (newDirection != null) {
-      this.$dropdown
-        .removeClass('select2-dropdown--below select2-dropdown--above')
-        .addClass('select2-dropdown--' + newDirection);
-      this.$container
-        .removeClass('select2-container--below select2-container--above')
-        .addClass('select2-container--' + newDirection);
-    }
-
-    this.$dropdownContainer.css(css);
-  };
-
-  AttachBody.prototype._resizeDropdown = function () {
-    var css = {
-      width: this.$container.outerWidth(false) + 'px'
-    };
-
-    if (this.options.get('dropdownAutoWidth')) {
-      css.minWidth = css.width;
-      css.position = 'relative';
-      css.width = 'auto';
-    }
-
-    this.$dropdown.css(css);
-  };
-
-  AttachBody.prototype._showDropdown = function (decorated) {
-    this.$dropdownContainer.appendTo(this.$dropdownParent);
-
-    this._positionDropdown();
-    this._resizeDropdown();
-  };
-
-  return AttachBody;
-});
-
-S2.define('select2/dropdown/minimumResultsForSearch',[
-
-], function () {
-  function countResults (data) {
-    var count = 0;
-
-    for (var d = 0; d < data.length; d++) {
-      var item = data[d];
-
-      if (item.children) {
-        count += countResults(item.children);
-      } else {
-        count++;
-      }
-    }
-
-    return count;
-  }
-
-  function MinimumResultsForSearch (decorated, $element, options, dataAdapter) {
-    this.minimumResultsForSearch = options.get('minimumResultsForSearch');
-
-    if (this.minimumResultsForSearch < 0) {
-      this.minimumResultsForSearch = Infinity;
-    }
-
-    decorated.call(this, $element, options, dataAdapter);
-  }
-
-  MinimumResultsForSearch.prototype.showSearch = function (decorated, params) {
-    if (countResults(params.data.results) < this.minimumResultsForSearch) {
-      return false;
-    }
-
-    return decorated.call(this, params);
-  };
-
-  return MinimumResultsForSearch;
-});
-
-S2.define('select2/dropdown/selectOnClose',[
-  '../utils'
-], function (Utils) {
-  function SelectOnClose () { }
-
-  SelectOnClose.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    decorated.call(this, container, $container);
-
-    container.on('close', function (params) {
-      self._handleSelectOnClose(params);
-    });
-  };
-
-  SelectOnClose.prototype._handleSelectOnClose = function (_, params) {
-    if (params && params.originalSelect2Event != null) {
-      var event = params.originalSelect2Event;
-
-      // Don't select an item if the close event was triggered from a select or
-      // unselect event
-      if (event._type === 'select' || event._type === 'unselect') {
-        return;
-      }
-    }
-
-    var $highlightedResults = this.getHighlightedResults();
-
-    // Only select highlighted results
-    if ($highlightedResults.length < 1) {
-      return;
-    }
-
-    var data = Utils.GetData($highlightedResults[0], 'data');
-
-    // Don't re-select already selected resulte
-    if (
-      (data.element != null && data.element.selected) ||
-      (data.element == null && data.selected)
-    ) {
-      return;
-    }
-
-    this.trigger('select', {
-        data: data
-    });
-  };
-
-  return SelectOnClose;
-});
-
-S2.define('select2/dropdown/closeOnSelect',[
-
-], function () {
-  function CloseOnSelect () { }
-
-  CloseOnSelect.prototype.bind = function (decorated, container, $container) {
-    var self = this;
-
-    decorated.call(this, container, $container);
-
-    container.on('select', function (evt) {
-      self._selectTriggered(evt);
-    });
-
-    container.on('unselect', function (evt) {
-      self._selectTriggered(evt);
-    });
-  };
-
-  CloseOnSelect.prototype._selectTriggered = function (_, evt) {
-    var originalEvent = evt.originalEvent;
-
-    // Don't close if the control key is being held
-    if (originalEvent && originalEvent.ctrlKey) {
-      return;
-    }
-
-    this.trigger('close', {
-      originalEvent: originalEvent,
-      originalSelect2Event: evt
-    });
-  };
-
-  return CloseOnSelect;
-});
-
-S2.define('select2/i18n/en',[],function () {
-  // English
-  return {
-    errorLoading: function () {
-      return 'The results could not be loaded.';
-    },
-    inputTooLong: function (args) {
-      var overChars = args.input.length - args.maximum;
-
-      var message = 'Please delete ' + overChars + ' character';
-
-      if (overChars != 1) {
-        message += 's';
-      }
-
-      return message;
-    },
-    inputTooShort: function (args) {
-      var remainingChars = args.minimum - args.input.length;
-
-      var message = 'Please enter ' + remainingChars + ' or more characters';
-
-      return message;
-    },
-    loadingMore: function () {
-      return 'Loading more results…';
-    },
-    maximumSelected: function (args) {
-      var message = 'You can only select ' + args.maximum + ' item';
-
-      if (args.maximum != 1) {
-        message += 's';
-      }
-
-      return message;
-    },
-    noResults: function () {
-      return 'No results found';
-    },
-    searching: function () {
-      return 'Searching…';
-    }
-  };
-});
-
-S2.define('select2/defaults',[
-  'jquery',
-  'require',
-
-  './results',
-
-  './selection/single',
-  './selection/multiple',
-  './selection/placeholder',
-  './selection/allowClear',
-  './selection/search',
-  './selection/eventRelay',
-
-  './utils',
-  './translation',
-  './diacritics',
-
-  './data/select',
-  './data/array',
-  './data/ajax',
-  './data/tags',
-  './data/tokenizer',
-  './data/minimumInputLength',
-  './data/maximumInputLength',
-  './data/maximumSelectionLength',
-
-  './dropdown',
-  './dropdown/search',
-  './dropdown/hidePlaceholder',
-  './dropdown/infiniteScroll',
-  './dropdown/attachBody',
-  './dropdown/minimumResultsForSearch',
-  './dropdown/selectOnClose',
-  './dropdown/closeOnSelect',
-
-  './i18n/en'
-], function ($, require,
-
-             ResultsList,
-
-             SingleSelection, MultipleSelection, Placeholder, AllowClear,
-             SelectionSearch, EventRelay,
-
-             Utils, Translation, DIACRITICS,
-
-             SelectData, ArrayData, AjaxData, Tags, Tokenizer,
-             MinimumInputLength, MaximumInputLength, MaximumSelectionLength,
-
-             Dropdown, DropdownSearch, HidePlaceholder, InfiniteScroll,
-             AttachBody, MinimumResultsForSearch, SelectOnClose, CloseOnSelect,
-
-             EnglishTranslation) {
-  function Defaults () {
-    this.reset();
-  }
-
-  Defaults.prototype.apply = function (options) {
-    options = $.extend(true, {}, this.defaults, options);
-
-    if (options.dataAdapter == null) {
-      if (options.ajax != null) {
-        options.dataAdapter = AjaxData;
-      } else if (options.data != null) {
-        options.dataAdapter = ArrayData;
-      } else {
-        options.dataAdapter = SelectData;
-      }
-
-      if (options.minimumInputLength > 0) {
-        options.dataAdapter = Utils.Decorate(
-          options.dataAdapter,
-          MinimumInputLength
-        );
-      }
-
-      if (options.maximumInputLength > 0) {
-        options.dataAdapter = Utils.Decorate(
-          options.dataAdapter,
-          MaximumInputLength
-        );
-      }
-
-      if (options.maximumSelectionLength > 0) {
-        options.dataAdapter = Utils.Decorate(
-          options.dataAdapter,
-          MaximumSelectionLength
-        );
-      }
-
-      if (options.tags) {
-        options.dataAdapter = Utils.Decorate(options.dataAdapter, Tags);
-      }
-
-      if (options.tokenSeparators != null || options.tokenizer != null) {
-        options.dataAdapter = Utils.Decorate(
-          options.dataAdapter,
-          Tokenizer
-        );
-      }
-
-      if (options.query != null) {
-        var Query = require(options.amdBase + 'compat/query');
-
-        options.dataAdapter = Utils.Decorate(
-          options.dataAdapter,
-          Query
-        );
-      }
-
-      if (options.initSelection != null) {
-        var InitSelection = require(options.amdBase + 'compat/initSelection');
-
-        options.dataAdapter = Utils.Decorate(
-          options.dataAdapter,
-          InitSelection
-        );
-      }
-    }
-
-    if (options.resultsAdapter == null) {
-      options.resultsAdapter = ResultsList;
-
-      if (options.ajax != null) {
-        options.resultsAdapter = Utils.Decorate(
-          options.resultsAdapter,
-          InfiniteScroll
-        );
-      }
-
-      if (options.placeholder != null) {
-        options.resultsAdapter = Utils.Decorate(
-          options.resultsAdapter,
-          HidePlaceholder
-        );
-      }
-
-      if (options.selectOnClose) {
-        options.resultsAdapter = Utils.Decorate(
-          options.resultsAdapter,
-          SelectOnClose
-        );
-      }
-    }
-
-    if (options.dropdownAdapter == null) {
-      if (options.multiple) {
-        options.dropdownAdapter = Dropdown;
-      } else {
-        var SearchableDropdown = Utils.Decorate(Dropdown, DropdownSearch);
-
-        options.dropdownAdapter = SearchableDropdown;
-      }
-
-      if (options.minimumResultsForSearch !== 0) {
-        options.dropdownAdapter = Utils.Decorate(
-          options.dropdownAdapter,
-          MinimumResultsForSearch
-        );
-      }
-
-      if (options.closeOnSelect) {
-        options.dropdownAdapter = Utils.Decorate(
-          options.dropdownAdapter,
-          CloseOnSelect
-        );
-      }
-
-      if (
-        options.dropdownCssClass != null ||
-        options.dropdownCss != null ||
-        options.adaptDropdownCssClass != null
-      ) {
-        var DropdownCSS = require(options.amdBase + 'compat/dropdownCss');
-
-        options.dropdownAdapter = Utils.Decorate(
-          options.dropdownAdapter,
-          DropdownCSS
-        );
-      }
-
-      options.dropdownAdapter = Utils.Decorate(
-        options.dropdownAdapter,
-        AttachBody
-      );
-    }
-
-    if (options.selectionAdapter == null) {
-      if (options.multiple) {
-        options.selectionAdapter = MultipleSelection;
-      } else {
-        options.selectionAdapter = SingleSelection;
-      }
-
-      // Add the placeholder mixin if a placeholder was specified
-      if (options.placeholder != null) {
-        options.selectionAdapter = Utils.Decorate(
-          options.selectionAdapter,
-          Placeholder
-        );
-      }
-
-      if (options.allowClear) {
-        options.selectionAdapter = Utils.Decorate(
-          options.selectionAdapter,
-          AllowClear
-        );
-      }
-
-      if (options.multiple) {
-        options.selectionAdapter = Utils.Decorate(
-          options.selectionAdapter,
-          SelectionSearch
-        );
-      }
-
-      if (
-        options.containerCssClass != null ||
-        options.containerCss != null ||
-        options.adaptContainerCssClass != null
-      ) {
-        var ContainerCSS = require(options.amdBase + 'compat/containerCss');
-
-        options.selectionAdapter = Utils.Decorate(
-          options.selectionAdapter,
-          ContainerCSS
-        );
-      }
-
-      options.selectionAdapter = Utils.Decorate(
-        options.selectionAdapter,
-        EventRelay
-      );
-    }
-
-    if (typeof options.language === 'string') {
-      // Check if the language is specified with a region
-      if (options.language.indexOf('-') > 0) {
-        // Extract the region information if it is included
-        var languageParts = options.language.split('-');
-        var baseLanguage = languageParts[0];
-
-        options.language = [options.language, baseLanguage];
-      } else {
-        options.language = [options.language];
-      }
-    }
-
-    if ($.isArray(options.language)) {
-      var languages = new Translation();
-      options.language.push('en');
-
-      var languageNames = options.language;
-
-      for (var l = 0; l < languageNames.length; l++) {
-        var name = languageNames[l];
-        var language = {};
-
-        try {
-          // Try to load it with the original name
-          language = Translation.loadPath(name);
-        } catch (e) {
-          try {
-            // If we couldn't load it, check if it wasn't the full path
-            name = this.defaults.amdLanguageBase + name;
-            language = Translation.loadPath(name);
-          } catch (ex) {
-            // The translation could not be loaded at all. Sometimes this is
-            // because of a configuration problem, other times this can be
-            // because of how Select2 helps load all possible translation files.
-            if (options.debug && window.console && console.warn) {
-              console.warn(
-                'Select2: The language file for "' + name + '" could not be ' +
-                'automatically loaded. A fallback will be used instead.'
-              );
-            }
-
-            continue;
-          }
-        }
-
-        languages.extend(language);
-      }
-
-      options.translations = languages;
-    } else {
-      var baseTranslation = Translation.loadPath(
-        this.defaults.amdLanguageBase + 'en'
-      );
-      var customTranslation = new Translation(options.language);
-
-      customTranslation.extend(baseTranslation);
-
-      options.translations = customTranslation;
-    }
-
-    return options;
-  };
-
-  Defaults.prototype.reset = function () {
-    function stripDiacritics (text) {
-      // Used 'uni range + named function' from http://jsperf.com/diacritics/18
-      function match(a) {
-        return DIACRITICS[a] || a;
-      }
-
-      return text.replace(/[^\u0000-\u007E]/g, match);
-    }
-
-    function matcher (params, data) {
-      // Always return the object if there is nothing to compare
-      if ($.trim(params.term) === '') {
-        return data;
-      }
-
-      // Do a recursive check for options with children
-      if (data.children && data.children.length > 0) {
-        // Clone the data object if there are children
-        // This is required as we modify the object to remove any non-matches
-        var match = $.extend(true, {}, data);
-
-        // Check each child of the option
-        for (var c = data.children.length - 1; c >= 0; c--) {
-          var child = data.children[c];
-
-          var matches = matcher(params, child);
-
-          // If there wasn't a match, remove the object in the array
-          if (matches == null) {
-            match.children.splice(c, 1);
-          }
-        }
-
-        // If any children matched, return the new object
-        if (match.children.length > 0) {
-          return match;
-        }
-
-        // If there were no matching children, check just the plain object
-        return matcher(params, match);
-      }
-
-      var original = stripDiacritics(data.text).toUpperCase();
-      var term = stripDiacritics(params.term).toUpperCase();
-
-      // Check if the text contains the term
-      if (original.indexOf(term) > -1) {
-        return data;
-      }
-
-      // If it doesn't contain the term, don't return anything
-      return null;
-    }
-
-    this.defaults = {
-      amdBase: './',
-      amdLanguageBase: './i18n/',
-      closeOnSelect: true,
-      debug: false,
-      dropdownAutoWidth: false,
-      escapeMarkup: Utils.escapeMarkup,
-      language: EnglishTranslation,
-      matcher: matcher,
-      minimumInputLength: 0,
-      maximumInputLength: 0,
-      maximumSelectionLength: 0,
-      minimumResultsForSearch: 0,
-      selectOnClose: false,
-      sorter: function (data) {
-        return data;
-      },
-      templateResult: function (result) {
-        return result.text;
-      },
-      templateSelection: function (selection) {
-        return selection.text;
-      },
-      theme: 'default',
-      width: 'resolve'
-    };
-  };
-
-  Defaults.prototype.set = function (key, value) {
-    var camelKey = $.camelCase(key);
-
-    var data = {};
-    data[camelKey] = value;
-
-    var convertedData = Utils._convertData(data);
-
-    $.extend(true, this.defaults, convertedData);
-  };
-
-  var defaults = new Defaults();
-
-  return defaults;
-});
-
-S2.define('select2/options',[
-  'require',
-  'jquery',
-  './defaults',
-  './utils'
-], function (require, $, Defaults, Utils) {
-  function Options (options, $element) {
-    this.options = options;
-
-    if ($element != null) {
-      this.fromElement($element);
-    }
-
-    this.options = Defaults.apply(this.options);
-
-    if ($element && $element.is('input')) {
-      var InputCompat = require(this.get('amdBase') + 'compat/inputData');
-
-      this.options.dataAdapter = Utils.Decorate(
-        this.options.dataAdapter,
-        InputCompat
-      );
-    }
-  }
-
-  Options.prototype.fromElement = function ($e) {
-    var excludedData = ['select2'];
-
-    if (this.options.multiple == null) {
-      this.options.multiple = $e.prop('multiple');
-    }
-
-    if (this.options.disabled == null) {
-      this.options.disabled = $e.prop('disabled');
-    }
-
-    if (this.options.language == null) {
-      if ($e.prop('lang')) {
-        this.options.language = $e.prop('lang').toLowerCase();
-      } else if ($e.closest('[lang]').prop('lang')) {
-        this.options.language = $e.closest('[lang]').prop('lang');
-      }
-    }
-
-    if (this.options.dir == null) {
-      if ($e.prop('dir')) {
-        this.options.dir = $e.prop('dir');
-      } else if ($e.closest('[dir]').prop('dir')) {
-        this.options.dir = $e.closest('[dir]').prop('dir');
-      } else {
-        this.options.dir = 'ltr';
-      }
-    }
-
-    $e.prop('disabled', this.options.disabled);
-    $e.prop('multiple', this.options.multiple);
-
-    if (Utils.GetData($e[0], 'select2Tags')) {
-      if (this.options.debug && window.console && console.warn) {
-        console.warn(
-          'Select2: The `data-select2-tags` attribute has been changed to ' +
-          'use the `data-data` and `data-tags="true"` attributes and will be ' +
-          'removed in future versions of Select2.'
-        );
-      }
-
-      Utils.StoreData($e[0], 'data', Utils.GetData($e[0], 'select2Tags'));
-      Utils.StoreData($e[0], 'tags', true);
-    }
-
-    if (Utils.GetData($e[0], 'ajaxUrl')) {
-      if (this.options.debug && window.console && console.warn) {
-        console.warn(
-          'Select2: The `data-ajax-url` attribute has been changed to ' +
-          '`data-ajax--url` and support for the old attribute will be removed' +
-          ' in future versions of Select2.'
-        );
-      }
-
-      $e.attr('ajax--url', Utils.GetData($e[0], 'ajaxUrl'));
-      Utils.StoreData($e[0], 'ajax-Url', Utils.GetData($e[0], 'ajaxUrl'));
-	  
-    }
-
-    var dataset = {};
-
-    // Prefer the element's `dataset` attribute if it exists
-    // jQuery 1.x does not correctly handle data attributes with multiple dashes
-    if ($.fn.jquery && $.fn.jquery.substr(0, 2) == '1.' && $e[0].dataset) {
-      dataset = $.extend(true, {}, $e[0].dataset, Utils.GetData($e[0]));
-    } else {
-      dataset = Utils.GetData($e[0]);
-    }
-
-    var data = $.extend(true, {}, dataset);
-
-    data = Utils._convertData(data);
-
-    for (var key in data) {
-      if ($.inArray(key, excludedData) > -1) {
-        continue;
-      }
-
-      if ($.isPlainObject(this.options[key])) {
-        $.extend(this.options[key], data[key]);
-      } else {
-        this.options[key] = data[key];
-      }
-    }
-
-    return this;
-  };
-
-  Options.prototype.get = function (key) {
-    return this.options[key];
-  };
-
-  Options.prototype.set = function (key, val) {
-    this.options[key] = val;
-  };
-
-  return Options;
-});
-
-S2.define('select2/core',[
-  'jquery',
-  './options',
-  './utils',
-  './keys'
-], function ($, Options, Utils, KEYS) {
-  var Select2 = function ($element, options) {
-    if (Utils.GetData($element[0], 'select2') != null) {
-      Utils.GetData($element[0], 'select2').destroy();
-    }
-
-    this.$element = $element;
-
-    this.id = this._generateId($element);
-
-    options = options || {};
-
-    this.options = new Options(options, $element);
-
-    Select2.__super__.constructor.call(this);
-
-    // Set up the tabindex
-
-    var tabindex = $element.attr('tabindex') || 0;
-    Utils.StoreData($element[0], 'old-tabindex', tabindex);
-    $element.attr('tabindex', '-1');
-
-    // Set up containers and adapters
-
-    var DataAdapter = this.options.get('dataAdapter');
-    this.dataAdapter = new DataAdapter($element, this.options);
-
-    var $container = this.render();
-
-    this._placeContainer($container);
-
-    var SelectionAdapter = this.options.get('selectionAdapter');
-    this.selection = new SelectionAdapter($element, this.options);
-    this.$selection = this.selection.render();
-
-    this.selection.position(this.$selection, $container);
-
-    var DropdownAdapter = this.options.get('dropdownAdapter');
-    this.dropdown = new DropdownAdapter($element, this.options);
-    this.$dropdown = this.dropdown.render();
-
-    this.dropdown.position(this.$dropdown, $container);
-
-    var ResultsAdapter = this.options.get('resultsAdapter');
-    this.results = new ResultsAdapter($element, this.options, this.dataAdapter);
-    this.$results = this.results.render();
-
-    this.results.position(this.$results, this.$dropdown);
-
-    // Bind events
-
-    var self = this;
-
-    // Bind the container to all of the adapters
-    this._bindAdapters();
-
-    // Register any DOM event handlers
-    this._registerDomEvents();
-
-    // Register any internal event handlers
-    this._registerDataEvents();
-    this._registerSelectionEvents();
-    this._registerDropdownEvents();
-    this._registerResultsEvents();
-    this._registerEvents();
-
-    // Set the initial state
-    this.dataAdapter.current(function (initialData) {
-      self.trigger('selection:update', {
-        data: initialData
-      });
-    });
-
-    // Hide the original select
-    $element.addClass('select2-hidden-accessible');
-    $element.attr('aria-hidden', 'true');
-
-    // Synchronize any monitored attributes
-    this._syncAttributes();
-
-    Utils.StoreData($element[0], 'select2', this);
-
-    // Ensure backwards compatibility with $element.data('select2').
-    $element.data('select2', this);
-  };
-
-  Utils.Extend(Select2, Utils.Observable);
-
-  Select2.prototype._generateId = function ($element) {
-    var id = '';
-
-    if ($element.attr('id') != null) {
-      id = $element.attr('id');
-    } else if ($element.attr('name') != null) {
-      id = $element.attr('name') + '-' + Utils.generateChars(2);
-    } else {
-      id = Utils.generateChars(4);
-    }
-
-    id = id.replace(/(:|\.|\[|\]|,)/g, '');
-    id = 'select2-' + id;
-
-    return id;
-  };
-
-  Select2.prototype._placeContainer = function ($container) {
-    $container.insertAfter(this.$element);
-
-    var width = this._resolveWidth(this.$element, this.options.get('width'));
-
-    if (width != null) {
-      $container.css('width', width);
-    }
-  };
-
-  Select2.prototype._resolveWidth = function ($element, method) {
-    var WIDTH = /^width:(([-+]?([0-9]*\.)?[0-9]+)(px|em|ex|%|in|cm|mm|pt|pc))/i;
-
-    if (method == 'resolve') {
-      var styleWidth = this._resolveWidth($element, 'style');
-
-      if (styleWidth != null) {
-        return styleWidth;
-      }
-
-      return this._resolveWidth($element, 'element');
-    }
-
-    if (method == 'element') {
-      var elementWidth = $element.outerWidth(false);
-
-      if (elementWidth <= 0) {
-        return 'auto';
-      }
-
-      return elementWidth + 'px';
-    }
-
-    if (method == 'style') {
-      var style = $element.attr('style');
-
-      if (typeof(style) !== 'string') {
-        return null;
-      }
-
-      var attrs = style.split(';');
-
-      for (var i = 0, l = attrs.length; i < l; i = i + 1) {
-        var attr = attrs[i].replace(/\s/g, '');
-        var matches = attr.match(WIDTH);
-
-        if (matches !== null && matches.length >= 1) {
-          return matches[1];
-        }
-      }
-
-      return null;
-    }
-
-    return method;
-  };
-
-  Select2.prototype._bindAdapters = function () {
-    this.dataAdapter.bind(this, this.$container);
-    this.selection.bind(this, this.$container);
-
-    this.dropdown.bind(this, this.$container);
-    this.results.bind(this, this.$container);
-  };
-
-  Select2.prototype._registerDomEvents = function () {
-    var self = this;
-
-    this.$element.on('change.select2', function () {
-      self.dataAdapter.current(function (data) {
-        self.trigger('selection:update', {
-          data: data
-        });
-      });
-    });
-
-    this.$element.on('focus.select2', function (evt) {
-      self.trigger('focus', evt);
-    });
-
-    this._syncA = Utils.bind(this._syncAttributes, this);
-    this._syncS = Utils.bind(this._syncSubtree, this);
-
-    if (this.$element[0].attachEvent) {
-      this.$element[0].attachEvent('onpropertychange', this._syncA);
-    }
-
-    var observer = window.MutationObserver ||
-      window.WebKitMutationObserver ||
-      window.MozMutationObserver
-    ;
-
-    if (observer != null) {
-      this._observer = new observer(function (mutations) {
-        $.each(mutations, self._syncA);
-        $.each(mutations, self._syncS);
-      });
-      this._observer.observe(this.$element[0], {
-        attributes: true,
-        childList: true,
-        subtree: false
-      });
-    } else if (this.$element[0].addEventListener) {
-      this.$element[0].addEventListener(
-        'DOMAttrModified',
-        self._syncA,
-        false
-      );
-      this.$element[0].addEventListener(
-        'DOMNodeInserted',
-        self._syncS,
-        false
-      );
-      this.$element[0].addEventListener(
-        'DOMNodeRemoved',
-        self._syncS,
-        false
-      );
-    }
-  };
-
-  Select2.prototype._registerDataEvents = function () {
-    var self = this;
-
-    this.dataAdapter.on('*', function (name, params) {
-      self.trigger(name, params);
-    });
-  };
-
-  Select2.prototype._registerSelectionEvents = function () {
-    var self = this;
-    var nonRelayEvents = ['toggle', 'focus'];
-
-    this.selection.on('toggle', function () {
-      self.toggleDropdown();
-    });
-
-    this.selection.on('focus', function (params) {
-      self.focus(params);
-    });
-
-    this.selection.on('*', function (name, params) {
-      if ($.inArray(name, nonRelayEvents) !== -1) {
-        return;
-      }
-
-      self.trigger(name, params);
-    });
-  };
-
-  Select2.prototype._registerDropdownEvents = function () {
-    var self = this;
-
-    this.dropdown.on('*', function (name, params) {
-      self.trigger(name, params);
-    });
-  };
-
-  Select2.prototype._registerResultsEvents = function () {
-    var self = this;
-
-    this.results.on('*', function (name, params) {
-      self.trigger(name, params);
-    });
-  };
-
-  Select2.prototype._registerEvents = function () {
-    var self = this;
-
-    this.on('open', function () {
-      self.$container.addClass('select2-container--open');
-    });
-
-    this.on('close', function () {
-      self.$container.removeClass('select2-container--open');
-    });
-
-    this.on('enable', function () {
-      self.$container.removeClass('select2-container--disabled');
-    });
-
-    this.on('disable', function () {
-      self.$container.addClass('select2-container--disabled');
-    });
-
-    this.on('blur', function () {
-      self.$container.removeClass('select2-container--focus');
-    });
-
-    this.on('query', function (params) {
-      if (!self.isOpen()) {
-        self.trigger('open', {});
-      }
-
-      this.dataAdapter.query(params, function (data) {
-        self.trigger('results:all', {
-          data: data,
-          query: params
-        });
-      });
-    });
-
-    this.on('query:append', function (params) {
-      this.dataAdapter.query(params, function (data) {
-        self.trigger('results:append', {
-          data: data,
-          query: params
-        });
-      });
-    });
-
-    this.on('keypress', function (evt) {
-      var key = evt.which;
-
-      if (self.isOpen()) {
-        if (key === KEYS.ESC || key === KEYS.TAB ||
-            (key === KEYS.UP && evt.altKey)) {
-          self.close();
-
-          evt.preventDefault();
-        } else if (key === KEYS.ENTER) {
-          self.trigger('results:select', {});
-
-          evt.preventDefault();
-        } else if ((key === KEYS.SPACE && evt.ctrlKey)) {
-          self.trigger('results:toggle', {});
-
-          evt.preventDefault();
-        } else if (key === KEYS.UP) {
-          self.trigger('results:previous', {});
-
-          evt.preventDefault();
-        } else if (key === KEYS.DOWN) {
-          self.trigger('results:next', {});
-
-          evt.preventDefault();
-        }
-      } else {
-        if (key === KEYS.ENTER || key === KEYS.SPACE ||
-            (key === KEYS.DOWN && evt.altKey)) {
-          self.open();
-
-          evt.preventDefault();
-        }
-      }
-    });
-  };
-
-  Select2.prototype._syncAttributes = function () {
-    this.options.set('disabled', this.$element.prop('disabled'));
-
-    if (this.options.get('disabled')) {
-      if (this.isOpen()) {
-        this.close();
-      }
-
-      this.trigger('disable', {});
-    } else {
-      this.trigger('enable', {});
-    }
-  };
-
-  Select2.prototype._syncSubtree = function (evt, mutations) {
-    var changed = false;
-    var self = this;
-
-    // Ignore any mutation events raised for elements that aren't options or
-    // optgroups. This handles the case when the select element is destroyed
-    if (
-      evt && evt.target && (
-        evt.target.nodeName !== 'OPTION' && evt.target.nodeName !== 'OPTGROUP'
-      )
-    ) {
-      return;
-    }
-
-    if (!mutations) {
-      // If mutation events aren't supported, then we can only assume that the
-      // change affected the selections
-      changed = true;
-    } else if (mutations.addedNodes && mutations.addedNodes.length > 0) {
-      for (var n = 0; n < mutations.addedNodes.length; n++) {
-        var node = mutations.addedNodes[n];
-
-        if (node.selected) {
-          changed = true;
-        }
-      }
-    } else if (mutations.removedNodes && mutations.removedNodes.length > 0) {
-      changed = true;
-    }
-
-    // Only re-pull the data if we think there is a change
-    if (changed) {
-      this.dataAdapter.current(function (currentData) {
-        self.trigger('selection:update', {
-          data: currentData
-        });
-      });
-    }
-  };
-
-  /**
-   * Override the trigger method to automatically trigger pre-events when
-   * there are events that can be prevented.
-   */
-  Select2.prototype.trigger = function (name, args) {
-    var actualTrigger = Select2.__super__.trigger;
-    var preTriggerMap = {
-      'open': 'opening',
-      'close': 'closing',
-      'select': 'selecting',
-      'unselect': 'unselecting',
-      'clear': 'clearing'
-    };
-
-    if (args === undefined) {
-      args = {};
-    }
-
-    if (name in preTriggerMap) {
-      var preTriggerName = preTriggerMap[name];
-      var preTriggerArgs = {
-        prevented: false,
-        name: name,
-        args: args
-      };
-
-      actualTrigger.call(this, preTriggerName, preTriggerArgs);
-
-      if (preTriggerArgs.prevented) {
-        args.prevented = true;
-
-        return;
-      }
-    }
-
-    actualTrigger.call(this, name, args);
-  };
-
-  Select2.prototype.toggleDropdown = function () {
-    if (this.options.get('disabled')) {
-      return;
-    }
-
-    if (this.isOpen()) {
-      this.close();
-    } else {
-      this.open();
-    }
-  };
-
-  Select2.prototype.open = function () {
-    if (this.isOpen()) {
-      return;
-    }
-
-    this.trigger('query', {});
-  };
-
-  Select2.prototype.close = function () {
-    if (!this.isOpen()) {
-      return;
-    }
-
-    this.trigger('close', {});
-  };
-
-  Select2.prototype.isOpen = function () {
-    return this.$container.hasClass('select2-container--open');
-  };
-
-  Select2.prototype.hasFocus = function () {
-    return this.$container.hasClass('select2-container--focus');
-  };
-
-  Select2.prototype.focus = function (data) {
-    // No need to re-trigger focus events if we are already focused
-    if (this.hasFocus()) {
-      return;
-    }
-
-    this.$container.addClass('select2-container--focus');
-    this.trigger('focus', {});
-  };
-
-  Select2.prototype.enable = function (args) {
-    if (this.options.get('debug') && window.console && console.warn) {
-      console.warn(
-        'Select2: The `select2("enable")` method has been deprecated and will' +
-        ' be removed in later Select2 versions. Use $element.prop("disabled")' +
-        ' instead.'
-      );
-    }
-
-    if (args == null || args.length === 0) {
-      args = [true];
-    }
-
-    var disabled = !args[0];
-
-    this.$element.prop('disabled', disabled);
-  };
-
-  Select2.prototype.data = function () {
-    if (this.options.get('debug') &&
-        arguments.length > 0 && window.console && console.warn) {
-      console.warn(
-        'Select2: Data can no longer be set using `select2("data")`. You ' +
-        'should consider setting the value instead using `$element.val()`.'
-      );
-    }
-
-    var data = [];
-
-    this.dataAdapter.current(function (currentData) {
-      data = currentData;
-    });
-
-    return data;
-  };
-
-  Select2.prototype.val = function (args) {
-    if (this.options.get('debug') && window.console && console.warn) {
-      console.warn(
-        'Select2: The `select2("val")` method has been deprecated and will be' +
-        ' removed in later Select2 versions. Use $element.val() instead.'
-      );
-    }
-
-    if (args == null || args.length === 0) {
-      return this.$element.val();
-    }
-
-    var newVal = args[0];
-
-    if ($.isArray(newVal)) {
-      newVal = $.map(newVal, function (obj) {
-        return obj.toString();
-      });
-    }
-
-    this.$element.val(newVal).trigger('change');
-  };
-
-  Select2.prototype.destroy = function () {
-    this.$container.remove();
-
-    if (this.$element[0].detachEvent) {
-      this.$element[0].detachEvent('onpropertychange', this._syncA);
-    }
-
-    if (this._observer != null) {
-      this._observer.disconnect();
-      this._observer = null;
-    } else if (this.$element[0].removeEventListener) {
-      this.$element[0]
-        .removeEventListener('DOMAttrModified', this._syncA, false);
-      this.$element[0]
-        .removeEventListener('DOMNodeInserted', this._syncS, false);
-      this.$element[0]
-        .removeEventListener('DOMNodeRemoved', this._syncS, false);
-    }
-
-    this._syncA = null;
-    this._syncS = null;
-
-    this.$element.off('.select2');
-    this.$element.attr('tabindex',
-    Utils.GetData(this.$element[0], 'old-tabindex'));
-
-    this.$element.removeClass('select2-hidden-accessible');
-    this.$element.attr('aria-hidden', 'false');
-    Utils.RemoveData(this.$element[0]);
-    this.$element.removeData('select2');
-
-    this.dataAdapter.destroy();
-    this.selection.destroy();
-    this.dropdown.destroy();
-    this.results.destroy();
-
-    this.dataAdapter = null;
-    this.selection = null;
-    this.dropdown = null;
-    this.results = null;
-  };
-
-  Select2.prototype.render = function () {
-    var $container = $(
-      '<span class="select2 select2-container">' +
-        '<span class="selection"></span>' +
-        '<span class="dropdown-wrapper" aria-hidden="true"></span>' +
-      '</span>'
-    );
-
-    $container.attr('dir', this.options.get('dir'));
-
-    this.$container = $container;
-
-    this.$container.addClass('select2-container--' + this.options.get('theme'));
-
-    Utils.StoreData($container[0], 'element', this.$element);
-
-    return $container;
-  };
-
-  return Select2;
-});
-
-S2.define('jquery-mousewheel',[
-  'jquery'
-], function ($) {
-  // Used to shim jQuery.mousewheel for non-full builds.
-  return $;
-});
-
-S2.define('jquery.select2',[
-  'jquery',
-  'jquery-mousewheel',
-
-  './select2/core',
-  './select2/defaults',
-  './select2/utils'
-], function ($, _, Select2, Defaults, Utils) {
-  if ($.fn.select2 == null) {
-    // All methods that should return the element
-    var thisMethods = ['open', 'close', 'destroy'];
-
-    $.fn.select2 = function (options) {
-      options = options || {};
-
-      if (typeof options === 'object') {
-        this.each(function () {
-          var instanceOptions = $.extend(true, {}, options);
-
-          var instance = new Select2($(this), instanceOptions);
-        });
-
-        return this;
-      } else if (typeof options === 'string') {
-        var ret;
-        var args = Array.prototype.slice.call(arguments, 1);
-
-        this.each(function () {
-          var instance = Utils.GetData(this, 'select2');
-
-          if (instance == null && window.console && console.error) {
-            console.error(
-              'The select2(\'' + options + '\') method was called on an ' +
-              'element that is not using Select2.'
-            );
-          }
-
-          ret = instance[options].apply(instance, args);
-        });
-
-        // Check if we should be returning `this`
-        if ($.inArray(options, thisMethods) > -1) {
-          return this;
-        }
-
-        return ret;
-      } else {
-        throw new Error('Invalid arguments for Select2: ' + options);
-      }
-    };
-  }
-
-  if ($.fn.select2.defaults == null) {
-    $.fn.select2.defaults = Defaults;
-  }
-
-  return Select2;
-});
-
-  // Return the AMD loader configuration so it can be used outside of this file
-  return {
-    define: S2.define,
-    require: S2.require
-  };
-}());
-
-  // Autoload the jQuery bindings
-  // We know that all of the modules exist above this, so we're safe
-  var select2 = S2.require('jquery.select2');
-
-  // Hold the AMD module references on the jQuery function that was just loaded
-  // This allows Select2 to use the internal loader outside of this file, such
-  // as in the language files.
-  jQuery.fn.select2.amd = S2;
-
-  // Return the Select2 instance for anyone who is importing it.
-  return select2;
-}));
+module.exports = __webpack_require__(35);
 
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(14);
-__webpack_require__(32);
-module.exports = __webpack_require__(33);
-
-
-/***/ }),
-/* 14 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -30047,3408 +24145,2702 @@ module.exports = __webpack_require__(33);
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(15);
+__webpack_require__(36);
 
 window.Vue = __webpack_require__(1);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', __webpack_require__(18));
-Vue.component('class-student', __webpack_require__(21));
-Vue.component('class-teaching', __webpack_require__(29));
-
-var app = new Vue({
-  el: '#app'
-});
+__webpack_require__(37);
 
 /***/ }),
-/* 15 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
-
-/**
- * We'll load jQuery and the Bootstrap jQuery plugin which provides support
- * for JavaScript based Bootstrap features such as modals and tabs. This
- * code may be modified to fit the specific needs of your application.
- */
 
 try {
     window.$ = window.jQuery = __webpack_require__(0);
 
     __webpack_require__(6);
-    window.PNotify = __webpack_require__(5);
-    __webpack_require__(16);
-    __webpack_require__(17);
 } catch (e) {}
 
 /***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 37 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Buttons
-(function (root, factory) {
-  if (true) {
-    // AMD. Register as a module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof exports === 'object' && typeof module !== 'undefined') {
-    // CommonJS
-    module.exports = factory(require('jquery'), require('./pnotify'));
-  } else {
-    // Browser globals
-    factory(root.jQuery, root.PNotify);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__router_map__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_App_vue__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_App_vue__);
+
+
+
+
+
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+  routes: __WEBPACK_IMPORTED_MODULE_2__router_map__["a" /* default */]
+});
+
+new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
+  router: router,
+  el: '#app',
+  components: {
+    'app': __WEBPACK_IMPORTED_MODULE_3__components_App_vue___default.a
   }
-}(typeof window !== "undefined" ? window : this, function($, PNotify){
-  PNotify.prototype.options.buttons = {
-    // Provide a button for the user to manually close the notice.
-    closer: true,
-    // Only show the closer button on hover.
-    closer_hover: true,
-    // Provide a button for the user to manually stick the notice.
-    sticker: true,
-    // Only show the sticker button on hover.
-    sticker_hover: true,
-    // Show the buttons even when the nonblock module is in use.
-    show_on_nonblock: false,
-    // The various displayed text, helps facilitating internationalization.
-    labels: {
-      close: "Close",
-      stick: "Stick",
-      unstick: "Unstick"
-    },
-    // The classes to use for button icons. Leave them null to use the classes from the styling you're using.
-    classes: {
-      closer: null,
-      pin_up: null,
-      pin_down: null
-    }
-  };
-  PNotify.prototype.modules.buttons = {
-    init: function(notice, options){
-      var that = this;
-      notice.elem.on({
-        "mouseenter": function(e){
-          // Show the buttons.
-          if (that.options.sticker && (!(notice.options.nonblock && notice.options.nonblock.nonblock) || that.options.show_on_nonblock)) {
-            that.sticker.trigger("pnotify:buttons:toggleStick").css("visibility", "visible");
-          }
-          if (that.options.closer && (!(notice.options.nonblock && notice.options.nonblock.nonblock) || that.options.show_on_nonblock)) {
-            that.closer.css("visibility", "visible");
-          }
-        },
-        "mouseleave": function(e){
-          // Hide the buttons.
-          if (that.options.sticker_hover) {
-            that.sticker.css("visibility", "hidden");
-          }
-          if (that.options.closer_hover) {
-            that.closer.css("visibility", "hidden");
-          }
-        }
-      });
-
-      // Provide a button to stick the notice.
-      this.sticker = $("<div />", {
-        "class": "ui-pnotify-sticker",
-        "aria-role": "button",
-        "aria-pressed": notice.options.hide ? "false" : "true",
-        "tabindex": "0",
-        "title": notice.options.hide ? options.labels.stick : options.labels.unstick,
-        "css": {
-          "cursor": "pointer",
-          "visibility": options.sticker_hover ? "hidden" : "visible"
-        },
-        "click": function(){
-          notice.options.hide = !notice.options.hide;
-          if (notice.options.hide) {
-            notice.queueRemove();
-          } else {
-            notice.cancelRemove();
-          }
-          $(this).trigger("pnotify:buttons:toggleStick");
-        }
-      })
-      .bind("pnotify:buttons:toggleStick", function(){
-        var pin_up = that.options.classes.pin_up === null ? notice.styles.pin_up : that.options.classes.pin_up;
-        var pin_down = that.options.classes.pin_down === null ? notice.styles.pin_down : that.options.classes.pin_down;
-        $(this)
-        .attr("title", notice.options.hide ? that.options.labels.stick : that.options.labels.unstick)
-        .children()
-        .attr("class", "")
-        .addClass(notice.options.hide ? pin_up : pin_down)
-        .attr("aria-pressed", notice.options.hide ? "false" : "true");
-      })
-      .append("<span />")
-      .trigger("pnotify:buttons:toggleStick")
-      .prependTo(notice.container);
-      if (!options.sticker || (notice.options.nonblock && notice.options.nonblock.nonblock && !options.show_on_nonblock)) {
-        this.sticker.css("display", "none");
-      }
-
-      // Provide a button to close the notice.
-      this.closer = $("<div />", {
-        "class": "ui-pnotify-closer",
-        "aria-role": "button",
-        "tabindex": "0",
-        "title": options.labels.close,
-        "css": {"cursor": "pointer", "visibility": options.closer_hover ? "hidden" : "visible"},
-        "click": function(){
-          notice.remove(false);
-          that.sticker.css("visibility", "hidden");
-          that.closer.css("visibility", "hidden");
-        }
-      })
-      .append($("<span />", {"class": options.classes.closer === null ? notice.styles.closer : options.classes.closer}))
-      .prependTo(notice.container);
-      if (!options.closer || (notice.options.nonblock && notice.options.nonblock.nonblock && !options.show_on_nonblock)) {
-        this.closer.css("display", "none");
-      }
-    },
-    update: function(notice, options){
-      // Update the sticker and closer buttons.
-      if (!options.closer || (notice.options.nonblock && notice.options.nonblock.nonblock && !options.show_on_nonblock)) {
-        this.closer.css("display", "none");
-      } else if (options.closer) {
-        this.closer.css("display", "block");
-      }
-      if (!options.sticker || (notice.options.nonblock && notice.options.nonblock.nonblock && !options.show_on_nonblock)) {
-        this.sticker.css("display", "none");
-      } else if (options.sticker) {
-        this.sticker.css("display", "block");
-      }
-      // Update the sticker icon.
-      this.sticker.trigger("pnotify:buttons:toggleStick");
-      // Update the close icon.
-      this.closer.find("span").attr("class", "").addClass(options.classes.closer === null ? notice.styles.closer : options.classes.closer);
-      // Update the hover status of the buttons.
-      if (options.sticker_hover) {
-        this.sticker.css("visibility", "hidden");
-      } else if (!(notice.options.nonblock && notice.options.nonblock.nonblock && !options.show_on_nonblock)) {
-        this.sticker.css("visibility", "visible");
-      }
-      if (options.closer_hover) {
-        this.closer.css("visibility", "hidden");
-      } else if (!(notice.options.nonblock && notice.options.nonblock.nonblock && !options.show_on_nonblock)) {
-        this.closer.css("visibility", "visible");
-      }
-    }
-  };
-  $.extend(PNotify.styling.brighttheme, {
-    closer: "brighttheme-icon-closer",
-    pin_up: "brighttheme-icon-sticker",
-    pin_down: "brighttheme-icon-sticker brighttheme-icon-stuck"
-  });
-  $.extend(PNotify.styling.bootstrap3, {
-    closer: "glyphicon glyphicon-remove",
-    pin_up: "glyphicon glyphicon-pause",
-    pin_down: "glyphicon glyphicon-play"
-  });
-  $.extend(PNotify.styling.fontawesome, {
-    closer: "fa fa-times",
-    pin_up: "fa fa-pause",
-    pin_down: "fa fa-play"
-  });
-  return PNotify;
-}));
-
+});
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 38 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Confirm
-(function (root, factory) {
-  if (true) {
-    // AMD. Register as a module.
-    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-  } else if (typeof exports === 'object' && typeof module !== 'undefined') {
-    // CommonJS
-    module.exports = factory(require('jquery'), require('./pnotify'));
-  } else {
-    // Browser globals
-    factory(root.jQuery, root.PNotify);
+"use strict";
+/**
+  * vue-router v3.0.1
+  * (c) 2017 Evan You
+  * @license MIT
+  */
+/*  */
+
+function assert (condition, message) {
+  if (!condition) {
+    throw new Error(("[vue-router] " + message))
   }
-}(typeof window !== "undefined" ? window : this, function($, PNotify){
-  PNotify.prototype.options.confirm = {
-    // Make a confirmation box.
-    confirm: false,
-    // Make a prompt.
-    prompt: false,
-    // Classes to add to the input element of the prompt.
-    prompt_class: "",
-    // The default value of the prompt.
-    prompt_default: "",
-    // Whether the prompt should accept multiple lines of text.
-    prompt_multi_line: false,
-    // Where to align the buttons. (right, center, left, justify)
-    align: "right",
-    // The buttons to display, and their callbacks.
-    buttons: [
-      {
-        text: "Ok",
-        addClass: "",
-        // Whether to trigger this button when the user hits enter in a single line prompt.
-        promptTrigger: true,
-        click: function(notice, value){
-          notice.remove();
-          notice.get().trigger("pnotify.confirm", [notice, value]);
+}
+
+function warn (condition, message) {
+  if ("development" !== 'production' && !condition) {
+    typeof console !== 'undefined' && console.warn(("[vue-router] " + message));
+  }
+}
+
+function isError (err) {
+  return Object.prototype.toString.call(err).indexOf('Error') > -1
+}
+
+var View = {
+  name: 'router-view',
+  functional: true,
+  props: {
+    name: {
+      type: String,
+      default: 'default'
+    }
+  },
+  render: function render (_, ref) {
+    var props = ref.props;
+    var children = ref.children;
+    var parent = ref.parent;
+    var data = ref.data;
+
+    data.routerView = true;
+
+    // directly use parent context's createElement() function
+    // so that components rendered by router-view can resolve named slots
+    var h = parent.$createElement;
+    var name = props.name;
+    var route = parent.$route;
+    var cache = parent._routerViewCache || (parent._routerViewCache = {});
+
+    // determine current view depth, also check to see if the tree
+    // has been toggled inactive but kept-alive.
+    var depth = 0;
+    var inactive = false;
+    while (parent && parent._routerRoot !== parent) {
+      if (parent.$vnode && parent.$vnode.data.routerView) {
+        depth++;
+      }
+      if (parent._inactive) {
+        inactive = true;
+      }
+      parent = parent.$parent;
+    }
+    data.routerViewDepth = depth;
+
+    // render previous view if the tree is inactive and kept-alive
+    if (inactive) {
+      return h(cache[name], data, children)
+    }
+
+    var matched = route.matched[depth];
+    // render empty node if no matched route
+    if (!matched) {
+      cache[name] = null;
+      return h()
+    }
+
+    var component = cache[name] = matched.components[name];
+
+    // attach instance registration hook
+    // this will be called in the instance's injected lifecycle hooks
+    data.registerRouteInstance = function (vm, val) {
+      // val could be undefined for unregistration
+      var current = matched.instances[name];
+      if (
+        (val && current !== vm) ||
+        (!val && current === vm)
+      ) {
+        matched.instances[name] = val;
+      }
+    }
+
+    // also register instance in prepatch hook
+    // in case the same component instance is reused across different routes
+    ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
+      matched.instances[name] = vnode.componentInstance;
+    };
+
+    // resolve props
+    var propsToPass = data.props = resolveProps(route, matched.props && matched.props[name]);
+    if (propsToPass) {
+      // clone to prevent mutation
+      propsToPass = data.props = extend({}, propsToPass);
+      // pass non-declared props as attrs
+      var attrs = data.attrs = data.attrs || {};
+      for (var key in propsToPass) {
+        if (!component.props || !(key in component.props)) {
+          attrs[key] = propsToPass[key];
+          delete propsToPass[key];
         }
-      },
-      {
-        text: "Cancel",
-        addClass: "",
-        click: function(notice){
-          notice.remove();
-          notice.get().trigger("pnotify.cancel", notice);
+      }
+    }
+
+    return h(component, data, children)
+  }
+};
+
+function resolveProps (route, config) {
+  switch (typeof config) {
+    case 'undefined':
+      return
+    case 'object':
+      return config
+    case 'function':
+      return config(route)
+    case 'boolean':
+      return config ? route.params : undefined
+    default:
+      if (true) {
+        warn(
+          false,
+          "props in \"" + (route.path) + "\" is a " + (typeof config) + ", " +
+          "expecting an object, function or boolean."
+        );
+      }
+  }
+}
+
+function extend (to, from) {
+  for (var key in from) {
+    to[key] = from[key];
+  }
+  return to
+}
+
+/*  */
+
+var encodeReserveRE = /[!'()*]/g;
+var encodeReserveReplacer = function (c) { return '%' + c.charCodeAt(0).toString(16); };
+var commaRE = /%2C/g;
+
+// fixed encodeURIComponent which is more conformant to RFC3986:
+// - escapes [!'()*]
+// - preserve commas
+var encode = function (str) { return encodeURIComponent(str)
+  .replace(encodeReserveRE, encodeReserveReplacer)
+  .replace(commaRE, ','); };
+
+var decode = decodeURIComponent;
+
+function resolveQuery (
+  query,
+  extraQuery,
+  _parseQuery
+) {
+  if ( extraQuery === void 0 ) extraQuery = {};
+
+  var parse = _parseQuery || parseQuery;
+  var parsedQuery;
+  try {
+    parsedQuery = parse(query || '');
+  } catch (e) {
+    "development" !== 'production' && warn(false, e.message);
+    parsedQuery = {};
+  }
+  for (var key in extraQuery) {
+    parsedQuery[key] = extraQuery[key];
+  }
+  return parsedQuery
+}
+
+function parseQuery (query) {
+  var res = {};
+
+  query = query.trim().replace(/^(\?|#|&)/, '');
+
+  if (!query) {
+    return res
+  }
+
+  query.split('&').forEach(function (param) {
+    var parts = param.replace(/\+/g, ' ').split('=');
+    var key = decode(parts.shift());
+    var val = parts.length > 0
+      ? decode(parts.join('='))
+      : null;
+
+    if (res[key] === undefined) {
+      res[key] = val;
+    } else if (Array.isArray(res[key])) {
+      res[key].push(val);
+    } else {
+      res[key] = [res[key], val];
+    }
+  });
+
+  return res
+}
+
+function stringifyQuery (obj) {
+  var res = obj ? Object.keys(obj).map(function (key) {
+    var val = obj[key];
+
+    if (val === undefined) {
+      return ''
+    }
+
+    if (val === null) {
+      return encode(key)
+    }
+
+    if (Array.isArray(val)) {
+      var result = [];
+      val.forEach(function (val2) {
+        if (val2 === undefined) {
+          return
         }
-      }
-    ]
-  };
-  PNotify.prototype.modules.confirm = {
-    init: function(notice, options){
-      // The div that contains the buttons.
-      this.container = $('<div class="ui-pnotify-action-bar" style="margin-top:5px;clear:both;" />').css('text-align', options.align).appendTo(notice.container);
-
-      if (options.confirm || options.prompt)
-        this.makeDialog(notice, options);
-      else
-        this.container.hide();
-    },
-
-    update: function(notice, options){
-      if (options.confirm) {
-        this.makeDialog(notice, options);
-        this.container.show();
-      } else {
-        this.container.hide().empty();
-      }
-    },
-
-    afterOpen: function(notice, options){
-      if (options.prompt) {
-        this.prompt.focus();
-      }
-    },
-
-    makeDialog: function(notice, options) {
-      var already = false, that = this, btn, elem;
-      this.container.empty();
-      if (options.prompt) {
-        // The input element of a prompt.
-        this.prompt = $('<'+(options.prompt_multi_line ? 'textarea rows="5"' : 'input type="text"')+' style="margin-bottom:5px;clear:both;" />')
-        .addClass((typeof notice.styles.input === "undefined" ? "" : notice.styles.input)+" "+(typeof options.prompt_class === "undefined" ? "" : options.prompt_class))
-        .val(options.prompt_default)
-        .appendTo(this.container);
-      }
-      var customButtons = (options.buttons[0] && options.buttons[0] !== PNotify.prototype.options.confirm.buttons[0]);
-      for (var i = 0; i < options.buttons.length; i++) {
-        if (options.buttons[i] === null || (customButtons && PNotify.prototype.options.confirm.buttons[i] && PNotify.prototype.options.confirm.buttons[i] === options.buttons[i])) {
-          continue;
-        }
-        btn = options.buttons[i];
-        if (already) {
-          this.container.append(' ');
+        if (val2 === null) {
+          result.push(encode(key));
         } else {
-          already = true;
+          result.push(encode(key) + '=' + encode(val2));
         }
-        elem = $('<button type="button" class="ui-pnotify-action-button" />')
-        .addClass((typeof notice.styles.btn === "undefined" ? "" : notice.styles.btn)+" "+(typeof btn.addClass === "undefined" ? "" : btn.addClass))
-        .text(btn.text)
-        .appendTo(this.container)
-        .on("click", (function(btn){ return function(){
-          if (typeof btn.click == "function") {
-            btn.click(notice, options.prompt ? that.prompt.val() : null);
-          }
-        }})(btn));
-        if (options.prompt && !options.prompt_multi_line && btn.promptTrigger)
-          this.prompt.keypress((function(elem){ return function(e){
-            if (e.keyCode == 13)
-              elem.click();
-          }})(elem));
-        if (notice.styles.text) {
-          elem.wrapInner('<span class="'+notice.styles.text+'"></span>');
-        }
-        if (notice.styles.btnhover) {
-          elem.hover((function(elem){ return function(){
-            elem.addClass(notice.styles.btnhover);
-          }})(elem), (function(elem){ return function(){
-            elem.removeClass(notice.styles.btnhover);
-          }})(elem));
-        }
-        if (notice.styles.btnactive) {
-          elem.on("mousedown", (function(elem){ return function(){
-            elem.addClass(notice.styles.btnactive);
-          }})(elem)).on("mouseup", (function(elem){ return function(){
-            elem.removeClass(notice.styles.btnactive);
-          }})(elem));
-        }
-        if (notice.styles.btnfocus) {
-          elem.on("focus", (function(elem){ return function(){
-            elem.addClass(notice.styles.btnfocus);
-          }})(elem)).on("blur", (function(elem){ return function(){
-            elem.removeClass(notice.styles.btnfocus);
-          }})(elem));
-        }
-      }
-    }
-  };
-  $.extend(PNotify.styling.bootstrap3, {
-    btn: "btn btn-default",
-    input: "form-control"
-  });
-  $.extend(PNotify.styling.fontawesome, {
-    btn: "btn btn-default",
-    input: "form-control"
-  });
-  return PNotify;
-}));
-
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(19)
-/* template */
-var __vue_template__ = __webpack_require__(20)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/admin/js/components/ExampleComponent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5bc3d12a", Component.options)
-  } else {
-    hotAPI.reload("data-v-5bc3d12a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 19 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
-          _c("div", { staticClass: "panel panel-default" }, [
-            _c("div", { staticClass: "panel-heading" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "panel-body" }, [
-              _vm._v(
-                "\n                    I'm an example component!\n                "
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5bc3d12a", module.exports)
-  }
-}
-
-/***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(22)
-/* template */
-var __vue_template__ = __webpack_require__(28)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/admin/js/components/ClassStudent.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-7f08979a", Component.options)
-  } else {
-    hotAPI.reload("data-v-7f08979a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 22 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_store__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_select2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pnotify__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_pnotify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_pnotify__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['classInformation'],
-    computed: {
-        students: function students() {
-            return __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].state.classStudent.students;
-        }
-    },
-    mounted: function mounted() {
-        __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classStudent/query', this.classInformation);
-        $("select[name=students]").select2({
-            ajax: {
-                url: __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__["a" /* default */].API_URL + '/students',
-                dataType: 'json',
-                delay: 250,
-                data: function data(params) {
-                    return {
-                        q: params.term
-                    };
-                },
-                processResults: function processResults(data) {
-                    return {
-                        results: data.map(function (student) {
-                            return { id: student.id, text: student.user.name };
-                        })
-                    };
-                }
-            },
-            minimumInputLength: 1
-        });
-        var self = this;
-        $("select[name=students]").on('select2:select', function (event) {
-            __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classStudent/store', {
-                studentId: event.params.data.id,
-                classInformationId: self.classInformation
-            }).then(function () {
-                new PNotify({
-                    title: 'Success!',
-                    text: 'Usuário Incluído com sucesso!',
-                    styling: 'brighttheme',
-                    type: 'success'
-                });
-            });
-        });
-    },
-
-    methods: {
-        destroy: function destroy(student) {
-            var self = this;
-            new PNotify({
-                title: 'Confirmar Exclusão',
-                text: 'Deseja realmente excluir?',
-                icon: 'glyphicon glyphicon-question-sign',
-                hide: false,
-
-                confirm: {
-                    confirm: true
-                },
-                buttons: {
-                    closer: true,
-                    sticker: true
-                },
-                history: {
-                    history: false
-                }
-            }).get().on('pnotify.confirm', function () {
-                __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classStudent/destroy', {
-                    studentId: student.id,
-                    classInformationId: self.classInformation
-                }).then(function () {
-                    new PNotify({
-                        title: 'Success!',
-                        text: 'Usuário excluído com sucesso!',
-                        styling: 'brighttheme',
-                        type: 'success'
-                    });
-                });
-            }).on('pnotify.cancel', function () {
-                alert('Oh ok. Chicken, I see.');
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 23 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Store */
-/* unused harmony export install */
-/* unused harmony export mapState */
-/* unused harmony export mapMutations */
-/* unused harmony export mapGetters */
-/* unused harmony export mapActions */
-/* unused harmony export createNamespacedHelpers */
-/**
- * vuex v3.0.1
- * (c) 2017 Evan You
- * @license MIT
- */
-var applyMixin = function (Vue) {
-  var version = Number(Vue.version.split('.')[0]);
-
-  if (version >= 2) {
-    Vue.mixin({ beforeCreate: vuexInit });
-  } else {
-    // override init and inject vuex init procedure
-    // for 1.x backwards compatibility.
-    var _init = Vue.prototype._init;
-    Vue.prototype._init = function (options) {
-      if ( options === void 0 ) options = {};
-
-      options.init = options.init
-        ? [vuexInit].concat(options.init)
-        : vuexInit;
-      _init.call(this, options);
-    };
-  }
-
-  /**
-   * Vuex init hook, injected into each instances init hooks list.
-   */
-
-  function vuexInit () {
-    var options = this.$options;
-    // store injection
-    if (options.store) {
-      this.$store = typeof options.store === 'function'
-        ? options.store()
-        : options.store;
-    } else if (options.parent && options.parent.$store) {
-      this.$store = options.parent.$store;
-    }
-  }
-};
-
-var devtoolHook =
-  typeof window !== 'undefined' &&
-  window.__VUE_DEVTOOLS_GLOBAL_HOOK__;
-
-function devtoolPlugin (store) {
-  if (!devtoolHook) { return }
-
-  store._devtoolHook = devtoolHook;
-
-  devtoolHook.emit('vuex:init', store);
-
-  devtoolHook.on('vuex:travel-to-state', function (targetState) {
-    store.replaceState(targetState);
-  });
-
-  store.subscribe(function (mutation, state) {
-    devtoolHook.emit('vuex:mutation', mutation, state);
-  });
-}
-
-/**
- * Get the first item that pass the test
- * by second argument function
- *
- * @param {Array} list
- * @param {Function} f
- * @return {*}
- */
-/**
- * Deep copy the given object considering circular structure.
- * This function caches all nested objects and its copies.
- * If it detects circular structure, use cached copy to avoid infinite loop.
- *
- * @param {*} obj
- * @param {Array<Object>} cache
- * @return {*}
- */
-
-
-/**
- * forEach for object
- */
-function forEachValue (obj, fn) {
-  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
-}
-
-function isObject (obj) {
-  return obj !== null && typeof obj === 'object'
-}
-
-function isPromise (val) {
-  return val && typeof val.then === 'function'
-}
-
-function assert (condition, msg) {
-  if (!condition) { throw new Error(("[vuex] " + msg)) }
-}
-
-var Module = function Module (rawModule, runtime) {
-  this.runtime = runtime;
-  this._children = Object.create(null);
-  this._rawModule = rawModule;
-  var rawState = rawModule.state;
-  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
-};
-
-var prototypeAccessors$1 = { namespaced: { configurable: true } };
-
-prototypeAccessors$1.namespaced.get = function () {
-  return !!this._rawModule.namespaced
-};
-
-Module.prototype.addChild = function addChild (key, module) {
-  this._children[key] = module;
-};
-
-Module.prototype.removeChild = function removeChild (key) {
-  delete this._children[key];
-};
-
-Module.prototype.getChild = function getChild (key) {
-  return this._children[key]
-};
-
-Module.prototype.update = function update (rawModule) {
-  this._rawModule.namespaced = rawModule.namespaced;
-  if (rawModule.actions) {
-    this._rawModule.actions = rawModule.actions;
-  }
-  if (rawModule.mutations) {
-    this._rawModule.mutations = rawModule.mutations;
-  }
-  if (rawModule.getters) {
-    this._rawModule.getters = rawModule.getters;
-  }
-};
-
-Module.prototype.forEachChild = function forEachChild (fn) {
-  forEachValue(this._children, fn);
-};
-
-Module.prototype.forEachGetter = function forEachGetter (fn) {
-  if (this._rawModule.getters) {
-    forEachValue(this._rawModule.getters, fn);
-  }
-};
-
-Module.prototype.forEachAction = function forEachAction (fn) {
-  if (this._rawModule.actions) {
-    forEachValue(this._rawModule.actions, fn);
-  }
-};
-
-Module.prototype.forEachMutation = function forEachMutation (fn) {
-  if (this._rawModule.mutations) {
-    forEachValue(this._rawModule.mutations, fn);
-  }
-};
-
-Object.defineProperties( Module.prototype, prototypeAccessors$1 );
-
-var ModuleCollection = function ModuleCollection (rawRootModule) {
-  // register root module (Vuex.Store options)
-  this.register([], rawRootModule, false);
-};
-
-ModuleCollection.prototype.get = function get (path) {
-  return path.reduce(function (module, key) {
-    return module.getChild(key)
-  }, this.root)
-};
-
-ModuleCollection.prototype.getNamespace = function getNamespace (path) {
-  var module = this.root;
-  return path.reduce(function (namespace, key) {
-    module = module.getChild(key);
-    return namespace + (module.namespaced ? key + '/' : '')
-  }, '')
-};
-
-ModuleCollection.prototype.update = function update$1 (rawRootModule) {
-  update([], this.root, rawRootModule);
-};
-
-ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
-    var this$1 = this;
-    if ( runtime === void 0 ) runtime = true;
-
-  if (true) {
-    assertRawModule(path, rawModule);
-  }
-
-  var newModule = new Module(rawModule, runtime);
-  if (path.length === 0) {
-    this.root = newModule;
-  } else {
-    var parent = this.get(path.slice(0, -1));
-    parent.addChild(path[path.length - 1], newModule);
-  }
-
-  // register nested modules
-  if (rawModule.modules) {
-    forEachValue(rawModule.modules, function (rawChildModule, key) {
-      this$1.register(path.concat(key), rawChildModule, runtime);
-    });
-  }
-};
-
-ModuleCollection.prototype.unregister = function unregister (path) {
-  var parent = this.get(path.slice(0, -1));
-  var key = path[path.length - 1];
-  if (!parent.getChild(key).runtime) { return }
-
-  parent.removeChild(key);
-};
-
-function update (path, targetModule, newModule) {
-  if (true) {
-    assertRawModule(path, newModule);
-  }
-
-  // update target module
-  targetModule.update(newModule);
-
-  // update nested modules
-  if (newModule.modules) {
-    for (var key in newModule.modules) {
-      if (!targetModule.getChild(key)) {
-        if (true) {
-          console.warn(
-            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
-            'manual reload is needed'
-          );
-        }
-        return
-      }
-      update(
-        path.concat(key),
-        targetModule.getChild(key),
-        newModule.modules[key]
-      );
-    }
-  }
-}
-
-var functionAssert = {
-  assert: function (value) { return typeof value === 'function'; },
-  expected: 'function'
-};
-
-var objectAssert = {
-  assert: function (value) { return typeof value === 'function' ||
-    (typeof value === 'object' && typeof value.handler === 'function'); },
-  expected: 'function or object with "handler" function'
-};
-
-var assertTypes = {
-  getters: functionAssert,
-  mutations: functionAssert,
-  actions: objectAssert
-};
-
-function assertRawModule (path, rawModule) {
-  Object.keys(assertTypes).forEach(function (key) {
-    if (!rawModule[key]) { return }
-
-    var assertOptions = assertTypes[key];
-
-    forEachValue(rawModule[key], function (value, type) {
-      assert(
-        assertOptions.assert(value),
-        makeAssertionMessage(path, key, type, value, assertOptions.expected)
-      );
-    });
-  });
-}
-
-function makeAssertionMessage (path, key, type, value, expected) {
-  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
-  if (path.length > 0) {
-    buf += " in module \"" + (path.join('.')) + "\"";
-  }
-  buf += " is " + (JSON.stringify(value)) + ".";
-  return buf
-}
-
-var Vue; // bind on install
-
-var Store = function Store (options) {
-  var this$1 = this;
-  if ( options === void 0 ) options = {};
-
-  // Auto install if it is not done yet and `window` has `Vue`.
-  // To allow users to avoid auto-installation in some cases,
-  // this code should be placed here. See #731
-  if (!Vue && typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
-  }
-
-  if (true) {
-    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
-    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
-    assert(this instanceof Store, "Store must be called with the new operator.");
-  }
-
-  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
-  var strict = options.strict; if ( strict === void 0 ) strict = false;
-
-  var state = options.state; if ( state === void 0 ) state = {};
-  if (typeof state === 'function') {
-    state = state() || {};
-  }
-
-  // store internal state
-  this._committing = false;
-  this._actions = Object.create(null);
-  this._actionSubscribers = [];
-  this._mutations = Object.create(null);
-  this._wrappedGetters = Object.create(null);
-  this._modules = new ModuleCollection(options);
-  this._modulesNamespaceMap = Object.create(null);
-  this._subscribers = [];
-  this._watcherVM = new Vue();
-
-  // bind commit and dispatch to self
-  var store = this;
-  var ref = this;
-  var dispatch = ref.dispatch;
-  var commit = ref.commit;
-  this.dispatch = function boundDispatch (type, payload) {
-    return dispatch.call(store, type, payload)
-  };
-  this.commit = function boundCommit (type, payload, options) {
-    return commit.call(store, type, payload, options)
-  };
-
-  // strict mode
-  this.strict = strict;
-
-  // init root module.
-  // this also recursively registers all sub-modules
-  // and collects all module getters inside this._wrappedGetters
-  installModule(this, state, [], this._modules.root);
-
-  // initialize the store vm, which is responsible for the reactivity
-  // (also registers _wrappedGetters as computed properties)
-  resetStoreVM(this, state);
-
-  // apply plugins
-  plugins.forEach(function (plugin) { return plugin(this$1); });
-
-  if (Vue.config.devtools) {
-    devtoolPlugin(this);
-  }
-};
-
-var prototypeAccessors = { state: { configurable: true } };
-
-prototypeAccessors.state.get = function () {
-  return this._vm._data.$$state
-};
-
-prototypeAccessors.state.set = function (v) {
-  if (true) {
-    assert(false, "Use store.replaceState() to explicit replace store state.");
-  }
-};
-
-Store.prototype.commit = function commit (_type, _payload, _options) {
-    var this$1 = this;
-
-  // check object-style commit
-  var ref = unifyObjectStyle(_type, _payload, _options);
-    var type = ref.type;
-    var payload = ref.payload;
-    var options = ref.options;
-
-  var mutation = { type: type, payload: payload };
-  var entry = this._mutations[type];
-  if (!entry) {
-    if (true) {
-      console.error(("[vuex] unknown mutation type: " + type));
-    }
-    return
-  }
-  this._withCommit(function () {
-    entry.forEach(function commitIterator (handler) {
-      handler(payload);
-    });
-  });
-  this._subscribers.forEach(function (sub) { return sub(mutation, this$1.state); });
-
-  if (
-    "development" !== 'production' &&
-    options && options.silent
-  ) {
-    console.warn(
-      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
-      'Use the filter functionality in the vue-devtools'
-    );
-  }
-};
-
-Store.prototype.dispatch = function dispatch (_type, _payload) {
-    var this$1 = this;
-
-  // check object-style dispatch
-  var ref = unifyObjectStyle(_type, _payload);
-    var type = ref.type;
-    var payload = ref.payload;
-
-  var action = { type: type, payload: payload };
-  var entry = this._actions[type];
-  if (!entry) {
-    if (true) {
-      console.error(("[vuex] unknown action type: " + type));
-    }
-    return
-  }
-
-  this._actionSubscribers.forEach(function (sub) { return sub(action, this$1.state); });
-
-  return entry.length > 1
-    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
-    : entry[0](payload)
-};
-
-Store.prototype.subscribe = function subscribe (fn) {
-  return genericSubscribe(fn, this._subscribers)
-};
-
-Store.prototype.subscribeAction = function subscribeAction (fn) {
-  return genericSubscribe(fn, this._actionSubscribers)
-};
-
-Store.prototype.watch = function watch (getter, cb, options) {
-    var this$1 = this;
-
-  if (true) {
-    assert(typeof getter === 'function', "store.watch only accepts a function.");
-  }
-  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
-};
-
-Store.prototype.replaceState = function replaceState (state) {
-    var this$1 = this;
-
-  this._withCommit(function () {
-    this$1._vm._data.$$state = state;
-  });
-};
-
-Store.prototype.registerModule = function registerModule (path, rawModule, options) {
-    if ( options === void 0 ) options = {};
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if (true) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-    assert(path.length > 0, 'cannot register the root module by using registerModule.');
-  }
-
-  this._modules.register(path, rawModule);
-  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
-  // reset store to update getters...
-  resetStoreVM(this, this.state);
-};
-
-Store.prototype.unregisterModule = function unregisterModule (path) {
-    var this$1 = this;
-
-  if (typeof path === 'string') { path = [path]; }
-
-  if (true) {
-    assert(Array.isArray(path), "module path must be a string or an Array.");
-  }
-
-  this._modules.unregister(path);
-  this._withCommit(function () {
-    var parentState = getNestedState(this$1.state, path.slice(0, -1));
-    Vue.delete(parentState, path[path.length - 1]);
-  });
-  resetStore(this);
-};
-
-Store.prototype.hotUpdate = function hotUpdate (newOptions) {
-  this._modules.update(newOptions);
-  resetStore(this, true);
-};
-
-Store.prototype._withCommit = function _withCommit (fn) {
-  var committing = this._committing;
-  this._committing = true;
-  fn();
-  this._committing = committing;
-};
-
-Object.defineProperties( Store.prototype, prototypeAccessors );
-
-function genericSubscribe (fn, subs) {
-  if (subs.indexOf(fn) < 0) {
-    subs.push(fn);
-  }
-  return function () {
-    var i = subs.indexOf(fn);
-    if (i > -1) {
-      subs.splice(i, 1);
-    }
-  }
-}
-
-function resetStore (store, hot) {
-  store._actions = Object.create(null);
-  store._mutations = Object.create(null);
-  store._wrappedGetters = Object.create(null);
-  store._modulesNamespaceMap = Object.create(null);
-  var state = store.state;
-  // init all modules
-  installModule(store, state, [], store._modules.root, true);
-  // reset vm
-  resetStoreVM(store, state, hot);
-}
-
-function resetStoreVM (store, state, hot) {
-  var oldVm = store._vm;
-
-  // bind store public getters
-  store.getters = {};
-  var wrappedGetters = store._wrappedGetters;
-  var computed = {};
-  forEachValue(wrappedGetters, function (fn, key) {
-    // use computed to leverage its lazy-caching mechanism
-    computed[key] = function () { return fn(store); };
-    Object.defineProperty(store.getters, key, {
-      get: function () { return store._vm[key]; },
-      enumerable: true // for local getters
-    });
-  });
-
-  // use a Vue instance to store the state tree
-  // suppress warnings just in case the user has added
-  // some funky global mixins
-  var silent = Vue.config.silent;
-  Vue.config.silent = true;
-  store._vm = new Vue({
-    data: {
-      $$state: state
-    },
-    computed: computed
-  });
-  Vue.config.silent = silent;
-
-  // enable strict mode for new vm
-  if (store.strict) {
-    enableStrictMode(store);
-  }
-
-  if (oldVm) {
-    if (hot) {
-      // dispatch changes in all subscribed watchers
-      // to force getter re-evaluation for hot reloading.
-      store._withCommit(function () {
-        oldVm._data.$$state = null;
       });
+      return result.join('&')
     }
-    Vue.nextTick(function () { return oldVm.$destroy(); });
-  }
+
+    return encode(key) + '=' + encode(val)
+  }).filter(function (x) { return x.length > 0; }).join('&') : null;
+  return res ? ("?" + res) : ''
 }
 
-function installModule (store, rootState, path, module, hot) {
-  var isRoot = !path.length;
-  var namespace = store._modules.getNamespace(path);
+/*  */
 
-  // register in namespace map
-  if (module.namespaced) {
-    store._modulesNamespaceMap[namespace] = module;
-  }
 
-  // set state
-  if (!isRoot && !hot) {
-    var parentState = getNestedState(rootState, path.slice(0, -1));
-    var moduleName = path[path.length - 1];
-    store._withCommit(function () {
-      Vue.set(parentState, moduleName, module.state);
-    });
-  }
+var trailingSlashRE = /\/?$/;
 
-  var local = module.context = makeLocalContext(store, namespace, path);
+function createRoute (
+  record,
+  location,
+  redirectedFrom,
+  router
+) {
+  var stringifyQuery$$1 = router && router.options.stringifyQuery;
 
-  module.forEachMutation(function (mutation, key) {
-    var namespacedType = namespace + key;
-    registerMutation(store, namespacedType, mutation, local);
-  });
+  var query = location.query || {};
+  try {
+    query = clone(query);
+  } catch (e) {}
 
-  module.forEachAction(function (action, key) {
-    var type = action.root ? key : namespace + key;
-    var handler = action.handler || action;
-    registerAction(store, type, handler, local);
-  });
-
-  module.forEachGetter(function (getter, key) {
-    var namespacedType = namespace + key;
-    registerGetter(store, namespacedType, getter, local);
-  });
-
-  module.forEachChild(function (child, key) {
-    installModule(store, rootState, path.concat(key), child, hot);
-  });
-}
-
-/**
- * make localized dispatch, commit, getters and state
- * if there is no namespace, just use root ones
- */
-function makeLocalContext (store, namespace, path) {
-  var noNamespace = namespace === '';
-
-  var local = {
-    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if ("development" !== 'production' && !store._actions[type]) {
-          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      return store.dispatch(type, payload)
-    },
-
-    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
-      var args = unifyObjectStyle(_type, _payload, _options);
-      var payload = args.payload;
-      var options = args.options;
-      var type = args.type;
-
-      if (!options || !options.root) {
-        type = namespace + type;
-        if ("development" !== 'production' && !store._mutations[type]) {
-          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
-          return
-        }
-      }
-
-      store.commit(type, payload, options);
-    }
+  var route = {
+    name: location.name || (record && record.name),
+    meta: (record && record.meta) || {},
+    path: location.path || '/',
+    hash: location.hash || '',
+    query: query,
+    params: location.params || {},
+    fullPath: getFullPath(location, stringifyQuery$$1),
+    matched: record ? formatMatch(record) : []
   };
-
-  // getters and state object must be gotten lazily
-  // because they will be changed by vm update
-  Object.defineProperties(local, {
-    getters: {
-      get: noNamespace
-        ? function () { return store.getters; }
-        : function () { return makeLocalGetters(store, namespace); }
-    },
-    state: {
-      get: function () { return getNestedState(store.state, path); }
-    }
-  });
-
-  return local
-}
-
-function makeLocalGetters (store, namespace) {
-  var gettersProxy = {};
-
-  var splitPos = namespace.length;
-  Object.keys(store.getters).forEach(function (type) {
-    // skip if the target getter is not match this namespace
-    if (type.slice(0, splitPos) !== namespace) { return }
-
-    // extract local getter type
-    var localType = type.slice(splitPos);
-
-    // Add a port to the getters proxy.
-    // Define as getter property because
-    // we do not want to evaluate the getters in this time.
-    Object.defineProperty(gettersProxy, localType, {
-      get: function () { return store.getters[type]; },
-      enumerable: true
-    });
-  });
-
-  return gettersProxy
-}
-
-function registerMutation (store, type, handler, local) {
-  var entry = store._mutations[type] || (store._mutations[type] = []);
-  entry.push(function wrappedMutationHandler (payload) {
-    handler.call(store, local.state, payload);
-  });
-}
-
-function registerAction (store, type, handler, local) {
-  var entry = store._actions[type] || (store._actions[type] = []);
-  entry.push(function wrappedActionHandler (payload, cb) {
-    var res = handler.call(store, {
-      dispatch: local.dispatch,
-      commit: local.commit,
-      getters: local.getters,
-      state: local.state,
-      rootGetters: store.getters,
-      rootState: store.state
-    }, payload, cb);
-    if (!isPromise(res)) {
-      res = Promise.resolve(res);
-    }
-    if (store._devtoolHook) {
-      return res.catch(function (err) {
-        store._devtoolHook.emit('vuex:error', err);
-        throw err
-      })
-    } else {
-      return res
-    }
-  });
-}
-
-function registerGetter (store, type, rawGetter, local) {
-  if (store._wrappedGetters[type]) {
-    if (true) {
-      console.error(("[vuex] duplicate getter key: " + type));
-    }
-    return
+  if (redirectedFrom) {
+    route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
   }
-  store._wrappedGetters[type] = function wrappedGetter (store) {
-    return rawGetter(
-      local.state, // local state
-      local.getters, // local getters
-      store.state, // root state
-      store.getters // root getters
+  return Object.freeze(route)
+}
+
+function clone (value) {
+  if (Array.isArray(value)) {
+    return value.map(clone)
+  } else if (value && typeof value === 'object') {
+    var res = {};
+    for (var key in value) {
+      res[key] = clone(value[key]);
+    }
+    return res
+  } else {
+    return value
+  }
+}
+
+// the starting route that represents the initial state
+var START = createRoute(null, {
+  path: '/'
+});
+
+function formatMatch (record) {
+  var res = [];
+  while (record) {
+    res.unshift(record);
+    record = record.parent;
+  }
+  return res
+}
+
+function getFullPath (
+  ref,
+  _stringifyQuery
+) {
+  var path = ref.path;
+  var query = ref.query; if ( query === void 0 ) query = {};
+  var hash = ref.hash; if ( hash === void 0 ) hash = '';
+
+  var stringify = _stringifyQuery || stringifyQuery;
+  return (path || '/') + stringify(query) + hash
+}
+
+function isSameRoute (a, b) {
+  if (b === START) {
+    return a === b
+  } else if (!b) {
+    return false
+  } else if (a.path && b.path) {
+    return (
+      a.path.replace(trailingSlashRE, '') === b.path.replace(trailingSlashRE, '') &&
+      a.hash === b.hash &&
+      isObjectEqual(a.query, b.query)
     )
-  };
+  } else if (a.name && b.name) {
+    return (
+      a.name === b.name &&
+      a.hash === b.hash &&
+      isObjectEqual(a.query, b.query) &&
+      isObjectEqual(a.params, b.params)
+    )
+  } else {
+    return false
+  }
 }
 
-function enableStrictMode (store) {
-  store._vm.$watch(function () { return this._data.$$state }, function () {
-    if (true) {
-      assert(store._committing, "Do not mutate vuex store state outside mutation handlers.");
+function isObjectEqual (a, b) {
+  if ( a === void 0 ) a = {};
+  if ( b === void 0 ) b = {};
+
+  // handle null value #1566
+  if (!a || !b) { return a === b }
+  var aKeys = Object.keys(a);
+  var bKeys = Object.keys(b);
+  if (aKeys.length !== bKeys.length) {
+    return false
+  }
+  return aKeys.every(function (key) {
+    var aVal = a[key];
+    var bVal = b[key];
+    // check nested equality
+    if (typeof aVal === 'object' && typeof bVal === 'object') {
+      return isObjectEqual(aVal, bVal)
     }
-  }, { deep: true, sync: true });
+    return String(aVal) === String(bVal)
+  })
 }
 
-function getNestedState (state, path) {
-  return path.length
-    ? path.reduce(function (state, key) { return state[key]; }, state)
-    : state
+function isIncludedRoute (current, target) {
+  return (
+    current.path.replace(trailingSlashRE, '/').indexOf(
+      target.path.replace(trailingSlashRE, '/')
+    ) === 0 &&
+    (!target.hash || current.hash === target.hash) &&
+    queryIncludes(current.query, target.query)
+  )
 }
 
-function unifyObjectStyle (type, payload, options) {
-  if (isObject(type) && type.type) {
-    options = payload;
-    payload = type;
-    type = type.type;
-  }
-
-  if (true) {
-    assert(typeof type === 'string', ("Expects string as the type, but found " + (typeof type) + "."));
-  }
-
-  return { type: type, payload: payload, options: options }
-}
-
-function install (_Vue) {
-  if (Vue && _Vue === Vue) {
-    if (true) {
-      console.error(
-        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
-      );
+function queryIncludes (current, target) {
+  for (var key in target) {
+    if (!(key in current)) {
+      return false
     }
-    return
   }
-  Vue = _Vue;
-  applyMixin(Vue);
+  return true
 }
 
-var mapState = normalizeNamespace(function (namespace, states) {
-  var res = {};
-  normalizeMap(states).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
+/*  */
 
-    res[key] = function mappedState () {
-      var state = this.$store.state;
-      var getters = this.$store.getters;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
-        if (!module) {
-          return
-        }
-        state = module.context.state;
-        getters = module.context.getters;
-      }
-      return typeof val === 'function'
-        ? val.call(this, state, getters)
-        : state[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
+// work around weird flow bug
+var toTypes = [String, Object];
+var eventTypes = [String, Array];
 
-var mapMutations = normalizeNamespace(function (namespace, mutations) {
-  var res = {};
-  normalizeMap(mutations).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedMutation () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      var commit = this.$store.commit;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
-        if (!module) {
-          return
-        }
-        commit = module.context.commit;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [commit].concat(args))
-        : commit.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-var mapGetters = normalizeNamespace(function (namespace, getters) {
-  var res = {};
-  normalizeMap(getters).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    val = namespace + val;
-    res[key] = function mappedGetter () {
-      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
-        return
-      }
-      if ("development" !== 'production' && !(val in this.$store.getters)) {
-        console.error(("[vuex] unknown getter: " + val));
-        return
-      }
-      return this.$store.getters[val]
-    };
-    // mark vuex getter for devtools
-    res[key].vuex = true;
-  });
-  return res
-});
-
-var mapActions = normalizeNamespace(function (namespace, actions) {
-  var res = {};
-  normalizeMap(actions).forEach(function (ref) {
-    var key = ref.key;
-    var val = ref.val;
-
-    res[key] = function mappedAction () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-      var dispatch = this.$store.dispatch;
-      if (namespace) {
-        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
-        if (!module) {
-          return
-        }
-        dispatch = module.context.dispatch;
-      }
-      return typeof val === 'function'
-        ? val.apply(this, [dispatch].concat(args))
-        : dispatch.apply(this.$store, [val].concat(args))
-    };
-  });
-  return res
-});
-
-var createNamespacedHelpers = function (namespace) { return ({
-  mapState: mapState.bind(null, namespace),
-  mapGetters: mapGetters.bind(null, namespace),
-  mapMutations: mapMutations.bind(null, namespace),
-  mapActions: mapActions.bind(null, namespace)
-}); };
-
-function normalizeMap (map) {
-  return Array.isArray(map)
-    ? map.map(function (key) { return ({ key: key, val: key }); })
-    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
-}
-
-function normalizeNamespace (fn) {
-  return function (namespace, map) {
-    if (typeof namespace !== 'string') {
-      map = namespace;
-      namespace = '';
-    } else if (namespace.charAt(namespace.length - 1) !== '/') {
-      namespace += '/';
-    }
-    return fn(namespace, map)
-  }
-}
-
-function getModuleByNamespace (store, helper, namespace) {
-  var module = store._modulesNamespaceMap[namespace];
-  if ("development" !== 'production' && !module) {
-    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
-  }
-  return module
-}
-
-var index_esm = {
-  Store: Store,
-  install: install,
-  version: '3.0.1',
-  mapState: mapState,
-  mapMutations: mapMutations,
-  mapGetters: mapGetters,
-  mapActions: mapActions,
-  createNamespacedHelpers: createNamespacedHelpers
-};
-
-
-/* harmony default export */ __webpack_exports__["a"] = (index_esm);
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resources__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_adminConfig__ = __webpack_require__(4);
-
-
-
-
-var state = {
-    students: []
-};
-
-var mutations = {
-    add: function add(state, student) {
-        state.students.push(student);
+var Link = {
+  name: 'router-link',
+  props: {
+    to: {
+      type: toTypes,
+      required: true
     },
-    set: function set(state, students) {
-        state.students = students;
+    tag: {
+      type: String,
+      default: 'a'
     },
-    destroy: function destroy(state, studentId) {
-        var index = state.students.findIndex(function (item) {
-            return item.id == studentId;
-        });
-        if (index != -1) {
-            state.students.splice(index, 1);
-        }
+    exact: Boolean,
+    append: Boolean,
+    replace: Boolean,
+    activeClass: String,
+    exactActiveClass: String,
+    event: {
+      type: eventTypes,
+      default: 'click'
     }
-};
+  },
+  render: function render (h) {
+    var this$1 = this;
 
-var actions = {
-    query: function query(context, classInformationId) {
-        return __WEBPACK_IMPORTED_MODULE_1_vue___default.a.http.get(__WEBPACK_IMPORTED_MODULE_2__services_adminConfig__["a" /* default */].ADMIN_URL + '/class_informations/' + classInformationId + '/students').then(function (response) {
-            context.commit('set', response.data);
-        });
-    },
-    store: function store(context, _ref) {
-        var studentId = _ref.studentId,
-            classInformationId = _ref.classInformationId;
+    var router = this.$router;
+    var current = this.$route;
+    var ref = router.resolve(this.to, current, this.append);
+    var location = ref.location;
+    var route = ref.route;
+    var href = ref.href;
 
-        return __WEBPACK_IMPORTED_MODULE_0__services_resources__["a" /* ClassStudent */].save({ class_information: classInformationId }, { student_id: studentId }).then(function (response) {
-            context.commit('add', response.data);
-        });
-    },
-    destroy: function destroy(context, _ref2) {
-        var studentId = _ref2.studentId,
-            classInformationId = _ref2.classInformationId;
+    var classes = {};
+    var globalActiveClass = router.options.linkActiveClass;
+    var globalExactActiveClass = router.options.linkExactActiveClass;
+    // Support global empty active class
+    var activeClassFallback = globalActiveClass == null
+            ? 'router-link-active'
+            : globalActiveClass;
+    var exactActiveClassFallback = globalExactActiveClass == null
+            ? 'router-link-exact-active'
+            : globalExactActiveClass;
+    var activeClass = this.activeClass == null
+            ? activeClassFallback
+            : this.activeClass;
+    var exactActiveClass = this.exactActiveClass == null
+            ? exactActiveClassFallback
+            : this.exactActiveClass;
+    var compareTarget = location.path
+      ? createRoute(null, location, null, router)
+      : route;
 
-        return __WEBPACK_IMPORTED_MODULE_0__services_resources__["a" /* ClassStudent */].delete({ class_information: classInformationId, student: studentId }).then(function (response) {
-            context.commit('destroy', studentId);
-        });
-    }
-};
+    classes[exactActiveClass] = isSameRoute(current, compareTarget);
+    classes[activeClass] = this.exact
+      ? classes[exactActiveClass]
+      : isIncludedRoute(current, compareTarget);
 
-var module = {
-    namespaced: true,
-    state: state, mutations: mutations, actions: actions
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (module);
-
-/***/ }),
-/* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Url */
-/* unused harmony export Http */
-/* unused harmony export Resource */
-/*!
- * vue-resource v1.3.6
- * https://github.com/pagekit/vue-resource
- * Released under the MIT License.
- */
-
-/**
- * Promises/A+ polyfill v1.1.4 (https://github.com/bramstein/promis)
- */
-
-var RESOLVED = 0;
-var REJECTED = 1;
-var PENDING = 2;
-
-function Promise$1(executor) {
-
-    this.state = PENDING;
-    this.value = undefined;
-    this.deferred = [];
-
-    var promise = this;
-
-    try {
-        executor(function (x) {
-            promise.resolve(x);
-        }, function (r) {
-            promise.reject(r);
-        });
-    } catch (e) {
-        promise.reject(e);
-    }
-}
-
-Promise$1.reject = function (r) {
-    return new Promise$1(function (resolve, reject) {
-        reject(r);
-    });
-};
-
-Promise$1.resolve = function (x) {
-    return new Promise$1(function (resolve, reject) {
-        resolve(x);
-    });
-};
-
-Promise$1.all = function all(iterable) {
-    return new Promise$1(function (resolve, reject) {
-        var count = 0, result = [];
-
-        if (iterable.length === 0) {
-            resolve(result);
+    var handler = function (e) {
+      if (guardEvent(e)) {
+        if (this$1.replace) {
+          router.replace(location);
+        } else {
+          router.push(location);
         }
+      }
+    };
 
-        function resolver(i) {
-            return function (x) {
-                result[i] = x;
-                count += 1;
-
-                if (count === iterable.length) {
-                    resolve(result);
-                }
-            };
-        }
-
-        for (var i = 0; i < iterable.length; i += 1) {
-            Promise$1.resolve(iterable[i]).then(resolver(i), reject);
-        }
-    });
-};
-
-Promise$1.race = function race(iterable) {
-    return new Promise$1(function (resolve, reject) {
-        for (var i = 0; i < iterable.length; i += 1) {
-            Promise$1.resolve(iterable[i]).then(resolve, reject);
-        }
-    });
-};
-
-var p = Promise$1.prototype;
-
-p.resolve = function resolve(x) {
-    var promise = this;
-
-    if (promise.state === PENDING) {
-        if (x === promise) {
-            throw new TypeError('Promise settled with itself.');
-        }
-
-        var called = false;
-
-        try {
-            var then = x && x['then'];
-
-            if (x !== null && typeof x === 'object' && typeof then === 'function') {
-                then.call(x, function (x) {
-                    if (!called) {
-                        promise.resolve(x);
-                    }
-                    called = true;
-
-                }, function (r) {
-                    if (!called) {
-                        promise.reject(r);
-                    }
-                    called = true;
-                });
-                return;
-            }
-        } catch (e) {
-            if (!called) {
-                promise.reject(e);
-            }
-            return;
-        }
-
-        promise.state = RESOLVED;
-        promise.value = x;
-        promise.notify();
-    }
-};
-
-p.reject = function reject(reason) {
-    var promise = this;
-
-    if (promise.state === PENDING) {
-        if (reason === promise) {
-            throw new TypeError('Promise settled with itself.');
-        }
-
-        promise.state = REJECTED;
-        promise.value = reason;
-        promise.notify();
-    }
-};
-
-p.notify = function notify() {
-    var promise = this;
-
-    nextTick(function () {
-        if (promise.state !== PENDING) {
-            while (promise.deferred.length) {
-                var deferred = promise.deferred.shift(),
-                    onResolved = deferred[0],
-                    onRejected = deferred[1],
-                    resolve = deferred[2],
-                    reject = deferred[3];
-
-                try {
-                    if (promise.state === RESOLVED) {
-                        if (typeof onResolved === 'function') {
-                            resolve(onResolved.call(undefined, promise.value));
-                        } else {
-                            resolve(promise.value);
-                        }
-                    } else if (promise.state === REJECTED) {
-                        if (typeof onRejected === 'function') {
-                            resolve(onRejected.call(undefined, promise.value));
-                        } else {
-                            reject(promise.value);
-                        }
-                    }
-                } catch (e) {
-                    reject(e);
-                }
-            }
-        }
-    });
-};
-
-p.then = function then(onResolved, onRejected) {
-    var promise = this;
-
-    return new Promise$1(function (resolve, reject) {
-        promise.deferred.push([onResolved, onRejected, resolve, reject]);
-        promise.notify();
-    });
-};
-
-p.catch = function (onRejected) {
-    return this.then(undefined, onRejected);
-};
-
-/**
- * Promise adapter.
- */
-
-if (typeof Promise === 'undefined') {
-    window.Promise = Promise$1;
-}
-
-function PromiseObj(executor, context) {
-
-    if (executor instanceof Promise) {
-        this.promise = executor;
+    var on = { click: guardEvent };
+    if (Array.isArray(this.event)) {
+      this.event.forEach(function (e) { on[e] = handler; });
     } else {
-        this.promise = new Promise(executor.bind(context));
+      on[this.event] = handler;
     }
 
-    this.context = context;
+    var data = {
+      class: classes
+    };
+
+    if (this.tag === 'a') {
+      data.on = on;
+      data.attrs = { href: href };
+    } else {
+      // find the first <a> child and apply listener and href
+      var a = findAnchor(this.$slots.default);
+      if (a) {
+        // in case the <a> is a static node
+        a.isStatic = false;
+        var extend = _Vue.util.extend;
+        var aData = a.data = extend({}, a.data);
+        aData.on = on;
+        var aAttrs = a.data.attrs = extend({}, a.data.attrs);
+        aAttrs.href = href;
+      } else {
+        // doesn't have <a> child, apply listener to self
+        data.on = on;
+      }
+    }
+
+    return h(this.tag, data, this.$slots.default)
+  }
+};
+
+function guardEvent (e) {
+  // don't redirect with control keys
+  if (e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) { return }
+  // don't redirect when preventDefault called
+  if (e.defaultPrevented) { return }
+  // don't redirect on right click
+  if (e.button !== undefined && e.button !== 0) { return }
+  // don't redirect if `target="_blank"`
+  if (e.currentTarget && e.currentTarget.getAttribute) {
+    var target = e.currentTarget.getAttribute('target');
+    if (/\b_blank\b/i.test(target)) { return }
+  }
+  // this may be a Weex event which doesn't have this method
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return true
 }
 
-PromiseObj.all = function (iterable, context) {
-    return new PromiseObj(Promise.all(iterable), context);
-};
-
-PromiseObj.resolve = function (value, context) {
-    return new PromiseObj(Promise.resolve(value), context);
-};
-
-PromiseObj.reject = function (reason, context) {
-    return new PromiseObj(Promise.reject(reason), context);
-};
-
-PromiseObj.race = function (iterable, context) {
-    return new PromiseObj(Promise.race(iterable), context);
-};
-
-var p$1 = PromiseObj.prototype;
-
-p$1.bind = function (context) {
-    this.context = context;
-    return this;
-};
-
-p$1.then = function (fulfilled, rejected) {
-
-    if (fulfilled && fulfilled.bind && this.context) {
-        fulfilled = fulfilled.bind(this.context);
+function findAnchor (children) {
+  if (children) {
+    var child;
+    for (var i = 0; i < children.length; i++) {
+      child = children[i];
+      if (child.tag === 'a') {
+        return child
+      }
+      if (child.children && (child = findAnchor(child.children))) {
+        return child
+      }
     }
+  }
+}
 
-    if (rejected && rejected.bind && this.context) {
-        rejected = rejected.bind(this.context);
+var _Vue;
+
+function install (Vue) {
+  if (install.installed && _Vue === Vue) { return }
+  install.installed = true;
+
+  _Vue = Vue;
+
+  var isDef = function (v) { return v !== undefined; };
+
+  var registerInstance = function (vm, callVal) {
+    var i = vm.$options._parentVnode;
+    if (isDef(i) && isDef(i = i.data) && isDef(i = i.registerRouteInstance)) {
+      i(vm, callVal);
     }
+  };
 
-    return new PromiseObj(this.promise.then(fulfilled, rejected), this.context);
-};
-
-p$1.catch = function (rejected) {
-
-    if (rejected && rejected.bind && this.context) {
-        rejected = rejected.bind(this.context);
+  Vue.mixin({
+    beforeCreate: function beforeCreate () {
+      if (isDef(this.$options.router)) {
+        this._routerRoot = this;
+        this._router = this.$options.router;
+        this._router.init(this);
+        Vue.util.defineReactive(this, '_route', this._router.history.current);
+      } else {
+        this._routerRoot = (this.$parent && this.$parent._routerRoot) || this;
+      }
+      registerInstance(this, this);
+    },
+    destroyed: function destroyed () {
+      registerInstance(this);
     }
+  });
 
-    return new PromiseObj(this.promise.catch(rejected), this.context);
-};
+  Object.defineProperty(Vue.prototype, '$router', {
+    get: function get () { return this._routerRoot._router }
+  });
 
-p$1.finally = function (callback) {
+  Object.defineProperty(Vue.prototype, '$route', {
+    get: function get () { return this._routerRoot._route }
+  });
 
-    return this.then(function (value) {
-        callback.call(this);
-        return value;
-    }, function (reason) {
-        callback.call(this);
-        return Promise.reject(reason);
-    }
-    );
-};
+  Vue.component('router-view', View);
+  Vue.component('router-link', Link);
 
-/**
- * Utility functions.
- */
+  var strats = Vue.config.optionMergeStrategies;
+  // use the same hook merging strategy for route hooks
+  strats.beforeRouteEnter = strats.beforeRouteLeave = strats.beforeRouteUpdate = strats.created;
+}
 
-var ref = {};
-var hasOwnProperty = ref.hasOwnProperty;
-
-var ref$1 = [];
-var slice = ref$1.slice;
-var debug = false;
-var ntick;
+/*  */
 
 var inBrowser = typeof window !== 'undefined';
 
-function Util (ref) {
-    var config = ref.config;
-    var nextTick = ref.nextTick;
+/*  */
 
-    ntick = nextTick;
-    debug = config.debug || !config.silent;
-}
+function resolvePath (
+  relative,
+  base,
+  append
+) {
+  var firstChar = relative.charAt(0);
+  if (firstChar === '/') {
+    return relative
+  }
 
-function warn(msg) {
-    if (typeof console !== 'undefined' && debug) {
-        console.warn('[VueResource warn]: ' + msg);
+  if (firstChar === '?' || firstChar === '#') {
+    return base + relative
+  }
+
+  var stack = base.split('/');
+
+  // remove trailing segment if:
+  // - not appending
+  // - appending to trailing slash (last segment is empty)
+  if (!append || !stack[stack.length - 1]) {
+    stack.pop();
+  }
+
+  // resolve relative path
+  var segments = relative.replace(/^\//, '').split('/');
+  for (var i = 0; i < segments.length; i++) {
+    var segment = segments[i];
+    if (segment === '..') {
+      stack.pop();
+    } else if (segment !== '.') {
+      stack.push(segment);
     }
+  }
+
+  // ensure leading slash
+  if (stack[0] !== '') {
+    stack.unshift('');
+  }
+
+  return stack.join('/')
 }
 
-function error(msg) {
-    if (typeof console !== 'undefined') {
-        console.error(msg);
-    }
+function parsePath (path) {
+  var hash = '';
+  var query = '';
+
+  var hashIndex = path.indexOf('#');
+  if (hashIndex >= 0) {
+    hash = path.slice(hashIndex);
+    path = path.slice(0, hashIndex);
+  }
+
+  var queryIndex = path.indexOf('?');
+  if (queryIndex >= 0) {
+    query = path.slice(queryIndex + 1);
+    path = path.slice(0, queryIndex);
+  }
+
+  return {
+    path: path,
+    query: query,
+    hash: hash
+  }
 }
 
-function nextTick(cb, ctx) {
-    return ntick(cb, ctx);
+function cleanPath (path) {
+  return path.replace(/\/\//g, '/')
 }
 
-function trim(str) {
-    return str ? str.replace(/^\s*|\s*$/g, '') : '';
-}
-
-function trimEnd(str, chars) {
-
-    if (str && chars === undefined) {
-        return str.replace(/\s+$/, '');
-    }
-
-    if (!str || !chars) {
-        return str;
-    }
-
-    return str.replace(new RegExp(("[" + chars + "]+$")), '');
-}
-
-function toLower(str) {
-    return str ? str.toLowerCase() : '';
-}
-
-function toUpper(str) {
-    return str ? str.toUpperCase() : '';
-}
-
-var isArray = Array.isArray;
-
-function isString(val) {
-    return typeof val === 'string';
-}
-
-
-
-function isFunction(val) {
-    return typeof val === 'function';
-}
-
-function isObject(obj) {
-    return obj !== null && typeof obj === 'object';
-}
-
-function isPlainObject(obj) {
-    return isObject(obj) && Object.getPrototypeOf(obj) == Object.prototype;
-}
-
-function isBlob(obj) {
-    return typeof Blob !== 'undefined' && obj instanceof Blob;
-}
-
-function isFormData(obj) {
-    return typeof FormData !== 'undefined' && obj instanceof FormData;
-}
-
-function when(value, fulfilled, rejected) {
-
-    var promise = PromiseObj.resolve(value);
-
-    if (arguments.length < 2) {
-        return promise;
-    }
-
-    return promise.then(fulfilled, rejected);
-}
-
-function options(fn, obj, opts) {
-
-    opts = opts || {};
-
-    if (isFunction(opts)) {
-        opts = opts.call(obj);
-    }
-
-    return merge(fn.bind({$vm: obj, $options: opts}), fn, {$options: opts});
-}
-
-function each(obj, iterator) {
-
-    var i, key;
-
-    if (isArray(obj)) {
-        for (i = 0; i < obj.length; i++) {
-            iterator.call(obj[i], obj[i], i);
-        }
-    } else if (isObject(obj)) {
-        for (key in obj) {
-            if (hasOwnProperty.call(obj, key)) {
-                iterator.call(obj[key], obj[key], key);
-            }
-        }
-    }
-
-    return obj;
-}
-
-var assign = Object.assign || _assign;
-
-function merge(target) {
-
-    var args = slice.call(arguments, 1);
-
-    args.forEach(function (source) {
-        _merge(target, source, true);
-    });
-
-    return target;
-}
-
-function defaults(target) {
-
-    var args = slice.call(arguments, 1);
-
-    args.forEach(function (source) {
-
-        for (var key in source) {
-            if (target[key] === undefined) {
-                target[key] = source[key];
-            }
-        }
-
-    });
-
-    return target;
-}
-
-function _assign(target) {
-
-    var args = slice.call(arguments, 1);
-
-    args.forEach(function (source) {
-        _merge(target, source);
-    });
-
-    return target;
-}
-
-function _merge(target, source, deep) {
-    for (var key in source) {
-        if (deep && (isPlainObject(source[key]) || isArray(source[key]))) {
-            if (isPlainObject(source[key]) && !isPlainObject(target[key])) {
-                target[key] = {};
-            }
-            if (isArray(source[key]) && !isArray(target[key])) {
-                target[key] = [];
-            }
-            _merge(target[key], source[key], deep);
-        } else if (source[key] !== undefined) {
-            target[key] = source[key];
-        }
-    }
-}
-
-/**
- * Root Prefix Transform.
- */
-
-function root (options$$1, next) {
-
-    var url = next(options$$1);
-
-    if (isString(options$$1.root) && !/^(https?:)?\//.test(url)) {
-        url = trimEnd(options$$1.root, '/') + '/' + url;
-    }
-
-    return url;
-}
-
-/**
- * Query Parameter Transform.
- */
-
-function query (options$$1, next) {
-
-    var urlParams = Object.keys(Url.options.params), query = {}, url = next(options$$1);
-
-    each(options$$1.params, function (value, key) {
-        if (urlParams.indexOf(key) === -1) {
-            query[key] = value;
-        }
-    });
-
-    query = Url.params(query);
-
-    if (query) {
-        url += (url.indexOf('?') == -1 ? '?' : '&') + query;
-    }
-
-    return url;
-}
-
-/**
- * URL Template v2.0.6 (https://github.com/bramstein/url-template)
- */
-
-function expand(url, params, variables) {
-
-    var tmpl = parse(url), expanded = tmpl.expand(params);
-
-    if (variables) {
-        variables.push.apply(variables, tmpl.vars);
-    }
-
-    return expanded;
-}
-
-function parse(template) {
-
-    var operators = ['+', '#', '.', '/', ';', '?', '&'], variables = [];
-
-    return {
-        vars: variables,
-        expand: function expand(context) {
-            return template.replace(/\{([^{}]+)\}|([^{}]+)/g, function (_, expression, literal) {
-                if (expression) {
-
-                    var operator = null, values = [];
-
-                    if (operators.indexOf(expression.charAt(0)) !== -1) {
-                        operator = expression.charAt(0);
-                        expression = expression.substr(1);
-                    }
-
-                    expression.split(/,/g).forEach(function (variable) {
-                        var tmp = /([^:*]*)(?::(\d+)|(\*))?/.exec(variable);
-                        values.push.apply(values, getValues(context, operator, tmp[1], tmp[2] || tmp[3]));
-                        variables.push(tmp[1]);
-                    });
-
-                    if (operator && operator !== '+') {
-
-                        var separator = ',';
-
-                        if (operator === '?') {
-                            separator = '&';
-                        } else if (operator !== '#') {
-                            separator = operator;
-                        }
-
-                        return (values.length !== 0 ? operator : '') + values.join(separator);
-                    } else {
-                        return values.join(',');
-                    }
-
-                } else {
-                    return encodeReserved(literal);
-                }
-            });
-        }
-    };
-}
-
-function getValues(context, operator, key, modifier) {
-
-    var value = context[key], result = [];
-
-    if (isDefined(value) && value !== '') {
-        if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
-            value = value.toString();
-
-            if (modifier && modifier !== '*') {
-                value = value.substring(0, parseInt(modifier, 10));
-            }
-
-            result.push(encodeValue(operator, value, isKeyOperator(operator) ? key : null));
-        } else {
-            if (modifier === '*') {
-                if (Array.isArray(value)) {
-                    value.filter(isDefined).forEach(function (value) {
-                        result.push(encodeValue(operator, value, isKeyOperator(operator) ? key : null));
-                    });
-                } else {
-                    Object.keys(value).forEach(function (k) {
-                        if (isDefined(value[k])) {
-                            result.push(encodeValue(operator, value[k], k));
-                        }
-                    });
-                }
-            } else {
-                var tmp = [];
-
-                if (Array.isArray(value)) {
-                    value.filter(isDefined).forEach(function (value) {
-                        tmp.push(encodeValue(operator, value));
-                    });
-                } else {
-                    Object.keys(value).forEach(function (k) {
-                        if (isDefined(value[k])) {
-                            tmp.push(encodeURIComponent(k));
-                            tmp.push(encodeValue(operator, value[k].toString()));
-                        }
-                    });
-                }
-
-                if (isKeyOperator(operator)) {
-                    result.push(encodeURIComponent(key) + '=' + tmp.join(','));
-                } else if (tmp.length !== 0) {
-                    result.push(tmp.join(','));
-                }
-            }
-        }
-    } else {
-        if (operator === ';') {
-            result.push(encodeURIComponent(key));
-        } else if (value === '' && (operator === '&' || operator === '?')) {
-            result.push(encodeURIComponent(key) + '=');
-        } else if (value === '') {
-            result.push('');
-        }
-    }
-
-    return result;
-}
-
-function isDefined(value) {
-    return value !== undefined && value !== null;
-}
-
-function isKeyOperator(operator) {
-    return operator === ';' || operator === '&' || operator === '?';
-}
-
-function encodeValue(operator, value, key) {
-
-    value = (operator === '+' || operator === '#') ? encodeReserved(value) : encodeURIComponent(value);
-
-    if (key) {
-        return encodeURIComponent(key) + '=' + value;
-    } else {
-        return value;
-    }
-}
-
-function encodeReserved(str) {
-    return str.split(/(%[0-9A-Fa-f]{2})/g).map(function (part) {
-        if (!/%[0-9A-Fa-f]/.test(part)) {
-            part = encodeURI(part);
-        }
-        return part;
-    }).join('');
-}
-
-/**
- * URL Template (RFC 6570) Transform.
- */
-
-function template (options) {
-
-    var variables = [], url = expand(options.url, options.params, variables);
-
-    variables.forEach(function (key) {
-        delete options.params[key];
-    });
-
-    return url;
-}
-
-/**
- * Service for URL templating.
- */
-
-function Url(url, params) {
-
-    var self = this || {}, options$$1 = url, transform;
-
-    if (isString(url)) {
-        options$$1 = {url: url, params: params};
-    }
-
-    options$$1 = merge({}, Url.options, self.$options, options$$1);
-
-    Url.transforms.forEach(function (handler) {
-
-        if (isString(handler)) {
-            handler = Url.transform[handler];
-        }
-
-        if (isFunction(handler)) {
-            transform = factory(handler, transform, self.$vm);
-        }
-
-    });
-
-    return transform(options$$1);
-}
-
-/**
- * Url options.
- */
-
-Url.options = {
-    url: '',
-    root: null,
-    params: {}
+var isarray = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
 /**
- * Url transforms.
+ * Expose `pathToRegexp`.
  */
-
-Url.transform = {template: template, query: query, root: root};
-Url.transforms = ['template', 'query', 'root'];
+var pathToRegexp_1 = pathToRegexp;
+var parse_1 = parse;
+var compile_1 = compile;
+var tokensToFunction_1 = tokensToFunction;
+var tokensToRegExp_1 = tokensToRegExp;
 
 /**
- * Encodes a Url parameter string.
+ * The main path matching regexp utility.
  *
- * @param {Object} obj
+ * @type {RegExp}
  */
-
-Url.params = function (obj) {
-
-    var params = [], escape = encodeURIComponent;
-
-    params.add = function (key, value) {
-
-        if (isFunction(value)) {
-            value = value();
-        }
-
-        if (value === null) {
-            value = '';
-        }
-
-        this.push(escape(key) + '=' + escape(value));
-    };
-
-    serialize(params, obj);
-
-    return params.join('&').replace(/%20/g, '+');
-};
+var PATH_REGEXP = new RegExp([
+  // Match escaped characters that would otherwise appear in future matches.
+  // This allows the user to escape special characters that won't transform.
+  '(\\\\.)',
+  // Match Express-style parameters and un-named parameters with a prefix
+  // and optional suffixes. Matches appear as:
+  //
+  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
+  // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
+  // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
+  '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
+].join('|'), 'g');
 
 /**
- * Parse a URL and return its components.
+ * Parse a string for the raw tokens.
  *
- * @param {String} url
+ * @param  {string}  str
+ * @param  {Object=} options
+ * @return {!Array}
  */
+function parse (str, options) {
+  var tokens = [];
+  var key = 0;
+  var index = 0;
+  var path = '';
+  var defaultDelimiter = options && options.delimiter || '/';
+  var res;
 
-Url.parse = function (url) {
+  while ((res = PATH_REGEXP.exec(str)) != null) {
+    var m = res[0];
+    var escaped = res[1];
+    var offset = res.index;
+    path += str.slice(index, offset);
+    index = offset + m.length;
 
-    var el = document.createElement('a');
-
-    if (document.documentMode) {
-        el.href = url;
-        url = el.href;
+    // Ignore already escaped sequences.
+    if (escaped) {
+      path += escaped[1];
+      continue
     }
 
-    el.href = url;
+    var next = str[index];
+    var prefix = res[2];
+    var name = res[3];
+    var capture = res[4];
+    var group = res[5];
+    var modifier = res[6];
+    var asterisk = res[7];
 
-    return {
-        href: el.href,
-        protocol: el.protocol ? el.protocol.replace(/:$/, '') : '',
-        port: el.port,
-        host: el.host,
-        hostname: el.hostname,
-        pathname: el.pathname.charAt(0) === '/' ? el.pathname : '/' + el.pathname,
-        search: el.search ? el.search.replace(/^\?/, '') : '',
-        hash: el.hash ? el.hash.replace(/^#/, '') : ''
-    };
-};
+    // Push the current path onto the tokens.
+    if (path) {
+      tokens.push(path);
+      path = '';
+    }
 
-function factory(handler, next, vm) {
-    return function (options$$1) {
-        return handler.call(vm, options$$1, next);
-    };
+    var partial = prefix != null && next != null && next !== prefix;
+    var repeat = modifier === '+' || modifier === '*';
+    var optional = modifier === '?' || modifier === '*';
+    var delimiter = res[2] || defaultDelimiter;
+    var pattern = capture || group;
+
+    tokens.push({
+      name: name || key++,
+      prefix: prefix || '',
+      delimiter: delimiter,
+      optional: optional,
+      repeat: repeat,
+      partial: partial,
+      asterisk: !!asterisk,
+      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
+    });
+  }
+
+  // Match any characters still remaining.
+  if (index < str.length) {
+    path += str.substr(index);
+  }
+
+  // If the path exists, push it onto the end.
+  if (path) {
+    tokens.push(path);
+  }
+
+  return tokens
 }
 
-function serialize(params, obj, scope) {
+/**
+ * Compile a string to a template function for the path.
+ *
+ * @param  {string}             str
+ * @param  {Object=}            options
+ * @return {!function(Object=, Object=)}
+ */
+function compile (str, options) {
+  return tokensToFunction(parse(str, options))
+}
 
-    var array = isArray(obj), plain = isPlainObject(obj), hash;
+/**
+ * Prettier encoding of URI path segments.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeURIComponentPretty (str) {
+  return encodeURI(str).replace(/[\/?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
 
-    each(obj, function (value, key) {
+/**
+ * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeAsterisk (str) {
+  return encodeURI(str).replace(/[?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
 
-        hash = isObject(value) || isArray(value);
+/**
+ * Expose a method for transforming tokens into the path function.
+ */
+function tokensToFunction (tokens) {
+  // Compile all the tokens into regexps.
+  var matches = new Array(tokens.length);
 
-        if (scope) {
-            key = scope + '[' + (plain || hash ? key : '') + ']';
-        }
+  // Compile all the patterns before compilation.
+  for (var i = 0; i < tokens.length; i++) {
+    if (typeof tokens[i] === 'object') {
+      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$');
+    }
+  }
 
-        if (!scope && array) {
-            params.add(value.name, value.value);
-        } else if (hash) {
-            serialize(params, value, key);
+  return function (obj, opts) {
+    var path = '';
+    var data = obj || {};
+    var options = opts || {};
+    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent;
+
+    for (var i = 0; i < tokens.length; i++) {
+      var token = tokens[i];
+
+      if (typeof token === 'string') {
+        path += token;
+
+        continue
+      }
+
+      var value = data[token.name];
+      var segment;
+
+      if (value == null) {
+        if (token.optional) {
+          // Prepend partial segment prefixes.
+          if (token.partial) {
+            path += token.prefix;
+          }
+
+          continue
         } else {
-            params.add(key, value);
+          throw new TypeError('Expected "' + token.name + '" to be defined')
         }
-    });
-}
+      }
 
-/**
- * XDomain client (Internet Explorer).
- */
-
-function xdrClient (request) {
-    return new PromiseObj(function (resolve) {
-
-        var xdr = new XDomainRequest(), handler = function (ref) {
-                var type = ref.type;
-
-
-                var status = 0;
-
-                if (type === 'load') {
-                    status = 200;
-                } else if (type === 'error') {
-                    status = 500;
-                }
-
-                resolve(request.respondWith(xdr.responseText, {status: status}));
-            };
-
-        request.abort = function () { return xdr.abort(); };
-
-        xdr.open(request.method, request.getUrl());
-
-        if (request.timeout) {
-            xdr.timeout = request.timeout;
+      if (isarray(value)) {
+        if (!token.repeat) {
+          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
         }
 
-        xdr.onload = handler;
-        xdr.onabort = handler;
-        xdr.onerror = handler;
-        xdr.ontimeout = handler;
-        xdr.onprogress = function () {};
-        xdr.send(request.getBody());
-    });
-}
-
-/**
- * CORS Interceptor.
- */
-
-var SUPPORTS_CORS = inBrowser && 'withCredentials' in new XMLHttpRequest();
-
-function cors (request, next) {
-
-    if (inBrowser) {
-
-        var orgUrl = Url.parse(location.href);
-        var reqUrl = Url.parse(request.getUrl());
-
-        if (reqUrl.protocol !== orgUrl.protocol || reqUrl.host !== orgUrl.host) {
-
-            request.crossOrigin = true;
-            request.emulateHTTP = false;
-
-            if (!SUPPORTS_CORS) {
-                request.client = xdrClient;
-            }
-        }
-    }
-
-    next();
-}
-
-/**
- * Form data Interceptor.
- */
-
-function form (request, next) {
-
-    if (isFormData(request.body)) {
-
-        request.headers.delete('Content-Type');
-
-    } else if (isObject(request.body) && request.emulateJSON) {
-
-        request.body = Url.params(request.body);
-        request.headers.set('Content-Type', 'application/x-www-form-urlencoded');
-    }
-
-    next();
-}
-
-/**
- * JSON Interceptor.
- */
-
-function json (request, next) {
-
-    var type = request.headers.get('Content-Type') || '';
-
-    if (isObject(request.body) && type.indexOf('application/json') === 0) {
-        request.body = JSON.stringify(request.body);
-    }
-
-    next(function (response) {
-
-        return response.bodyText ? when(response.text(), function (text) {
-
-            type = response.headers.get('Content-Type') || '';
-
-            if (type.indexOf('application/json') === 0 || isJson(text)) {
-
-                try {
-                    response.body = JSON.parse(text);
-                } catch (e) {
-                    response.body = null;
-                }
-
-            } else {
-                response.body = text;
-            }
-
-            return response;
-
-        }) : response;
-
-    });
-}
-
-function isJson(str) {
-
-    var start = str.match(/^\s*(\[|\{)/);
-    var end = {'[': /]\s*$/, '{': /}\s*$/};
-
-    return start && end[start[1]].test(str);
-}
-
-/**
- * JSONP client (Browser).
- */
-
-function jsonpClient (request) {
-    return new PromiseObj(function (resolve) {
-
-        var name = request.jsonp || 'callback', callback = request.jsonpCallback || '_jsonp' + Math.random().toString(36).substr(2), body = null, handler, script;
-
-        handler = function (ref) {
-            var type = ref.type;
-
-
-            var status = 0;
-
-            if (type === 'load' && body !== null) {
-                status = 200;
-            } else if (type === 'error') {
-                status = 500;
-            }
-
-            if (status && window[callback]) {
-                delete window[callback];
-                document.body.removeChild(script);
-            }
-
-            resolve(request.respondWith(body, {status: status}));
-        };
-
-        window[callback] = function (result) {
-            body = JSON.stringify(result);
-        };
-
-        request.abort = function () {
-            handler({type: 'abort'});
-        };
-
-        request.params[name] = callback;
-
-        if (request.timeout) {
-            setTimeout(request.abort, request.timeout);
+        if (value.length === 0) {
+          if (token.optional) {
+            continue
+          } else {
+            throw new TypeError('Expected "' + token.name + '" to not be empty')
+          }
         }
 
-        script = document.createElement('script');
-        script.src = request.getUrl();
-        script.type = 'text/javascript';
-        script.async = true;
-        script.onload = handler;
-        script.onerror = handler;
+        for (var j = 0; j < value.length; j++) {
+          segment = encode(value[j]);
 
-        document.body.appendChild(script);
-    });
-}
+          if (!matches[i].test(segment)) {
+            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
+          }
 
-/**
- * JSONP Interceptor.
- */
+          path += (j === 0 ? token.prefix : token.delimiter) + segment;
+        }
 
-function jsonp (request, next) {
+        continue
+      }
 
-    if (request.method == 'JSONP') {
-        request.client = jsonpClient;
+      segment = token.asterisk ? encodeAsterisk(value) : encode(value);
+
+      if (!matches[i].test(segment)) {
+        throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
+      }
+
+      path += token.prefix + segment;
     }
 
-    next();
+    return path
+  }
 }
 
 /**
- * Before Interceptor.
+ * Escape a regular expression string.
+ *
+ * @param  {string} str
+ * @return {string}
  */
+function escapeString (str) {
+  return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
+}
 
-function before (request, next) {
+/**
+ * Escape the capturing group by escaping special characters and meaning.
+ *
+ * @param  {string} group
+ * @return {string}
+ */
+function escapeGroup (group) {
+  return group.replace(/([=!:$\/()])/g, '\\$1')
+}
 
-    if (isFunction(request.before)) {
-        request.before.call(this, request);
+/**
+ * Attach the keys as a property of the regexp.
+ *
+ * @param  {!RegExp} re
+ * @param  {Array}   keys
+ * @return {!RegExp}
+ */
+function attachKeys (re, keys) {
+  re.keys = keys;
+  return re
+}
+
+/**
+ * Get the flags for a regexp from the options.
+ *
+ * @param  {Object} options
+ * @return {string}
+ */
+function flags (options) {
+  return options.sensitive ? '' : 'i'
+}
+
+/**
+ * Pull out keys from a regexp.
+ *
+ * @param  {!RegExp} path
+ * @param  {!Array}  keys
+ * @return {!RegExp}
+ */
+function regexpToRegexp (path, keys) {
+  // Use a negative lookahead to match only capturing groups.
+  var groups = path.source.match(/\((?!\?)/g);
+
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name: i,
+        prefix: null,
+        delimiter: null,
+        optional: false,
+        repeat: false,
+        partial: false,
+        asterisk: false,
+        pattern: null
+      });
     }
+  }
 
-    next();
+  return attachKeys(path, keys)
 }
 
 /**
- * HTTP method override Interceptor.
+ * Transform an array into a regexp.
+ *
+ * @param  {!Array}  path
+ * @param  {Array}   keys
+ * @param  {!Object} options
+ * @return {!RegExp}
  */
+function arrayToRegexp (path, keys, options) {
+  var parts = [];
 
-function method (request, next) {
+  for (var i = 0; i < path.length; i++) {
+    parts.push(pathToRegexp(path[i], keys, options).source);
+  }
 
-    if (request.emulateHTTP && /^(PUT|PATCH|DELETE)$/i.test(request.method)) {
-        request.headers.set('X-HTTP-Method-Override', request.method);
-        request.method = 'POST';
+  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options));
+
+  return attachKeys(regexp, keys)
+}
+
+/**
+ * Create a path regexp from string input.
+ *
+ * @param  {string}  path
+ * @param  {!Array}  keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function stringToRegexp (path, keys, options) {
+  return tokensToRegExp(parse(path, options), keys, options)
+}
+
+/**
+ * Expose a function for taking tokens and returning a RegExp.
+ *
+ * @param  {!Array}          tokens
+ * @param  {(Array|Object)=} keys
+ * @param  {Object=}         options
+ * @return {!RegExp}
+ */
+function tokensToRegExp (tokens, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options);
+    keys = [];
+  }
+
+  options = options || {};
+
+  var strict = options.strict;
+  var end = options.end !== false;
+  var route = '';
+
+  // Iterate over the tokens and create our regexp string.
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i];
+
+    if (typeof token === 'string') {
+      route += escapeString(token);
+    } else {
+      var prefix = escapeString(token.prefix);
+      var capture = '(?:' + token.pattern + ')';
+
+      keys.push(token);
+
+      if (token.repeat) {
+        capture += '(?:' + prefix + capture + ')*';
+      }
+
+      if (token.optional) {
+        if (!token.partial) {
+          capture = '(?:' + prefix + '(' + capture + '))?';
+        } else {
+          capture = prefix + '(' + capture + ')?';
+        }
+      } else {
+        capture = prefix + '(' + capture + ')';
+      }
+
+      route += capture;
     }
+  }
 
-    next();
+  var delimiter = escapeString(options.delimiter || '/');
+  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter;
+
+  // In non-strict mode we allow a slash at the end of match. If the path to
+  // match already ends with a slash, we remove it for consistency. The slash
+  // is valid at the end of a path match, not in the middle. This is important
+  // in non-ending mode, where "/test/" shouldn't match "/test//route".
+  if (!strict) {
+    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?';
+  }
+
+  if (end) {
+    route += '$';
+  } else {
+    // In non-ending mode, we need the capturing groups to match as much as
+    // possible by using a positive lookahead to the end or next path segment.
+    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)';
+  }
+
+  return attachKeys(new RegExp('^' + route, flags(options)), keys)
 }
 
 /**
- * Header Interceptor.
+ * Normalize the given path string, returning a regular expression.
+ *
+ * An empty array can be passed in for the keys, which will hold the
+ * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+ * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+ *
+ * @param  {(string|RegExp|Array)} path
+ * @param  {(Array|Object)=}       keys
+ * @param  {Object=}               options
+ * @return {!RegExp}
  */
+function pathToRegexp (path, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options);
+    keys = [];
+  }
 
-function header (request, next) {
+  options = options || {};
 
-    var headers = assign({}, Http.headers.common,
-        !request.crossOrigin ? Http.headers.custom : {},
-        Http.headers[toLower(request.method)]
+  if (path instanceof RegExp) {
+    return regexpToRegexp(path, /** @type {!Array} */ (keys))
+  }
+
+  if (isarray(path)) {
+    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
+  }
+
+  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
+}
+
+pathToRegexp_1.parse = parse_1;
+pathToRegexp_1.compile = compile_1;
+pathToRegexp_1.tokensToFunction = tokensToFunction_1;
+pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
+
+/*  */
+
+// $flow-disable-line
+var regexpCompileCache = Object.create(null);
+
+function fillParams (
+  path,
+  params,
+  routeMsg
+) {
+  try {
+    var filler =
+      regexpCompileCache[path] ||
+      (regexpCompileCache[path] = pathToRegexp_1.compile(path));
+    return filler(params || {}, { pretty: true })
+  } catch (e) {
+    if (true) {
+      warn(false, ("missing param for " + routeMsg + ": " + (e.message)));
+    }
+    return ''
+  }
+}
+
+/*  */
+
+function createRouteMap (
+  routes,
+  oldPathList,
+  oldPathMap,
+  oldNameMap
+) {
+  // the path list is used to control path matching priority
+  var pathList = oldPathList || [];
+  // $flow-disable-line
+  var pathMap = oldPathMap || Object.create(null);
+  // $flow-disable-line
+  var nameMap = oldNameMap || Object.create(null);
+
+  routes.forEach(function (route) {
+    addRouteRecord(pathList, pathMap, nameMap, route);
+  });
+
+  // ensure wildcard routes are always at the end
+  for (var i = 0, l = pathList.length; i < l; i++) {
+    if (pathList[i] === '*') {
+      pathList.push(pathList.splice(i, 1)[0]);
+      l--;
+      i--;
+    }
+  }
+
+  return {
+    pathList: pathList,
+    pathMap: pathMap,
+    nameMap: nameMap
+  }
+}
+
+function addRouteRecord (
+  pathList,
+  pathMap,
+  nameMap,
+  route,
+  parent,
+  matchAs
+) {
+  var path = route.path;
+  var name = route.name;
+  if (true) {
+    assert(path != null, "\"path\" is required in a route configuration.");
+    assert(
+      typeof route.component !== 'string',
+      "route config \"component\" for path: " + (String(path || name)) + " cannot be a " +
+      "string id. Use an actual component instead."
     );
+  }
 
-    each(headers, function (value, name) {
-        if (!request.headers.has(name)) {
-            request.headers.set(name, value);
-        }
+  var pathToRegexpOptions = route.pathToRegexpOptions || {};
+  var normalizedPath = normalizePath(
+    path,
+    parent,
+    pathToRegexpOptions.strict
+  );
+
+  if (typeof route.caseSensitive === 'boolean') {
+    pathToRegexpOptions.sensitive = route.caseSensitive;
+  }
+
+  var record = {
+    path: normalizedPath,
+    regex: compileRouteRegex(normalizedPath, pathToRegexpOptions),
+    components: route.components || { default: route.component },
+    instances: {},
+    name: name,
+    parent: parent,
+    matchAs: matchAs,
+    redirect: route.redirect,
+    beforeEnter: route.beforeEnter,
+    meta: route.meta || {},
+    props: route.props == null
+      ? {}
+      : route.components
+        ? route.props
+        : { default: route.props }
+  };
+
+  if (route.children) {
+    // Warn if route is named, does not redirect and has a default child route.
+    // If users navigate to this route by name, the default child will
+    // not be rendered (GH Issue #629)
+    if (true) {
+      if (route.name && !route.redirect && route.children.some(function (child) { return /^\/?$/.test(child.path); })) {
+        warn(
+          false,
+          "Named Route '" + (route.name) + "' has a default child route. " +
+          "When navigating to this named route (:to=\"{name: '" + (route.name) + "'\"), " +
+          "the default child route will not be rendered. Remove the name from " +
+          "this route and use the name of the default child route for named " +
+          "links instead."
+        );
+      }
+    }
+    route.children.forEach(function (child) {
+      var childMatchAs = matchAs
+        ? cleanPath((matchAs + "/" + (child.path)))
+        : undefined;
+      addRouteRecord(pathList, pathMap, nameMap, child, record, childMatchAs);
     });
+  }
 
-    next();
+  if (route.alias !== undefined) {
+    var aliases = Array.isArray(route.alias)
+      ? route.alias
+      : [route.alias];
+
+    aliases.forEach(function (alias) {
+      var aliasRoute = {
+        path: alias,
+        children: route.children
+      };
+      addRouteRecord(
+        pathList,
+        pathMap,
+        nameMap,
+        aliasRoute,
+        parent,
+        record.path || '/' // matchAs
+      );
+    });
+  }
+
+  if (!pathMap[record.path]) {
+    pathList.push(record.path);
+    pathMap[record.path] = record;
+  }
+
+  if (name) {
+    if (!nameMap[name]) {
+      nameMap[name] = record;
+    } else if ("development" !== 'production' && !matchAs) {
+      warn(
+        false,
+        "Duplicate named routes definition: " +
+        "{ name: \"" + name + "\", path: \"" + (record.path) + "\" }"
+      );
+    }
+  }
 }
 
-/**
- * XMLHttp client (Browser).
- */
-
-function xhrClient (request) {
-    return new PromiseObj(function (resolve) {
-
-        var xhr = new XMLHttpRequest(), handler = function (event) {
-
-                var response = request.respondWith(
-                'response' in xhr ? xhr.response : xhr.responseText, {
-                    status: xhr.status === 1223 ? 204 : xhr.status, // IE9 status bug
-                    statusText: xhr.status === 1223 ? 'No Content' : trim(xhr.statusText)
-                });
-
-                each(trim(xhr.getAllResponseHeaders()).split('\n'), function (row) {
-                    response.headers.append(row.slice(0, row.indexOf(':')), row.slice(row.indexOf(':') + 1));
-                });
-
-                resolve(response);
-            };
-
-        request.abort = function () { return xhr.abort(); };
-
-        if (request.progress) {
-            if (request.method === 'GET') {
-                xhr.addEventListener('progress', request.progress);
-            } else if (/^(POST|PUT)$/i.test(request.method)) {
-                xhr.upload.addEventListener('progress', request.progress);
-            }
-        }
-
-        xhr.open(request.method, request.getUrl(), true);
-
-        if (request.timeout) {
-            xhr.timeout = request.timeout;
-        }
-
-        if (request.responseType && 'responseType' in xhr) {
-            xhr.responseType = request.responseType;
-        }
-
-        if (request.withCredentials || request.credentials) {
-            xhr.withCredentials = true;
-        }
-
-        if (!request.crossOrigin) {
-            request.headers.set('X-Requested-With', 'XMLHttpRequest');
-        }
-
-        request.headers.forEach(function (value, name) {
-            xhr.setRequestHeader(name, value);
-        });
-
-        xhr.onload = handler;
-        xhr.onabort = handler;
-        xhr.onerror = handler;
-        xhr.ontimeout = handler;
-        xhr.send(request.getBody());
+function compileRouteRegex (path, pathToRegexpOptions) {
+  var regex = pathToRegexp_1(path, [], pathToRegexpOptions);
+  if (true) {
+    var keys = Object.create(null);
+    regex.keys.forEach(function (key) {
+      warn(!keys[key.name], ("Duplicate param keys in route with path: \"" + path + "\""));
+      keys[key.name] = true;
     });
+  }
+  return regex
 }
 
-/**
- * Http client (Node).
- */
-
-function nodeClient (request) {
-
-    var client = __webpack_require__(26);
-
-    return new PromiseObj(function (resolve) {
-
-        var url = request.getUrl();
-        var body = request.getBody();
-        var method = request.method;
-        var headers = {}, handler;
-
-        request.headers.forEach(function (value, name) {
-            headers[name] = value;
-        });
-
-        client(url, {body: body, method: method, headers: headers}).then(handler = function (resp) {
-
-            var response = request.respondWith(resp.body, {
-                status: resp.statusCode,
-                statusText: trim(resp.statusMessage)
-            });
-
-            each(resp.headers, function (value, name) {
-                response.headers.set(name, value);
-            });
-
-            resolve(response);
-
-        }, function (error$$1) { return handler(error$$1.response); });
-    });
+function normalizePath (path, parent, strict) {
+  if (!strict) { path = path.replace(/\/$/, ''); }
+  if (path[0] === '/') { return path }
+  if (parent == null) { return path }
+  return cleanPath(((parent.path) + "/" + path))
 }
 
-/**
- * Base client.
- */
+/*  */
 
-function Client (context) {
 
-    var reqHandlers = [sendRequest], resHandlers = [], handler;
+function normalizeLocation (
+  raw,
+  current,
+  append,
+  router
+) {
+  var next = typeof raw === 'string' ? { path: raw } : raw;
+  // named target
+  if (next.name || next._normalized) {
+    return next
+  }
 
-    if (!isObject(context)) {
-        context = null;
+  // relative params
+  if (!next.path && next.params && current) {
+    next = assign({}, next);
+    next._normalized = true;
+    var params = assign(assign({}, current.params), next.params);
+    if (current.name) {
+      next.name = current.name;
+      next.params = params;
+    } else if (current.matched.length) {
+      var rawPath = current.matched[current.matched.length - 1].path;
+      next.path = fillParams(rawPath, params, ("path " + (current.path)));
+    } else if (true) {
+      warn(false, "relative params navigation requires a current route.");
+    }
+    return next
+  }
+
+  var parsedPath = parsePath(next.path || '');
+  var basePath = (current && current.path) || '/';
+  var path = parsedPath.path
+    ? resolvePath(parsedPath.path, basePath, append || next.append)
+    : basePath;
+
+  var query = resolveQuery(
+    parsedPath.query,
+    next.query,
+    router && router.options.parseQuery
+  );
+
+  var hash = next.hash || parsedPath.hash;
+  if (hash && hash.charAt(0) !== '#') {
+    hash = "#" + hash;
+  }
+
+  return {
+    _normalized: true,
+    path: path,
+    query: query,
+    hash: hash
+  }
+}
+
+function assign (a, b) {
+  for (var key in b) {
+    a[key] = b[key];
+  }
+  return a
+}
+
+/*  */
+
+
+function createMatcher (
+  routes,
+  router
+) {
+  var ref = createRouteMap(routes);
+  var pathList = ref.pathList;
+  var pathMap = ref.pathMap;
+  var nameMap = ref.nameMap;
+
+  function addRoutes (routes) {
+    createRouteMap(routes, pathList, pathMap, nameMap);
+  }
+
+  function match (
+    raw,
+    currentRoute,
+    redirectedFrom
+  ) {
+    var location = normalizeLocation(raw, currentRoute, false, router);
+    var name = location.name;
+
+    if (name) {
+      var record = nameMap[name];
+      if (true) {
+        warn(record, ("Route with name '" + name + "' does not exist"));
+      }
+      if (!record) { return _createRoute(null, location) }
+      var paramNames = record.regex.keys
+        .filter(function (key) { return !key.optional; })
+        .map(function (key) { return key.name; });
+
+      if (typeof location.params !== 'object') {
+        location.params = {};
+      }
+
+      if (currentRoute && typeof currentRoute.params === 'object') {
+        for (var key in currentRoute.params) {
+          if (!(key in location.params) && paramNames.indexOf(key) > -1) {
+            location.params[key] = currentRoute.params[key];
+          }
+        }
+      }
+
+      if (record) {
+        location.path = fillParams(record.path, location.params, ("named route \"" + name + "\""));
+        return _createRoute(record, location, redirectedFrom)
+      }
+    } else if (location.path) {
+      location.params = {};
+      for (var i = 0; i < pathList.length; i++) {
+        var path = pathList[i];
+        var record$1 = pathMap[path];
+        if (matchRoute(record$1.regex, location.path, location.params)) {
+          return _createRoute(record$1, location, redirectedFrom)
+        }
+      }
+    }
+    // no match
+    return _createRoute(null, location)
+  }
+
+  function redirect (
+    record,
+    location
+  ) {
+    var originalRedirect = record.redirect;
+    var redirect = typeof originalRedirect === 'function'
+        ? originalRedirect(createRoute(record, location, null, router))
+        : originalRedirect;
+
+    if (typeof redirect === 'string') {
+      redirect = { path: redirect };
     }
 
-    function Client(request) {
-        return new PromiseObj(function (resolve, reject) {
-
-            function exec() {
-
-                handler = reqHandlers.pop();
-
-                if (isFunction(handler)) {
-                    handler.call(context, request, next);
-                } else {
-                    warn(("Invalid interceptor of type " + (typeof handler) + ", must be a function"));
-                    next();
-                }
-            }
-
-            function next(response) {
-
-                if (isFunction(response)) {
-
-                    resHandlers.unshift(response);
-
-                } else if (isObject(response)) {
-
-                    resHandlers.forEach(function (handler) {
-                        response = when(response, function (response) {
-                            return handler.call(context, response) || response;
-                        }, reject);
-                    });
-
-                    when(response, resolve, reject);
-
-                    return;
-                }
-
-                exec();
-            }
-
-            exec();
-
-        }, context);
+    if (!redirect || typeof redirect !== 'object') {
+      if (true) {
+        warn(
+          false, ("invalid redirect option: " + (JSON.stringify(redirect)))
+        );
+      }
+      return _createRoute(null, location)
     }
 
-    Client.use = function (handler) {
-        reqHandlers.push(handler);
+    var re = redirect;
+    var name = re.name;
+    var path = re.path;
+    var query = location.query;
+    var hash = location.hash;
+    var params = location.params;
+    query = re.hasOwnProperty('query') ? re.query : query;
+    hash = re.hasOwnProperty('hash') ? re.hash : hash;
+    params = re.hasOwnProperty('params') ? re.params : params;
+
+    if (name) {
+      // resolved named direct
+      var targetRecord = nameMap[name];
+      if (true) {
+        assert(targetRecord, ("redirect failed: named route \"" + name + "\" not found."));
+      }
+      return match({
+        _normalized: true,
+        name: name,
+        query: query,
+        hash: hash,
+        params: params
+      }, undefined, location)
+    } else if (path) {
+      // 1. resolve relative redirect
+      var rawPath = resolveRecordPath(path, record);
+      // 2. resolve params
+      var resolvedPath = fillParams(rawPath, params, ("redirect route with path \"" + rawPath + "\""));
+      // 3. rematch with existing query and hash
+      return match({
+        _normalized: true,
+        path: resolvedPath,
+        query: query,
+        hash: hash
+      }, undefined, location)
+    } else {
+      if (true) {
+        warn(false, ("invalid redirect option: " + (JSON.stringify(redirect))));
+      }
+      return _createRoute(null, location)
+    }
+  }
+
+  function alias (
+    record,
+    location,
+    matchAs
+  ) {
+    var aliasedPath = fillParams(matchAs, location.params, ("aliased route with path \"" + matchAs + "\""));
+    var aliasedMatch = match({
+      _normalized: true,
+      path: aliasedPath
+    });
+    if (aliasedMatch) {
+      var matched = aliasedMatch.matched;
+      var aliasedRecord = matched[matched.length - 1];
+      location.params = aliasedMatch.params;
+      return _createRoute(aliasedRecord, location)
+    }
+    return _createRoute(null, location)
+  }
+
+  function _createRoute (
+    record,
+    location,
+    redirectedFrom
+  ) {
+    if (record && record.redirect) {
+      return redirect(record, redirectedFrom || location)
+    }
+    if (record && record.matchAs) {
+      return alias(record, location, record.matchAs)
+    }
+    return createRoute(record, location, redirectedFrom, router)
+  }
+
+  return {
+    match: match,
+    addRoutes: addRoutes
+  }
+}
+
+function matchRoute (
+  regex,
+  path,
+  params
+) {
+  var m = path.match(regex);
+
+  if (!m) {
+    return false
+  } else if (!params) {
+    return true
+  }
+
+  for (var i = 1, len = m.length; i < len; ++i) {
+    var key = regex.keys[i - 1];
+    var val = typeof m[i] === 'string' ? decodeURIComponent(m[i]) : m[i];
+    if (key) {
+      params[key.name] = val;
+    }
+  }
+
+  return true
+}
+
+function resolveRecordPath (path, record) {
+  return resolvePath(path, record.parent ? record.parent.path : '/', true)
+}
+
+/*  */
+
+
+var positionStore = Object.create(null);
+
+function setupScroll () {
+  // Fix for #1585 for Firefox
+  window.history.replaceState({ key: getStateKey() }, '');
+  window.addEventListener('popstate', function (e) {
+    saveScrollPosition();
+    if (e.state && e.state.key) {
+      setStateKey(e.state.key);
+    }
+  });
+}
+
+function handleScroll (
+  router,
+  to,
+  from,
+  isPop
+) {
+  if (!router.app) {
+    return
+  }
+
+  var behavior = router.options.scrollBehavior;
+  if (!behavior) {
+    return
+  }
+
+  if (true) {
+    assert(typeof behavior === 'function', "scrollBehavior must be a function");
+  }
+
+  // wait until re-render finishes before scrolling
+  router.app.$nextTick(function () {
+    var position = getScrollPosition();
+    var shouldScroll = behavior(to, from, isPop ? position : null);
+
+    if (!shouldScroll) {
+      return
+    }
+
+    if (typeof shouldScroll.then === 'function') {
+      shouldScroll.then(function (shouldScroll) {
+        scrollToPosition((shouldScroll), position);
+      }).catch(function (err) {
+        if (true) {
+          assert(false, err.toString());
+        }
+      });
+    } else {
+      scrollToPosition(shouldScroll, position);
+    }
+  });
+}
+
+function saveScrollPosition () {
+  var key = getStateKey();
+  if (key) {
+    positionStore[key] = {
+      x: window.pageXOffset,
+      y: window.pageYOffset
     };
-
-    return Client;
+  }
 }
 
-function sendRequest(request, resolve) {
-
-    var client = request.client || (inBrowser ? xhrClient : nodeClient);
-
-    resolve(client(request));
+function getScrollPosition () {
+  var key = getStateKey();
+  if (key) {
+    return positionStore[key]
+  }
 }
 
-/**
- * HTTP Headers.
- */
+function getElementPosition (el, offset) {
+  var docEl = document.documentElement;
+  var docRect = docEl.getBoundingClientRect();
+  var elRect = el.getBoundingClientRect();
+  return {
+    x: elRect.left - docRect.left - offset.x,
+    y: elRect.top - docRect.top - offset.y
+  }
+}
 
-var Headers = function Headers(headers) {
+function isValidPosition (obj) {
+  return isNumber(obj.x) || isNumber(obj.y)
+}
+
+function normalizePosition (obj) {
+  return {
+    x: isNumber(obj.x) ? obj.x : window.pageXOffset,
+    y: isNumber(obj.y) ? obj.y : window.pageYOffset
+  }
+}
+
+function normalizeOffset (obj) {
+  return {
+    x: isNumber(obj.x) ? obj.x : 0,
+    y: isNumber(obj.y) ? obj.y : 0
+  }
+}
+
+function isNumber (v) {
+  return typeof v === 'number'
+}
+
+function scrollToPosition (shouldScroll, position) {
+  var isObject = typeof shouldScroll === 'object';
+  if (isObject && typeof shouldScroll.selector === 'string') {
+    var el = document.querySelector(shouldScroll.selector);
+    if (el) {
+      var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
+      offset = normalizeOffset(offset);
+      position = getElementPosition(el, offset);
+    } else if (isValidPosition(shouldScroll)) {
+      position = normalizePosition(shouldScroll);
+    }
+  } else if (isObject && isValidPosition(shouldScroll)) {
+    position = normalizePosition(shouldScroll);
+  }
+
+  if (position) {
+    window.scrollTo(position.x, position.y);
+  }
+}
+
+/*  */
+
+var supportsPushState = inBrowser && (function () {
+  var ua = window.navigator.userAgent;
+
+  if (
+    (ua.indexOf('Android 2.') !== -1 || ua.indexOf('Android 4.0') !== -1) &&
+    ua.indexOf('Mobile Safari') !== -1 &&
+    ua.indexOf('Chrome') === -1 &&
+    ua.indexOf('Windows Phone') === -1
+  ) {
+    return false
+  }
+
+  return window.history && 'pushState' in window.history
+})();
+
+// use User Timing api (if present) for more accurate key precision
+var Time = inBrowser && window.performance && window.performance.now
+  ? window.performance
+  : Date;
+
+var _key = genKey();
+
+function genKey () {
+  return Time.now().toFixed(3)
+}
+
+function getStateKey () {
+  return _key
+}
+
+function setStateKey (key) {
+  _key = key;
+}
+
+function pushState (url, replace) {
+  saveScrollPosition();
+  // try...catch the pushState call to get around Safari
+  // DOM Exception 18 where it limits to 100 pushState calls
+  var history = window.history;
+  try {
+    if (replace) {
+      history.replaceState({ key: _key }, '', url);
+    } else {
+      _key = genKey();
+      history.pushState({ key: _key }, '', url);
+    }
+  } catch (e) {
+    window.location[replace ? 'replace' : 'assign'](url);
+  }
+}
+
+function replaceState (url) {
+  pushState(url, true);
+}
+
+/*  */
+
+function runQueue (queue, fn, cb) {
+  var step = function (index) {
+    if (index >= queue.length) {
+      cb();
+    } else {
+      if (queue[index]) {
+        fn(queue[index], function () {
+          step(index + 1);
+        });
+      } else {
+        step(index + 1);
+      }
+    }
+  };
+  step(0);
+}
+
+/*  */
+
+function resolveAsyncComponents (matched) {
+  return function (to, from, next) {
+    var hasAsync = false;
+    var pending = 0;
+    var error = null;
+
+    flatMapComponents(matched, function (def, _, match, key) {
+      // if it's a function and doesn't have cid attached,
+      // assume it's an async component resolve function.
+      // we are not using Vue's default async resolving mechanism because
+      // we want to halt the navigation until the incoming component has been
+      // resolved.
+      if (typeof def === 'function' && def.cid === undefined) {
+        hasAsync = true;
+        pending++;
+
+        var resolve = once(function (resolvedDef) {
+          if (isESModule(resolvedDef)) {
+            resolvedDef = resolvedDef.default;
+          }
+          // save resolved on async factory in case it's used elsewhere
+          def.resolved = typeof resolvedDef === 'function'
+            ? resolvedDef
+            : _Vue.extend(resolvedDef);
+          match.components[key] = resolvedDef;
+          pending--;
+          if (pending <= 0) {
+            next();
+          }
+        });
+
+        var reject = once(function (reason) {
+          var msg = "Failed to resolve async component " + key + ": " + reason;
+          "development" !== 'production' && warn(false, msg);
+          if (!error) {
+            error = isError(reason)
+              ? reason
+              : new Error(msg);
+            next(error);
+          }
+        });
+
+        var res;
+        try {
+          res = def(resolve, reject);
+        } catch (e) {
+          reject(e);
+        }
+        if (res) {
+          if (typeof res.then === 'function') {
+            res.then(resolve, reject);
+          } else {
+            // new syntax in Vue 2.3
+            var comp = res.component;
+            if (comp && typeof comp.then === 'function') {
+              comp.then(resolve, reject);
+            }
+          }
+        }
+      }
+    });
+
+    if (!hasAsync) { next(); }
+  }
+}
+
+function flatMapComponents (
+  matched,
+  fn
+) {
+  return flatten(matched.map(function (m) {
+    return Object.keys(m.components).map(function (key) { return fn(
+      m.components[key],
+      m.instances[key],
+      m, key
+    ); })
+  }))
+}
+
+function flatten (arr) {
+  return Array.prototype.concat.apply([], arr)
+}
+
+var hasSymbol =
+  typeof Symbol === 'function' &&
+  typeof Symbol.toStringTag === 'symbol';
+
+function isESModule (obj) {
+  return obj.__esModule || (hasSymbol && obj[Symbol.toStringTag] === 'Module')
+}
+
+// in Webpack 2, require.ensure now also returns a Promise
+// so the resolve/reject functions may get called an extra time
+// if the user uses an arrow function shorthand that happens to
+// return that Promise.
+function once (fn) {
+  var called = false;
+  return function () {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    if (called) { return }
+    called = true;
+    return fn.apply(this, args)
+  }
+}
+
+/*  */
+
+var History = function History (router, base) {
+  this.router = router;
+  this.base = normalizeBase(base);
+  // start with a route object that stands for "nowhere"
+  this.current = START;
+  this.pending = null;
+  this.ready = false;
+  this.readyCbs = [];
+  this.readyErrorCbs = [];
+  this.errorCbs = [];
+};
+
+History.prototype.listen = function listen (cb) {
+  this.cb = cb;
+};
+
+History.prototype.onReady = function onReady (cb, errorCb) {
+  if (this.ready) {
+    cb();
+  } else {
+    this.readyCbs.push(cb);
+    if (errorCb) {
+      this.readyErrorCbs.push(errorCb);
+    }
+  }
+};
+
+History.prototype.onError = function onError (errorCb) {
+  this.errorCbs.push(errorCb);
+};
+
+History.prototype.transitionTo = function transitionTo (location, onComplete, onAbort) {
     var this$1 = this;
 
+  var route = this.router.match(location, this.current);
+  this.confirmTransition(route, function () {
+    this$1.updateRoute(route);
+    onComplete && onComplete(route);
+    this$1.ensureURL();
 
-    this.map = {};
-
-    each(headers, function (value, name) { return this$1.append(name, value); });
+    // fire ready cbs once
+    if (!this$1.ready) {
+      this$1.ready = true;
+      this$1.readyCbs.forEach(function (cb) { cb(route); });
+    }
+  }, function (err) {
+    if (onAbort) {
+      onAbort(err);
+    }
+    if (err && !this$1.ready) {
+      this$1.ready = true;
+      this$1.readyErrorCbs.forEach(function (cb) { cb(err); });
+    }
+  });
 };
 
-Headers.prototype.has = function has (name) {
-    return getName(this.map, name) !== null;
+History.prototype.confirmTransition = function confirmTransition (route, onComplete, onAbort) {
+    var this$1 = this;
+
+  var current = this.current;
+  var abort = function (err) {
+    if (isError(err)) {
+      if (this$1.errorCbs.length) {
+        this$1.errorCbs.forEach(function (cb) { cb(err); });
+      } else {
+        warn(false, 'uncaught error during route navigation:');
+        console.error(err);
+      }
+    }
+    onAbort && onAbort(err);
+  };
+  if (
+    isSameRoute(route, current) &&
+    // in the case the route map has been dynamically appended to
+    route.matched.length === current.matched.length
+  ) {
+    this.ensureURL();
+    return abort()
+  }
+
+  var ref = resolveQueue(this.current.matched, route.matched);
+    var updated = ref.updated;
+    var deactivated = ref.deactivated;
+    var activated = ref.activated;
+
+  var queue = [].concat(
+    // in-component leave guards
+    extractLeaveGuards(deactivated),
+    // global before hooks
+    this.router.beforeHooks,
+    // in-component update hooks
+    extractUpdateHooks(updated),
+    // in-config enter guards
+    activated.map(function (m) { return m.beforeEnter; }),
+    // async components
+    resolveAsyncComponents(activated)
+  );
+
+  this.pending = route;
+  var iterator = function (hook, next) {
+    if (this$1.pending !== route) {
+      return abort()
+    }
+    try {
+      hook(route, current, function (to) {
+        if (to === false || isError(to)) {
+          // next(false) -> abort navigation, ensure current URL
+          this$1.ensureURL(true);
+          abort(to);
+        } else if (
+          typeof to === 'string' ||
+          (typeof to === 'object' && (
+            typeof to.path === 'string' ||
+            typeof to.name === 'string'
+          ))
+        ) {
+          // next('/') or next({ path: '/' }) -> redirect
+          abort();
+          if (typeof to === 'object' && to.replace) {
+            this$1.replace(to);
+          } else {
+            this$1.push(to);
+          }
+        } else {
+          // confirm transition and pass on the value
+          next(to);
+        }
+      });
+    } catch (e) {
+      abort(e);
+    }
+  };
+
+  runQueue(queue, iterator, function () {
+    var postEnterCbs = [];
+    var isValid = function () { return this$1.current === route; };
+    // wait until async components are resolved before
+    // extracting in-component enter guards
+    var enterGuards = extractEnterGuards(activated, postEnterCbs, isValid);
+    var queue = enterGuards.concat(this$1.router.resolveHooks);
+    runQueue(queue, iterator, function () {
+      if (this$1.pending !== route) {
+        return abort()
+      }
+      this$1.pending = null;
+      onComplete(route);
+      if (this$1.router.app) {
+        this$1.router.app.$nextTick(function () {
+          postEnterCbs.forEach(function (cb) { cb(); });
+        });
+      }
+    });
+  });
 };
 
-Headers.prototype.get = function get (name) {
-
-    var list = this.map[getName(this.map, name)];
-
-    return list ? list.join() : null;
+History.prototype.updateRoute = function updateRoute (route) {
+  var prev = this.current;
+  this.current = route;
+  this.cb && this.cb(route);
+  this.router.afterHooks.forEach(function (hook) {
+    hook && hook(route, prev);
+  });
 };
 
-Headers.prototype.getAll = function getAll (name) {
-    return this.map[getName(this.map, name)] || [];
-};
-
-Headers.prototype.set = function set (name, value) {
-    this.map[normalizeName(getName(this.map, name) || name)] = [trim(value)];
-};
-
-Headers.prototype.append = function append (name, value) {
-
-    var list = this.map[getName(this.map, name)];
-
-    if (list) {
-        list.push(trim(value));
+function normalizeBase (base) {
+  if (!base) {
+    if (inBrowser) {
+      // respect <base> tag
+      var baseEl = document.querySelector('base');
+      base = (baseEl && baseEl.getAttribute('href')) || '/';
+      // strip full URL origin
+      base = base.replace(/^https?:\/\/[^\/]+/, '');
     } else {
-        this.set(name, value);
+      base = '/';
     }
-};
-
-Headers.prototype.delete = function delete$1 (name) {
-    delete this.map[getName(this.map, name)];
-};
-
-Headers.prototype.deleteAll = function deleteAll () {
-    this.map = {};
-};
-
-Headers.prototype.forEach = function forEach (callback, thisArg) {
-        var this$1 = this;
-
-    each(this.map, function (list, name) {
-        each(list, function (value) { return callback.call(thisArg, value, name, this$1); });
-    });
-};
-
-function getName(map, name) {
-    return Object.keys(map).reduce(function (prev, curr) {
-        return toLower(name) === toLower(curr) ? curr : prev;
-    }, null);
+  }
+  // make sure there's the starting slash
+  if (base.charAt(0) !== '/') {
+    base = '/' + base;
+  }
+  // remove trailing slash
+  return base.replace(/\/$/, '')
 }
 
-function normalizeName(name) {
-
-    if (/[^a-z0-9\-#$%&'*+.^_`|~]/i.test(name)) {
-        throw new TypeError('Invalid character in header field name');
+function resolveQueue (
+  current,
+  next
+) {
+  var i;
+  var max = Math.max(current.length, next.length);
+  for (i = 0; i < max; i++) {
+    if (current[i] !== next[i]) {
+      break
     }
-
-    return trim(name);
+  }
+  return {
+    updated: next.slice(0, i),
+    activated: next.slice(i),
+    deactivated: current.slice(i)
+  }
 }
 
-/**
- * HTTP Response.
- */
+function extractGuards (
+  records,
+  name,
+  bind,
+  reverse
+) {
+  var guards = flatMapComponents(records, function (def, instance, match, key) {
+    var guard = extractGuard(def, name);
+    if (guard) {
+      return Array.isArray(guard)
+        ? guard.map(function (guard) { return bind(guard, instance, match, key); })
+        : bind(guard, instance, match, key)
+    }
+  });
+  return flatten(reverse ? guards.reverse() : guards)
+}
 
-var Response = function Response(body, ref) {
-    var url = ref.url;
-    var headers = ref.headers;
-    var status = ref.status;
-    var statusText = ref.statusText;
+function extractGuard (
+  def,
+  key
+) {
+  if (typeof def !== 'function') {
+    // extend now so that global mixins are applied.
+    def = _Vue.extend(def);
+  }
+  return def.options[key]
+}
+
+function extractLeaveGuards (deactivated) {
+  return extractGuards(deactivated, 'beforeRouteLeave', bindGuard, true)
+}
+
+function extractUpdateHooks (updated) {
+  return extractGuards(updated, 'beforeRouteUpdate', bindGuard)
+}
+
+function bindGuard (guard, instance) {
+  if (instance) {
+    return function boundRouteGuard () {
+      return guard.apply(instance, arguments)
+    }
+  }
+}
+
+function extractEnterGuards (
+  activated,
+  cbs,
+  isValid
+) {
+  return extractGuards(activated, 'beforeRouteEnter', function (guard, _, match, key) {
+    return bindEnterGuard(guard, match, key, cbs, isValid)
+  })
+}
+
+function bindEnterGuard (
+  guard,
+  match,
+  key,
+  cbs,
+  isValid
+) {
+  return function routeEnterGuard (to, from, next) {
+    return guard(to, from, function (cb) {
+      next(cb);
+      if (typeof cb === 'function') {
+        cbs.push(function () {
+          // #750
+          // if a router-view is wrapped with an out-in transition,
+          // the instance may not have been registered at this time.
+          // we will need to poll for registration until current route
+          // is no longer valid.
+          poll(cb, match.instances, key, isValid);
+        });
+      }
+    })
+  }
+}
+
+function poll (
+  cb, // somehow flow cannot infer this is a function
+  instances,
+  key,
+  isValid
+) {
+  if (instances[key]) {
+    cb(instances[key]);
+  } else if (isValid()) {
+    setTimeout(function () {
+      poll(cb, instances, key, isValid);
+    }, 16);
+  }
+}
+
+/*  */
 
 
-    this.url = url;
-    this.ok = status >= 200 && status < 300;
-    this.status = status || 0;
-    this.statusText = statusText || '';
-    this.headers = new Headers(headers);
-    this.body = body;
+var HTML5History = (function (History$$1) {
+  function HTML5History (router, base) {
+    var this$1 = this;
 
-    if (isString(body)) {
+    History$$1.call(this, router, base);
 
-        this.bodyText = body;
+    var expectScroll = router.options.scrollBehavior;
 
-    } else if (isBlob(body)) {
+    if (expectScroll) {
+      setupScroll();
+    }
 
-        this.bodyBlob = body;
+    var initLocation = getLocation(this.base);
+    window.addEventListener('popstate', function (e) {
+      var current = this$1.current;
 
-        if (isBlobText(body)) {
-            this.bodyText = blobText(body);
+      // Avoiding first `popstate` event dispatched in some browsers but first
+      // history route not updated since async guard at the same time.
+      var location = getLocation(this$1.base);
+      if (this$1.current === START && location === initLocation) {
+        return
+      }
+
+      this$1.transitionTo(location, function (route) {
+        if (expectScroll) {
+          handleScroll(router, route, current, true);
         }
-    }
-};
-
-Response.prototype.blob = function blob () {
-    return when(this.bodyBlob);
-};
-
-Response.prototype.text = function text () {
-    return when(this.bodyText);
-};
-
-Response.prototype.json = function json () {
-    return when(this.text(), function (text) { return JSON.parse(text); });
-};
-
-Object.defineProperty(Response.prototype, 'data', {
-
-    get: function get() {
-        return this.body;
-    },
-
-    set: function set(body) {
-        this.body = body;
-    }
-
-});
-
-function blobText(body) {
-    return new PromiseObj(function (resolve) {
-
-        var reader = new FileReader();
-
-        reader.readAsText(body);
-        reader.onload = function () {
-            resolve(reader.result);
-        };
-
+      });
     });
+  }
+
+  if ( History$$1 ) HTML5History.__proto__ = History$$1;
+  HTML5History.prototype = Object.create( History$$1 && History$$1.prototype );
+  HTML5History.prototype.constructor = HTML5History;
+
+  HTML5History.prototype.go = function go (n) {
+    window.history.go(n);
+  };
+
+  HTML5History.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(location, function (route) {
+      pushState(cleanPath(this$1.base + route.fullPath));
+      handleScroll(this$1.router, route, fromRoute, false);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
+
+  HTML5History.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(location, function (route) {
+      replaceState(cleanPath(this$1.base + route.fullPath));
+      handleScroll(this$1.router, route, fromRoute, false);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
+
+  HTML5History.prototype.ensureURL = function ensureURL (push) {
+    if (getLocation(this.base) !== this.current.fullPath) {
+      var current = cleanPath(this.base + this.current.fullPath);
+      push ? pushState(current) : replaceState(current);
+    }
+  };
+
+  HTML5History.prototype.getCurrentLocation = function getCurrentLocation () {
+    return getLocation(this.base)
+  };
+
+  return HTML5History;
+}(History));
+
+function getLocation (base) {
+  var path = window.location.pathname;
+  if (base && path.indexOf(base) === 0) {
+    path = path.slice(base.length);
+  }
+  return (path || '/') + window.location.search + window.location.hash
 }
 
-function isBlobText(body) {
-    return body.type.indexOf('text') === 0 || body.type.indexOf('json') !== -1;
-}
+/*  */
 
-/**
- * HTTP Request.
- */
 
-var Request = function Request(options$$1) {
-
-    this.body = null;
-    this.params = {};
-
-    assign(this, options$$1, {
-        method: toUpper(options$$1.method || 'GET')
-    });
-
-    if (!(this.headers instanceof Headers)) {
-        this.headers = new Headers(this.headers);
+var HashHistory = (function (History$$1) {
+  function HashHistory (router, base, fallback) {
+    History$$1.call(this, router, base);
+    // check history fallback deeplinking
+    if (fallback && checkFallback(this.base)) {
+      return
     }
-};
+    ensureSlash();
+  }
 
-Request.prototype.getUrl = function getUrl () {
-    return Url(this);
-};
+  if ( History$$1 ) HashHistory.__proto__ = History$$1;
+  HashHistory.prototype = Object.create( History$$1 && History$$1.prototype );
+  HashHistory.prototype.constructor = HashHistory;
 
-Request.prototype.getBody = function getBody () {
-    return this.body;
-};
+  // this is delayed until the app mounts
+  // to avoid the hashchange listener being fired too early
+  HashHistory.prototype.setupListeners = function setupListeners () {
+    var this$1 = this;
 
-Request.prototype.respondWith = function respondWith (body, options$$1) {
-    return new Response(body, assign(options$$1 || {}, {url: this.getUrl()}));
-};
+    var router = this.router;
+    var expectScroll = router.options.scrollBehavior;
+    var supportsScroll = supportsPushState && expectScroll;
 
-/**
- * Service for sending network requests.
- */
+    if (supportsScroll) {
+      setupScroll();
+    }
 
-var COMMON_HEADERS = {'Accept': 'application/json, text/plain, */*'};
-var JSON_CONTENT_TYPE = {'Content-Type': 'application/json;charset=utf-8'};
-
-function Http(options$$1) {
-
-    var self = this || {}, client = Client(self.$vm);
-
-    defaults(options$$1 || {}, self.$options, Http.options);
-
-    Http.interceptors.forEach(function (handler) {
-
-        if (isString(handler)) {
-            handler = Http.interceptor[handler];
+    window.addEventListener(supportsPushState ? 'popstate' : 'hashchange', function () {
+      var current = this$1.current;
+      if (!ensureSlash()) {
+        return
+      }
+      this$1.transitionTo(getHash(), function (route) {
+        if (supportsScroll) {
+          handleScroll(this$1.router, route, current, true);
         }
-
-        if (isFunction(handler)) {
-            client.use(handler);
+        if (!supportsPushState) {
+          replaceHash(route.fullPath);
         }
-
+      });
     });
+  };
 
-    return client(new Request(options$$1)).then(function (response) {
+  HashHistory.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1 = this;
 
-        return response.ok ? response : PromiseObj.reject(response);
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(location, function (route) {
+      pushHash(route.fullPath);
+      handleScroll(this$1.router, route, fromRoute, false);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
 
-    }, function (response) {
+  HashHistory.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1 = this;
 
-        if (response instanceof Error) {
-            error(response);
-        }
+    var ref = this;
+    var fromRoute = ref.current;
+    this.transitionTo(location, function (route) {
+      replaceHash(route.fullPath);
+      handleScroll(this$1.router, route, fromRoute, false);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
 
-        return PromiseObj.reject(response);
-    });
-}
+  HashHistory.prototype.go = function go (n) {
+    window.history.go(n);
+  };
 
-Http.options = {};
+  HashHistory.prototype.ensureURL = function ensureURL (push) {
+    var current = this.current.fullPath;
+    if (getHash() !== current) {
+      push ? pushHash(current) : replaceHash(current);
+    }
+  };
 
-Http.headers = {
-    put: JSON_CONTENT_TYPE,
-    post: JSON_CONTENT_TYPE,
-    patch: JSON_CONTENT_TYPE,
-    delete: JSON_CONTENT_TYPE,
-    common: COMMON_HEADERS,
-    custom: {}
-};
+  HashHistory.prototype.getCurrentLocation = function getCurrentLocation () {
+    return getHash()
+  };
 
-Http.interceptor = {before: before, method: method, jsonp: jsonp, json: json, form: form, header: header, cors: cors};
-Http.interceptors = ['before', 'method', 'jsonp', 'json', 'form', 'header', 'cors'];
+  return HashHistory;
+}(History));
 
-['get', 'delete', 'head', 'jsonp'].forEach(function (method$$1) {
-
-    Http[method$$1] = function (url, options$$1) {
-        return this(assign(options$$1 || {}, {url: url, method: method$$1}));
-    };
-
-});
-
-['post', 'put', 'patch'].forEach(function (method$$1) {
-
-    Http[method$$1] = function (url, body, options$$1) {
-        return this(assign(options$$1 || {}, {url: url, method: method$$1, body: body}));
-    };
-
-});
-
-/**
- * Service for interacting with RESTful services.
- */
-
-function Resource(url, params, actions, options$$1) {
-
-    var self = this || {}, resource = {};
-
-    actions = assign({},
-        Resource.actions,
-        actions
+function checkFallback (base) {
+  var location = getLocation(base);
+  if (!/^\/#/.test(location)) {
+    window.location.replace(
+      cleanPath(base + '/#' + location)
     );
-
-    each(actions, function (action, name) {
-
-        action = merge({url: url, params: assign({}, params)}, options$$1, action);
-
-        resource[name] = function () {
-            return (self.$http || Http)(opts(action, arguments));
-        };
-    });
-
-    return resource;
+    return true
+  }
 }
 
-function opts(action, args) {
+function ensureSlash () {
+  var path = getHash();
+  if (path.charAt(0) === '/') {
+    return true
+  }
+  replaceHash('/' + path);
+  return false
+}
 
-    var options$$1 = assign({}, action), params = {}, body;
+function getHash () {
+  // We can't use window.location.hash here because it's not
+  // consistent across browsers - Firefox will pre-decode it!
+  var href = window.location.href;
+  var index = href.indexOf('#');
+  return index === -1 ? '' : href.slice(index + 1)
+}
 
-    switch (args.length) {
+function getUrl (path) {
+  var href = window.location.href;
+  var i = href.indexOf('#');
+  var base = i >= 0 ? href.slice(0, i) : href;
+  return (base + "#" + path)
+}
 
-        case 2:
+function pushHash (path) {
+  if (supportsPushState) {
+    pushState(getUrl(path));
+  } else {
+    window.location.hash = path;
+  }
+}
 
-            params = args[0];
-            body = args[1];
+function replaceHash (path) {
+  if (supportsPushState) {
+    replaceState(getUrl(path));
+  } else {
+    window.location.replace(getUrl(path));
+  }
+}
 
-            break;
+/*  */
 
-        case 1:
 
-            if (/^(POST|PUT|PATCH)$/i.test(options$$1.method)) {
-                body = args[0];
-            } else {
-                params = args[0];
-            }
+var AbstractHistory = (function (History$$1) {
+  function AbstractHistory (router, base) {
+    History$$1.call(this, router, base);
+    this.stack = [];
+    this.index = -1;
+  }
 
-            break;
+  if ( History$$1 ) AbstractHistory.__proto__ = History$$1;
+  AbstractHistory.prototype = Object.create( History$$1 && History$$1.prototype );
+  AbstractHistory.prototype.constructor = AbstractHistory;
 
-        case 0:
+  AbstractHistory.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1 = this;
 
-            break;
+    this.transitionTo(location, function (route) {
+      this$1.stack = this$1.stack.slice(0, this$1.index + 1).concat(route);
+      this$1.index++;
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
 
-        default:
+  AbstractHistory.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1 = this;
 
-            throw 'Expected up to 2 arguments [params, body], got ' + args.length + ' arguments';
+    this.transitionTo(location, function (route) {
+      this$1.stack = this$1.stack.slice(0, this$1.index).concat(route);
+      onComplete && onComplete(route);
+    }, onAbort);
+  };
+
+  AbstractHistory.prototype.go = function go (n) {
+    var this$1 = this;
+
+    var targetIndex = this.index + n;
+    if (targetIndex < 0 || targetIndex >= this.stack.length) {
+      return
     }
+    var route = this.stack[targetIndex];
+    this.confirmTransition(route, function () {
+      this$1.index = targetIndex;
+      this$1.updateRoute(route);
+    });
+  };
 
-    options$$1.body = body;
-    options$$1.params = assign({}, options$$1.params, params);
+  AbstractHistory.prototype.getCurrentLocation = function getCurrentLocation () {
+    var current = this.stack[this.stack.length - 1];
+    return current ? current.fullPath : '/'
+  };
 
-    return options$$1;
-}
+  AbstractHistory.prototype.ensureURL = function ensureURL () {
+    // noop
+  };
 
-Resource.actions = {
+  return AbstractHistory;
+}(History));
 
-    get: {method: 'GET'},
-    save: {method: 'POST'},
-    query: {method: 'GET'},
-    update: {method: 'PUT'},
-    remove: {method: 'DELETE'},
-    delete: {method: 'DELETE'}
+/*  */
 
+var VueRouter = function VueRouter (options) {
+  if ( options === void 0 ) options = {};
+
+  this.app = null;
+  this.apps = [];
+  this.options = options;
+  this.beforeHooks = [];
+  this.resolveHooks = [];
+  this.afterHooks = [];
+  this.matcher = createMatcher(options.routes || [], this);
+
+  var mode = options.mode || 'hash';
+  this.fallback = mode === 'history' && !supportsPushState && options.fallback !== false;
+  if (this.fallback) {
+    mode = 'hash';
+  }
+  if (!inBrowser) {
+    mode = 'abstract';
+  }
+  this.mode = mode;
+
+  switch (mode) {
+    case 'history':
+      this.history = new HTML5History(this, options.base);
+      break
+    case 'hash':
+      this.history = new HashHistory(this, options.base, this.fallback);
+      break
+    case 'abstract':
+      this.history = new AbstractHistory(this, options.base);
+      break
+    default:
+      if (true) {
+        assert(false, ("invalid mode: " + mode));
+      }
+  }
 };
 
-/**
- * Install plugin.
- */
+var prototypeAccessors = { currentRoute: { configurable: true } };
 
-function plugin(Vue) {
+VueRouter.prototype.match = function match (
+  raw,
+  current,
+  redirectedFrom
+) {
+  return this.matcher.match(raw, current, redirectedFrom)
+};
 
-    if (plugin.installed) {
-        return;
-    }
+prototypeAccessors.currentRoute.get = function () {
+  return this.history && this.history.current
+};
 
-    Util(Vue);
+VueRouter.prototype.init = function init (app /* Vue component instance */) {
+    var this$1 = this;
 
-    Vue.url = Url;
-    Vue.http = Http;
-    Vue.resource = Resource;
-    Vue.Promise = PromiseObj;
+  "development" !== 'production' && assert(
+    install.installed,
+    "not installed. Make sure to call `Vue.use(VueRouter)` " +
+    "before creating root instance."
+  );
 
-    Object.defineProperties(Vue.prototype, {
+  this.apps.push(app);
 
-        $url: {
-            get: function get() {
-                return options(Vue.url, this, this.$options.url);
-            }
-        },
+  // main app already initialized.
+  if (this.app) {
+    return
+  }
 
-        $http: {
-            get: function get() {
-                return options(Vue.http, this, this.$options.http);
-            }
-        },
+  this.app = app;
 
-        $resource: {
-            get: function get() {
-                return Vue.resource.bind(this);
-            }
-        },
+  var history = this.history;
 
-        $promise: {
-            get: function get() {
-                var this$1 = this;
+  if (history instanceof HTML5History) {
+    history.transitionTo(history.getCurrentLocation());
+  } else if (history instanceof HashHistory) {
+    var setupHashListener = function () {
+      history.setupListeners();
+    };
+    history.transitionTo(
+      history.getCurrentLocation(),
+      setupHashListener,
+      setupHashListener
+    );
+  }
 
-                return function (executor) { return new Vue.Promise(executor, this$1); };
-            }
-        }
-
+  history.listen(function (route) {
+    this$1.apps.forEach(function (app) {
+      app._route = route;
     });
+  });
+};
+
+VueRouter.prototype.beforeEach = function beforeEach (fn) {
+  return registerHook(this.beforeHooks, fn)
+};
+
+VueRouter.prototype.beforeResolve = function beforeResolve (fn) {
+  return registerHook(this.resolveHooks, fn)
+};
+
+VueRouter.prototype.afterEach = function afterEach (fn) {
+  return registerHook(this.afterHooks, fn)
+};
+
+VueRouter.prototype.onReady = function onReady (cb, errorCb) {
+  this.history.onReady(cb, errorCb);
+};
+
+VueRouter.prototype.onError = function onError (errorCb) {
+  this.history.onError(errorCb);
+};
+
+VueRouter.prototype.push = function push (location, onComplete, onAbort) {
+  this.history.push(location, onComplete, onAbort);
+};
+
+VueRouter.prototype.replace = function replace (location, onComplete, onAbort) {
+  this.history.replace(location, onComplete, onAbort);
+};
+
+VueRouter.prototype.go = function go (n) {
+  this.history.go(n);
+};
+
+VueRouter.prototype.back = function back () {
+  this.go(-1);
+};
+
+VueRouter.prototype.forward = function forward () {
+  this.go(1);
+};
+
+VueRouter.prototype.getMatchedComponents = function getMatchedComponents (to) {
+  var route = to
+    ? to.matched
+      ? to
+      : this.resolve(to).route
+    : this.currentRoute;
+  if (!route) {
+    return []
+  }
+  return [].concat.apply([], route.matched.map(function (m) {
+    return Object.keys(m.components).map(function (key) {
+      return m.components[key]
+    })
+  }))
+};
+
+VueRouter.prototype.resolve = function resolve (
+  to,
+  current,
+  append
+) {
+  var location = normalizeLocation(
+    to,
+    current || this.history.current,
+    append,
+    this
+  );
+  var route = this.match(location, current);
+  var fullPath = route.redirectedFrom || route.fullPath;
+  var base = this.history.base;
+  var href = createHref(base, fullPath, this.mode);
+  return {
+    location: location,
+    route: route,
+    href: href,
+    // for backwards compat
+    normalizedTo: location,
+    resolved: route
+  }
+};
+
+VueRouter.prototype.addRoutes = function addRoutes (routes) {
+  this.matcher.addRoutes(routes);
+  if (this.history.current !== START) {
+    this.history.transitionTo(this.history.getCurrentLocation());
+  }
+};
+
+Object.defineProperties( VueRouter.prototype, prototypeAccessors );
+
+function registerHook (list, fn) {
+  list.push(fn);
+  return function () {
+    var i = list.indexOf(fn);
+    if (i > -1) { list.splice(i, 1); }
+  }
 }
 
-if (typeof window !== 'undefined' && window.Vue) {
-    window.Vue.use(plugin);
+function createHref (base, fullPath, mode) {
+  var path = mode === 'hash' ? '#' + fullPath : fullPath;
+  return base ? cleanPath(base + '/' + path) : path
 }
 
-/* unused harmony default export */ var _unused_webpack_default_export = (plugin);
+VueRouter.install = install;
+VueRouter.version = '3.0.1';
 
+if (inBrowser && window.Vue) {
+  window.Vue.use(VueRouter);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (VueRouter);
 
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-/* 27 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_resources__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_adminConfig__ = __webpack_require__(4);
-
-
-
-
-var state = {
-    teachings: []
-};
-
-var mutations = {
-    add: function add(state, teaching) {
-        state.teachings.push(teaching);
-    },
-    set: function set(state, teachings) {
-        state.teachings = teachings;
-    },
-    destroy: function destroy(state, teachingId) {
-        var index = state.teachings.findIndex(function (item) {
-            return item.id == teachingId;
-        });
-        if (index != -1) {
-            state.teachings.splice(index, 1);
-        }
-    }
-};
-
-var actions = {
-    query: function query(context, classInformationId) {
-        return __WEBPACK_IMPORTED_MODULE_1_vue___default.a.http.get(__WEBPACK_IMPORTED_MODULE_2__services_adminConfig__["a" /* default */].ADMIN_URL + '/class_informations/' + classInformationId + '/teachings').then(function (response) {
-            context.commit('set', response.data);
-        });
-    },
-    store: function store(context, _ref) {
-        var teacherId = _ref.teacherId,
-            subjectId = _ref.subjectId,
-            classInformationId = _ref.classInformationId;
-
-        return __WEBPACK_IMPORTED_MODULE_0__services_resources__["b" /* ClassTeaching */].save({ class_information: classInformationId }, { teacher_id: teacherId, subject_id: subjectId }).then(function (response) {
-            context.commit('add', response.data);
-        });
-    },
-    destroy: function destroy(context, _ref2) {
-        var teachingId = _ref2.teachingId,
-            classInformationId = _ref2.classInformationId;
-
-        return __WEBPACK_IMPORTED_MODULE_0__services_resources__["b" /* ClassTeaching */].delete({ class_information: classInformationId, teaching: teachingId }).then(function (response) {
-            context.commit('destroy', teachingId);
-        });
-    }
-};
-
-var module = {
-    namespaced: true,
-    state: state, mutations: mutations, actions: actions
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (module);
+/* harmony default export */ __webpack_exports__["a"] = ([{
+  name: 'class_informations.list',
+  path: '/classes',
+  component: __webpack_require__(40)
+}]);
 
 /***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(1),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.students, function(student) {
-          return _c("tr", [
-            _c("td", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.destroy(student)
-                    }
-                  }
-                },
-                [
-                  _c("span", { staticClass: "glyphicon glyphicon-trash" }),
-                  _vm._v(" Excluir\n                ")
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(student.user.name))])
-          ])
-        })
-      )
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { staticClass: "control-label" }, [
-        _vm._v("Selecionar estudante")
-      ]),
-      _vm._v(" "),
-      _c("select", { staticClass: "form-control", attrs: { name: "students" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [_c("th"), _vm._v(" "), _c("th", [_vm._v("Nome")])])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-7f08979a", module.exports)
-  }
-}
-
-/***/ }),
-/* 29 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(30)
+var __vue_script__ = __webpack_require__(41)
 /* template */
-var __vue_template__ = __webpack_require__(31)
+var __vue_template__ = __webpack_require__(42)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -33465,7 +26857,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/admin/js/components/ClassTeaching.vue"
+Component.options.__file = "resources/assets/spa/js/components/teacher/TeacherClassInformationList.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -33474,9 +26866,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2e3e13fe", Component.options)
+    hotAPI.createRecord("data-v-fb2ddad6", Component.options)
   } else {
-    hotAPI.reload("data-v-2e3e13fe", Component.options)
+    hotAPI.reload("data-v-fb2ddad6", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -33487,267 +26879,298 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 30 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__store_store__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_select2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_select2__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
 //
 
-
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['classInformation'],
-    computed: {
-        teachings: function teachings() {
-            return __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].state.classTeaching.teachings;
-            //  return [];
-        }
-    },
-    mounted: function mounted() {
-        __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classTeaching/query', this.classInformation);
-        var selects = [{
-            url: __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__["a" /* default */].API_URL + '/teachers',
-            selector: "select[name=teachers]",
-            processResults: function processResults(data) {
-                return {
-                    results: data.map(function (teacher) {
-                        return { id: teacher.id, text: teacher.user.name };
-                    })
-                };
-            }
-        }, {
-            url: __WEBPACK_IMPORTED_MODULE_0__services_adminConfig__["a" /* default */].API_URL + '/subjects',
-            selector: "select[name=subjects]",
-            processResults: function processResults(data) {
-                return {
-                    results: data.map(function (subject) {
-                        return { id: subject.id, text: subject.name };
-                    })
-                };
-            }
-        }];
-
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-            for (var _iterator = selects[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                var item = _step.value;
-
-                $(item.selector).select2({
-                    ajax: {
-                        url: item.url,
-                        dataType: 'json',
-                        delay: 250,
-                        data: function data(params) {
-                            return {
-                                q: params.term
-                            };
-                        },
-
-                        processResults: item.processResults
-                    },
-                    minimumInputLength: 1
-                });
-            }
-        } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-        } finally {
-            try {
-                if (!_iteratorNormalCompletion && _iterator.return) {
-                    _iterator.return();
-                }
-            } finally {
-                if (_didIteratorError) {
-                    throw _iteratorError;
-                }
-            }
-        }
-    },
-
-    methods: {
-        destroy: function destroy(teaching) {
-            if (confirm('Deseja remover este ensino')) {
-                __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classTeaching/destroy', {
-                    teachingId: teaching.id,
-                    classInformationId: this.classInformation
-                });
-            }
-        },
-        store: function store() {
-            __WEBPACK_IMPORTED_MODULE_1__store_store__["a" /* default */].dispatch('classTeaching/store', {
-                teacherId: $("select[name=teachers]").val(),
-                subjectId: $("select[name=subjects]").val(),
-                classInformationId: this.classInformation
-            }).then(function (response) {
-                new PNotify({
-                    title: 'Aviso',
-                    text: 'Ensino adicionado com sucesso',
-                    styling: 'brighttheme',
-                    type: 'success'
-                });
-            });
-        }
-    }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
-/* 31 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary",
-        on: {
-          click: function($event) {
-            _vm.store()
-          }
-        }
-      },
-      [_vm._v("Adicionar")]
-    ),
-    _vm._v(" "),
-    _c("br"),
-    _c("br"),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-bordered" }, [
-      _vm._m(1),
+  return _c("div", [_vm._v("Listagem de Turmas")])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-fb2ddad6", module.exports)
+  }
+}
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(44)
+/* template */
+var __vue_template__ = __webpack_require__(45)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/spa/js/components/App.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b65debe2", Component.options)
+  } else {
+    hotAPI.reload("data-v-b65debe2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__teacher_TeacherMenu_vue__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__teacher_TeacherMenu_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__teacher_TeacherMenu_vue__);
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        'teacher-menu': __WEBPACK_IMPORTED_MODULE_0__teacher_TeacherMenu_vue___default.a
+    }
+});
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("teacher-menu"), _vm._v(" "), _c("router-view")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b65debe2", module.exports)
+  }
+}
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(58)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/spa/js/components/teacher/TeacherMenu.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2716fc22", Component.options)
+  } else {
+    hotAPI.reload("data-v-2716fc22", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "nav",
+    { staticClass: "navbar navbar-default navbar-static-top navbar-inverse" },
+    [
+      _c(
+        "div",
+        { staticClass: "navbar-header" },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "navbar-brand",
+              attrs: { to: { name: _vm.menus.routeName } }
+            },
+            [_vm._v("SONEdu")]
+          )
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
-        "tbody",
-        _vm._l(_vm.teachings, function(teaching) {
-          return _c("tr", [
-            _c("td", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-default",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.destroy(teaching)
-                    }
-                  }
-                },
+        "div",
+        {
+          staticClass: "collapse navbar-collapse",
+          attrs: { id: "bs-example-navbar-collapse" }
+        },
+        [
+          _c(
+            "ul",
+            { staticClass: "nav navbar-nav" },
+            _vm._l(_vm.menus, function(menu) {
+              return _c(
+                "li",
                 [
-                  _c("span", { staticClass: "glyphicon glyphicon-trash" }),
-                  _vm._v(" Excluir\n                ")
-                ]
+                  _c(
+                    "router-link",
+                    { attrs: { to: { name: menu.routeName } } },
+                    [_vm._v(_vm._s(menu.name))]
+                  )
+                ],
+                1
               )
-            ]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(teaching.teacher.user.name))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(teaching.subject.name))])
-          ])
-        })
+            })
+          ),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
       )
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { staticClass: "control-label" }, [
-            _vm._v("Selecionar professor")
-          ]),
-          _vm._v(" "),
-          _c("select", {
-            staticClass: "form-control",
-            attrs: { name: "teachers" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-6" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("label", { staticClass: "control-label" }, [
-            _vm._v("Selecionar disciplina")
-          ]),
-          _vm._v(" "),
-          _c("select", {
-            staticClass: "form-control",
-            attrs: { name: "subjects" }
-          })
-        ])
-      ])
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggle",
+        attrs: {
+          type: "button",
+          "data-toggle": "collapse",
+          "data-target": "#bs-example-navbar-collapse"
+        }
+      },
+      [
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Toggle navigation")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon-bar" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon-bar" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "icon-bar" })
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th"),
+    return _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
+      _c("li", { staticClass: "dropdown" }, [
+        _c(
+          "a",
+          {
+            staticClass: "dropdown-toggle",
+            attrs: {
+              href: "#",
+              "data-toggle": "dropdown",
+              role: "button",
+              "aria-expanded": "false"
+            }
+          },
+          [
+            _vm._v("\n                    Usuário "),
+            _c("span", { staticClass: "caret" })
+          ]
+        ),
         _vm._v(" "),
-        _c("th", [_vm._v("Professor")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Disciplina")])
+        _c("ul", { staticClass: "dropdown-menu", attrs: { role: "menu" } })
       ])
     ])
   }
@@ -33757,21 +27180,27 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2e3e13fe", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2716fc22", module.exports)
   }
 }
 
 /***/ }),
-/* 32 */
-/***/ (function(module, exports) {
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 
-/***/ }),
-/* 33 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      menus: [{ name: "Minhas Turmas", routeName: "class_information.list" }, { name: "Minhas Turmas", routeName: "class_information.list" }],
+      brandRouteName: 'class_information.list'
+    };
+  }
+});
 
 /***/ })
 /******/ ]);
