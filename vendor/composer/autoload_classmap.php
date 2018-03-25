@@ -2762,6 +2762,7 @@ return array(
     'SON\\Http\\Controllers\\Admin\\UserProfileController' => $baseDir . '/app/Http/Controllers/Admin/UserProfileController.php',
     'SON\\Http\\Controllers\\Admin\\UserSettingsController' => $baseDir . '/app/Http/Controllers/Admin/UserSettingsController.php',
     'SON\\Http\\Controllers\\Admin\\UsersController' => $baseDir . '/app/Http/Controllers/Admin/UsersController.php',
+    'SON\\Http\\Controllers\\Api\\AuthController' => $baseDir . '/app/Http/Controllers/Api/AuthController.php',
     'SON\\Http\\Controllers\\Api\\StudentsController' => $baseDir . '/app/Http/Controllers/Api/StudentsController.php',
     'SON\\Http\\Controllers\\Api\\SubjectsController' => $baseDir . '/app/Http/Controllers/Api/SubjectsController.php',
     'SON\\Http\\Controllers\\Api\\TeachersController' => $baseDir . '/app/Http/Controllers/Api/TeachersController.php',

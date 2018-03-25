@@ -3137,6 +3137,7 @@ class ComposerStaticInitb08e7160a4814a457f160180e73da27c
         'SON\\Http\\Controllers\\Admin\\UserProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserProfileController.php',
         'SON\\Http\\Controllers\\Admin\\UserSettingsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserSettingsController.php',
         'SON\\Http\\Controllers\\Admin\\UsersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UsersController.php',
+        'SON\\Http\\Controllers\\Api\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/AuthController.php',
         'SON\\Http\\Controllers\\Api\\StudentsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/StudentsController.php',
         'SON\\Http\\Controllers\\Api\\SubjectsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/SubjectsController.php',
         'SON\\Http\\Controllers\\Api\\TeachersController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TeachersController.php',

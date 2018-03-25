@@ -20,4 +20,4 @@ mix.js('resources/assets/spa/js/spa.js', 'public/js')
     .sass('resources/assets/spa/sass/spa.scss', 'public/css')
     .sourceMaps();
 
-mix.browserSync('localhost:8000');
+//mix.browserSync('localhost:8000');

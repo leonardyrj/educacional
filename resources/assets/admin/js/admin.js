@@ -15,7 +15,7 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
 Vue.component('class-student', require('./components/ClassStudent.vue'));
 Vue.component('class-teaching', require('./components/ClassTeaching.vue'));
 
